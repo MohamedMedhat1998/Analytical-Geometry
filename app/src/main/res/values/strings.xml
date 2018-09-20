@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Analytical Geometry</string>
+    <string name="pair_of_lines">Pair of Lines</string>
+    <string name="circle">circle</string>
+    <string name="parabola">parabola</string>
+    <string name="ellipse">Ellipse</string>
+    <string name="hyperbola">Hyperbola</string>
+    <string name="general">General</string>
 </resources>

@@ -1,53 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/Gray_200"
     android:orientation="vertical"
     tools:context="com.andalus.abo_med7at.analyticalgeometry.MainActivity">
 
     <Button
-        android:id="@+id/pair"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pair of Lines" />
+        android:id="@+id/btn_pair_of_line"
+        android:layout_width="0dp"
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pair_of_lines"
+        app:layout_constraintBottom_toTopOf="@+id/btn_parabola"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
-        android:id="@+id/circle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="circle" />
+        android:id="@+id/btn_circle"
+        android:layout_width="0dp"
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/circle"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ellipse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/parabola"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="parabola" />
+        android:id="@+id/btn_parabola"
+        android:layout_width="0dp"
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/parabola"
+        app:layout_constraintBottom_toTopOf="@+id/btn_hyperbola"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pair_of_line" />
 
     <Button
-        android:id="@+id/ellipse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ellipse" />
+        android:id="@+id/btn_ellipse"
+        android:layout_width="0dp"
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/ellipse"
+        app:layout_constraintBottom_toTopOf="@+id/btn_general"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/btn_circle" />
 
     <Button
-        android:id="@+id/Hyperpola"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hyperbola" />
+        android:id="@+id/btn_hyperbola"
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/hyperbola"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_parabola" />
 
     <Button
         android:id="@+id/btn_general"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="General" />
+        android:theme="@style/buttonStyleMainActivity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/general"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ellipse" />
 
-    <Button
-        android:id="@+id/btn_about"
-        android:layout_width="match_parent"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About" />
-</LinearLayout>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</android.support.constraint.ConstraintLayout>

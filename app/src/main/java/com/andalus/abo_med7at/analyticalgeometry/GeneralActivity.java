@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class general_act extends AppCompatActivity {
+public class GeneralActivity extends AppCompatActivity {
     double a , h , b , g , f , c ;
     EditText a_val , h_val , b_val , g_val , f_val, c_val;
     Button btn_draw_general;
@@ -37,7 +37,7 @@ public class general_act extends AppCompatActivity {
                     g = Double.parseDouble(g_val.getText().toString());
                     f = Double.parseDouble(f_val.getText().toString());
                     c = Double.parseDouble(c_val.getText().toString());
-                    Intent i = new Intent(general_act.this,Drawing_class.class);
+                    Intent i = new Intent(GeneralActivity.this,Drawing_class.class);
                     i.putExtra("a",a);
                     i.putExtra("h",h);
                     i.putExtra("b",b);

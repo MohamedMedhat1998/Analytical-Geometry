@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center|top"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.pair_act">
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.PairActivity">
 
     <TextView
         android:id="@+id/textView"

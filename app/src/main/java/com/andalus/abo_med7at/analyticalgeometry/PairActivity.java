@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class pair_act extends AppCompatActivity {
+public class PairActivity extends AppCompatActivity {
     double a , h , b , g , f , c ;
     EditText a_val , h_val , b_val , a_val_non , h_val_non , b_val_non , g_val_non , f_val_non , c_val_non;
     Button btn_draw , btn_draw_non;
@@ -38,7 +38,7 @@ public class pair_act extends AppCompatActivity {
                     a = Double.parseDouble(a_val.getText().toString());
                     h = Double.parseDouble(h_val.getText().toString())/2.0;
                     b = Double.parseDouble(b_val.getText().toString());
-                    Intent i = new Intent(pair_act.this,Drawing_class.class);
+                    Intent i = new Intent(PairActivity.this,Drawing_class.class);
                     i.putExtra("a",a);
                     i.putExtra("h",h);
                     i.putExtra("b",b);
@@ -69,7 +69,7 @@ public class pair_act extends AppCompatActivity {
                     g = Double.parseDouble(g_val_non.getText().toString())/2.0;
                     f = Double.parseDouble(f_val_non.getText().toString())/2.0;
                     c = Double.parseDouble(c_val_non.getText().toString());
-                    Intent i = new Intent(pair_act.this,Drawing_class.class);
+                    Intent i = new Intent(PairActivity.this,Drawing_class.class);
                     i.putExtra("a",a);
                     i.putExtra("h",h);
                     i.putExtra("b",b);

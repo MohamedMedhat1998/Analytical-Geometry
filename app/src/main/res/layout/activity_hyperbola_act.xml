@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.Hyperbola_act">
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.HyperbolaActivity">
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
