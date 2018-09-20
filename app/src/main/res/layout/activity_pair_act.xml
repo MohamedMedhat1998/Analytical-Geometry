@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center|top"
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.pair_act">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Homogeneuos" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/a_edit"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x^2+" />
+
+        <EditText
+            android:id="@+id/h2_edit"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xy+" />
+
+        <EditText
+            android:id="@+id/b_edit"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="y^2=0" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_draw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Draw" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Non-Homogeneous" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/a_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x^2+" />
+
+        <EditText
+            android:id="@+id/h2_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xy+" />
+
+        <EditText
+            android:id="@+id/b_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="y^2+" />
+        <EditText
+            android:id="@+id/g2_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x+" />
+        <EditText
+            android:id="@+id/f2_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="y+" />
+        <EditText
+            android:id="@+id/c_edit_non"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/txtView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="=0" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_draw2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Draw" />
+
+</LinearLayout>

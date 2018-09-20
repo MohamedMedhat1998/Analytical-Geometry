@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.MainActivity">
+
+    <Button
+        android:id="@+id/pair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pair of Lines" />
+
+    <Button
+        android:id="@+id/circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="circle" />
+
+    <Button
+        android:id="@+id/parabola"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="parabola" />
+
+    <Button
+        android:id="@+id/ellipse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ellipse" />
+
+    <Button
+        android:id="@+id/Hyperpola"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hyperbola" />
+
+    <Button
+        android:id="@+id/btn_general"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General" />
+
+    <Button
+        android:id="@+id/btn_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About" />
+</LinearLayout>
