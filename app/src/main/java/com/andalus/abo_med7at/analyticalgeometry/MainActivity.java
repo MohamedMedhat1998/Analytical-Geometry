@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    Button btn_pair,btn_circle,btn_parabola,btn_ellips,btn_hyperbola,btn_general,btn_about;
+    private Button btnPair, btnCircle, btnParabola, btnEllipse, btnHyperbola, btnGeneral;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,46 +15,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initialize();
     }
     private void initialize(){
-        btn_pair = (Button) findViewById(R.id.pair);
-        btn_circle = (Button) findViewById(R.id.circle);
-        btn_parabola = (Button) findViewById(R.id.parabola);
-        btn_ellips = (Button) findViewById(R.id.ellipse);
-        btn_hyperbola = (Button) findViewById(R.id.Hyperpola);
-        btn_general = (Button) findViewById(R.id.btn_general);
-        btn_about = (Button) findViewById(R.id.btn_about);
+        btnPair = findViewById(R.id.btn_pair_of_line);
+        btnCircle = findViewById(R.id.btn_circle);
+        btnParabola = findViewById(R.id.btn_parabola);
+        btnEllipse = findViewById(R.id.btn_ellipse);
+        btnHyperbola = findViewById(R.id.btn_hyperbola);
+        btnGeneral = findViewById(R.id.btn_general);
         //---------------------------------------------
-        btn_pair.setOnClickListener(this);
-        btn_circle.setOnClickListener(this);
-        btn_parabola.setOnClickListener(this);
-        btn_ellips.setOnClickListener(this);
-        btn_hyperbola.setOnClickListener(this);
-        btn_general.setOnClickListener(this);
-        btn_about.setOnClickListener(this);
+        btnPair.setOnClickListener(this);
+        btnCircle.setOnClickListener(this);
+        btnParabola.setOnClickListener(this);
+        btnEllipse.setOnClickListener(this);
+        btnHyperbola.setOnClickListener(this);
+        btnGeneral.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.pair:
-                startActivity(new Intent(MainActivity.this,pair_act.class));
+            case R.id.btn_pair_of_line:
+                startActivity(new Intent(MainActivity.this,PairActivity.class));
                 break;
-            case R.id.circle:
-                startActivity(new Intent(MainActivity.this,Circle_act.class));
+            case R.id.btn_circle:
+                startActivity(new Intent(MainActivity.this,CircleActivity.class));
                 break;
-            case R.id.parabola:
-                startActivity(new Intent(MainActivity.this,parabola_act.class));
+            case R.id.btn_parabola:
+                startActivity(new Intent(MainActivity.this,ParabolaActivity.class));
                 break;
-            case R.id.ellipse:
-                startActivity(new Intent(MainActivity.this,Ellipse_act.class));
+            case R.id.btn_ellipse:
+                startActivity(new Intent(MainActivity.this,EllipseActivity.class));
                 break;
-            case R.id.Hyperpola:
-                startActivity(new Intent(MainActivity.this,Hyperbola_act.class));
+            case R.id.btn_hyperbola:
+                startActivity(new Intent(MainActivity.this,HyperbolaActivity.class));
                 break;
             case R.id.btn_general:
-                startActivity(new Intent(MainActivity.this,general_act.class));
-                break;
-            case R.id.btn_about:
-                startActivity(new Intent(MainActivity.this,about_act.class));
+                startActivity(new Intent(MainActivity.this,GeneralActivity.class));
                 break;
         }
     }

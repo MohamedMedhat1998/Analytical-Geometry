@@ -15,14 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pair_act" />
+        <activity android:name=".PairActivity" />
         <activity android:name=".Drawing_class" />
-        <activity android:name=".Circle_act" />
-        <activity android:name=".parabola_act" />
-        <activity android:name=".Ellipse_act" />
-        <activity android:name=".Hyperbola_act" />
-        <activity android:name=".general_act" />
-        <activity android:name=".about_act"></activity>
+        <activity android:name=".CircleActivity" />
+        <activity android:name=".ParabolaActivity" />
+        <activity android:name=".EllipseActivity" />
+        <activity android:name=".HyperbolaActivity" />
+        <activity android:name=".GeneralActivity" />
     </application>
 
 </manifest>

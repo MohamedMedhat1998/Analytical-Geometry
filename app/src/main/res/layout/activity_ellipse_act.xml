@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center|top"
     android:layout_height="match_parent"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.Ellipse_act">
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.EllipseActivity">
 
     <TextView
         android:id="@+id/textView6"
