@@ -1,45 +1,49 @@
 package com.andalus.abo_med7at.analyticalgeometry;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class CircleActivity extends AppCompatActivity {
-    double h,k,r;
-    double x1,y1,x2,y2;
-    double a,b,g,f,c;
-    EditText e_h , e_k , e_r;
-    EditText x1_e,x2_e,y1_e,y2_e;
-    EditText a_val_c , b_val_c , g_val_c , f_val_c , c_val_c;
-    Button btn_draw_standard , btn_draw_general , draw_with_ends;
+    private double h,k,r;
+    private double x1,y1,x2,y2;
+    private double a,b,g,f,c;
+    private EditText e_h , e_k , e_r;
+    private EditText x1_e,x2_e,y1_e,y2_e;
+    private EditText a_val_c , b_val_c , g_val_c , f_val_c , c_val_c;
+    private Button btn_draw_standard , btn_draw_general , draw_with_ends;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circle_act);
+        getSupportActionBar().setTitle(getString(R.string.circle));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initialize();
     }
     private void initialize(){
-        e_h = (EditText) findViewById(R.id.edit_h_c);
-        e_k = (EditText) findViewById(R.id.edit_k_c);
-        e_r = (EditText) findViewById(R.id.edit_r_c);
+        e_h = findViewById(R.id.edit_h_c);
+        e_k = findViewById(R.id.edit_k_c);
+        e_r = findViewById(R.id.edit_r_c);
         //--------------------
-        a_val_c = (EditText) findViewById(R.id.a_edit_c);
-        b_val_c = (EditText) findViewById(R.id.b_edit_c);
+        a_val_c = findViewById(R.id.a_edit_c);
+        b_val_c = findViewById(R.id.b_edit_c);
         //------------------
-        g_val_c = (EditText) findViewById(R.id.g2_edit_c);
-        f_val_c = (EditText) findViewById(R.id.f2_edit_c);
-        c_val_c = (EditText) findViewById(R.id.c_edit_c);
+        g_val_c = findViewById(R.id.g2_edit_c);
+        f_val_c = findViewById(R.id.f2_edit_c);
+        c_val_c = findViewById(R.id.c_edit_c);
         //-----------------
-        x1_e = (EditText) findViewById(R.id.x1_e);
-        x2_e = (EditText) findViewById(R.id.x2_e);
-        y1_e = (EditText) findViewById(R.id.y1_e);
-        y2_e = (EditText) findViewById(R.id.y2_e);
+        x1_e = findViewById(R.id.x1_e);
+        x2_e = findViewById(R.id.x2_e);
+        y1_e = findViewById(R.id.y1_e);
+        y2_e = findViewById(R.id.y2_e);
         //----------
-        btn_draw_standard = (Button) findViewById(R.id.btn_draw_standard);
+        btn_draw_standard = findViewById(R.id.btn_draw_standard_circle);
         btn_draw_standard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +63,7 @@ public class CircleActivity extends AppCompatActivity {
 
             }
         });
-        btn_draw_general = (Button) findViewById(R.id.btn_draw_general_c);
+        btn_draw_general = findViewById(R.id.btn_draw_general_c);
         btn_draw_general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +96,7 @@ public class CircleActivity extends AppCompatActivity {
             }
         });
 
-        draw_with_ends = (Button) findViewById(R.id.btn_draw_with_ends);
+        draw_with_ends = findViewById(R.id.btn_draw_with_ends);
         draw_with_ends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,5 +118,13 @@ public class CircleActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

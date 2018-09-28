@@ -8,20 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PairActivity" />
+        <activity android:name=".PairActivity" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Drawing_class" />
-        <activity android:name=".CircleActivity" />
-        <activity android:name=".ParabolaActivity" />
-        <activity android:name=".EllipseActivity" />
-        <activity android:name=".HyperbolaActivity" />
-        <activity android:name=".GeneralActivity" />
+        <activity android:name=".CircleActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ParabolaActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".EllipseActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".HyperbolaActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".GeneralActivity" android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

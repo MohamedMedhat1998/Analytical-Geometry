@@ -11,5 +11,40 @@
     <style name="buttonStyleMainActivity" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/White</item>
     </style>
+    
+    <style name="drawButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="colorButtonNormal">@color/Light_Blue_600</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_gravity">end</item>
+    </style>
+
+    <style name="titleStyle">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="generalCardStyle">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
+    <style name="topCardStyle" parent="generalCardStyle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="centerCardStyle" parent="generalCardStyle">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="belowCardStyle" parent="generalCardStyle">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
 
 </resources>

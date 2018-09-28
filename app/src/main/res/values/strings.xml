@@ -6,4 +6,8 @@
     <string name="ellipse">Ellipse</string>
     <string name="hyperbola">Hyperbola</string>
     <string name="general">General</string>
+    <string name="standard_form">Standard form</string>
+    <string name="draw">Draw</string>
+    <string name="general_form">General form</string>
+    <string name="ends_of_the_diameter">Ends of the diameter</string>
 </resources>
