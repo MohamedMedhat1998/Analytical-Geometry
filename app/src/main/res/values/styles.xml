@@ -42,9 +42,16 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
-    <style name="belowCardStyle" parent="generalCardStyle">
+    <style name="bottomCardStyle" parent="generalCardStyle">
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="functionLineStyle">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
     </style>
 
 </resources>

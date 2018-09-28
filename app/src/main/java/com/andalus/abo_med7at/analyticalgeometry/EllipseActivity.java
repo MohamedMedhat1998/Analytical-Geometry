@@ -1,8 +1,10 @@
 package com.andalus.abo_med7at.analyticalgeometry;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,15 +22,17 @@ public class EllipseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ellipse_act);
+        getSupportActionBar().setTitle(getString(R.string.ellipse));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initialize();
     }
     private void initialize(){
-        a_e_g = (EditText) findViewById(R.id.a_ell_e_g);
-        b_e_g = (EditText) findViewById(R.id.b_ell_e_g);
-        d_e_g = (EditText) findViewById(R.id.d_ell_e_g);
-        e_e_g = (EditText) findViewById(R.id.e_ell_e_g);
-        f_e_g = (EditText) findViewById(R.id.f_ell_e_g);
-        draw_gen = (Button) findViewById(R.id.btn_draw_gen_ell);
+        a_e_g = findViewById(R.id.a_ell_e_g);
+        b_e_g = findViewById(R.id.b_ell_e_g);
+        d_e_g = findViewById(R.id.d_ell_e_g);
+        e_e_g = findViewById(R.id.e_ell_e_g);
+        f_e_g = findViewById(R.id.f_ell_e_g);
+        draw_gen = findViewById(R.id.btn_draw_gen_ell);
         draw_gen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,9 +65,9 @@ public class EllipseActivity extends AppCompatActivity {
             }
         });
         //---------------------------------
-        a_sqr_ellipse_standard_e = (EditText) findViewById(R.id.a_sqrt_s_ellipse);
-        b_sqr_ellipse_standard_e = (EditText) findViewById(R.id.b_sqrt_s_ellipse);
-        btn_draw_s_ellipse = (Button) findViewById(R.id.btn_draw_ellipse_standard);
+        a_sqr_ellipse_standard_e = findViewById(R.id.a_sqrt_s_ellipse);
+        b_sqr_ellipse_standard_e = findViewById(R.id.b_sqrt_s_ellipse);
+        btn_draw_s_ellipse = findViewById(R.id.btn_draw_ellipse_standard);
         btn_draw_s_ellipse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,5 +88,13 @@ public class EllipseActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
