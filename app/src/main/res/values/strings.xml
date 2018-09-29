@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Analytical Geometry</string>
     <string name="pair_of_lines">Pair of Lines</string>
-    <string name="circle">circle</string>
-    <string name="parabola">parabola</string>
+    <string name="circle">Circle</string>
+    <string name="parabola">Parabola</string>
     <string name="ellipse">Ellipse</string>
     <string name="hyperbola">Hyperbola</string>
     <string name="general">General</string>
@@ -12,4 +12,6 @@
     <string name="draw">Draw</string>
     <string name="general_form">General form</string>
     <string name="ends_of_the_diameter">Ends of the diameter</string>
+    <string name="homogeneous">Homogeneous</string>
+    <string name="non_homogeneous">Non-Homogeneous</string>
 </resources>

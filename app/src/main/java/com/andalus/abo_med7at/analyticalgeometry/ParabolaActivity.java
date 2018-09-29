@@ -1,40 +1,44 @@
 package com.andalus.abo_med7at.analyticalgeometry;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class ParabolaActivity extends AppCompatActivity {
-    EditText k_x_e , a_x_e, h_x_e;
-    Button btn_draw_x_para;
-    double k_x_para , a_x_para , h_x_para;
+    private EditText k_x_e , a_x_e, h_x_e;
+    private Button btn_draw_x_para;
+    private double k_x_para , a_x_para , h_x_para;
     //---------------------------------
-    EditText h_y_e, a_y_e, k_y_e ;
-    Button btn_draw_y_para;
-    double h_y , a_y , k_y;
+    private EditText h_y_e, a_y_e, k_y_e ;
+    private Button btn_draw_y_para;
+    private double h_y , a_y , k_y;
     //------------------general//x----------
-    EditText d_x_e,e_x_e,f_x_e;
-    Button btn_draw_gen_x;
-    double d_x , e_x , f_x;
+    private EditText d_x_e,e_x_e,f_x_e;
+    private Button btn_draw_gen_x;
+    private double d_x , e_x , f_x;
     //-----------------general//y-----------
-    EditText d_y_e,e_y_e,f_y_e;
-    Button btn_draw_gen_y;
-    double d_y , e_y , f_y;
+    private EditText d_y_e,e_y_e,f_y_e;
+    private Button btn_draw_gen_y;
+    private double d_y , e_y , f_y;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parabola_act);
+        getSupportActionBar().setTitle(getString(R.string.parabola));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initialize();
     }
     private void initialize(){
-        d_y_e = (EditText) findViewById(R.id.D_y_p_gen);
-        e_y_e = (EditText) findViewById(R.id.E_y_p_gen);
-        f_y_e = (EditText) findViewById(R.id.F_y_p_gen);
-        btn_draw_gen_y = (Button) findViewById(R.id.btn_draw_Gen_y_p);
+        d_y_e = findViewById(R.id.D_y_p_gen);
+        e_y_e = findViewById(R.id.E_y_p_gen);
+        f_y_e = findViewById(R.id.F_y_p_gen);
+        btn_draw_gen_y = findViewById(R.id.btn_draw_Gen_y_p);
         btn_draw_gen_y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,10 +62,10 @@ public class ParabolaActivity extends AppCompatActivity {
             }
         });
         //-------------------------------------------
-        d_x_e = (EditText) findViewById(R.id.D_x_p_gen);
-        e_x_e = (EditText) findViewById(R.id.E_x_p_gen);
-        f_x_e = (EditText) findViewById(R.id.F_x_p_gen);
-        btn_draw_gen_x = (Button) findViewById(R.id.btn_draw_Gen_x_p);
+        d_x_e = findViewById(R.id.D_x_p_gen);
+        e_x_e = findViewById(R.id.E_x_p_gen);
+        f_x_e = findViewById(R.id.F_x_p_gen);
+        btn_draw_gen_x = findViewById(R.id.btn_draw_Gen_x_p);
         btn_draw_gen_x.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,10 +89,10 @@ public class ParabolaActivity extends AppCompatActivity {
             }
         });
         //------------------------------
-        h_y_e = (EditText) findViewById(R.id.h_para_e_y);
-        a_y_e = (EditText) findViewById(R.id.a_para_e_y);
-        k_y_e = (EditText) findViewById(R.id.k_para_e_y);
-        btn_draw_y_para = (Button) findViewById(R.id.btn_draw_para_y);
+        h_y_e = findViewById(R.id.h_para_e_y);
+        a_y_e = findViewById(R.id.a_para_e_y);
+        k_y_e = findViewById(R.id.k_para_e_y);
+        btn_draw_y_para = findViewById(R.id.btn_draw_para_y);
         btn_draw_y_para.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,10 +117,10 @@ public class ParabolaActivity extends AppCompatActivity {
             }
         });
         //-------------------------------
-        k_x_e = (EditText) findViewById(R.id.k_para_e);
-        a_x_e = (EditText) findViewById(R.id.a_para_e);
-        h_x_e = (EditText) findViewById(R.id.h_para_e);
-        btn_draw_x_para = (Button) findViewById(R.id.btn_draw_para_stand_y_sqr);
+        k_x_e = findViewById(R.id.k_para_e);
+        a_x_e = findViewById(R.id.a_para_e);
+        h_x_e = findViewById(R.id.h_para_e);
+        btn_draw_x_para = findViewById(R.id.btn_draw_para_stand_y_sqr);
         btn_draw_x_para.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,5 +144,13 @@ public class ParabolaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
