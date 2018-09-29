@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class EllipseActivity extends AppCompatActivity {
-    EditText a_e_g , b_e_g,d_e_g,e_e_g,f_e_g;
-    double a_g , b_g , d_g , e_g , f_g;
-    Button draw_gen;
+    private EditText a_e_g , b_e_g,d_e_g,e_e_g,f_e_g;
+    private double a_g , b_g , d_g , e_g , f_g;
+    private Button draw_gen;
     //-------------------
-    EditText a_sqr_ellipse_standard_e,b_sqr_ellipse_standard_e;
-    double a_e_s , b_e_s;
-    Button btn_draw_s_ellipse;
+    private EditText a_sqr_ellipse_standard_e,b_sqr_ellipse_standard_e;
+    private double a_e_s , b_e_s;
+    private Button btn_draw_s_ellipse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

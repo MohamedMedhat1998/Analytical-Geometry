@@ -7,6 +7,8 @@
     <string name="hyperbola">Hyperbola</string>
     <string name="general">General</string>
     <string name="standard_form">Standard form</string>
+    <string name="standard_form_x_hyperbola">Standard form (X-Hyperbola)</string>
+    <string name="standard_form_y_hyperbola">Standard form (Y-Hyperbola)</string>
     <string name="draw">Draw</string>
     <string name="general_form">General form</string>
     <string name="ends_of_the_diameter">Ends of the diameter</string>
