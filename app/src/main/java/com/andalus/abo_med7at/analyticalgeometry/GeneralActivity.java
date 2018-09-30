@@ -41,7 +41,7 @@ public class GeneralActivity extends AppCompatActivity {
                     g = Double.parseDouble(g_val.getText().toString());
                     f = Double.parseDouble(f_val.getText().toString());
                     c = Double.parseDouble(c_val.getText().toString());
-                    Intent i = new Intent(GeneralActivity.this,Drawing_class.class);
+                    Intent i = new Intent(GeneralActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("h",h);
                     i.putExtra("b",b);

@@ -42,7 +42,7 @@ public class EllipseActivity extends AppCompatActivity {
                     d_g = Double.parseDouble(d_e_g.getText().toString());
                     e_g = Double.parseDouble(e_e_g.getText().toString());
                     f_g = Double.parseDouble(f_e_g.getText().toString());
-                    Intent i = new Intent(EllipseActivity.this,Drawing_class.class);
+                    Intent i = new Intent(EllipseActivity.this,DrawingClass.class);
                     i.putExtra("a",a_g);
                     i.putExtra("b",b_g);
                     i.putExtra("d",d_g);
@@ -74,7 +74,7 @@ public class EllipseActivity extends AppCompatActivity {
                 try{
                     a_e_s = Math.sqrt(Double.parseDouble(a_sqr_ellipse_standard_e.getText().toString()));
                     b_e_s = Math.sqrt(Double.parseDouble(b_sqr_ellipse_standard_e.getText().toString()));
-                    Intent i = new Intent(EllipseActivity.this,Drawing_class.class);
+                    Intent i = new Intent(EllipseActivity.this,DrawingClass.class);
                     i.putExtra("a",a_e_s);
                     i.putExtra("b",b_e_s);
                     i.putExtra("CURVE","standard_ellipse");

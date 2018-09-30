@@ -51,7 +51,7 @@ public class CircleActivity extends AppCompatActivity {
                     h = Double.parseDouble(e_h.getText().toString());
                     k = Double.parseDouble(e_k.getText().toString());
                     r = Double.parseDouble(e_r.getText().toString());
-                    Intent i = new Intent(CircleActivity.this,Drawing_class.class);
+                    Intent i = new Intent(CircleActivity.this,DrawingClass.class);
                     i.putExtra("h",h);
                     i.putExtra("k",k);
                     i.putExtra("r",r);
@@ -76,7 +76,7 @@ public class CircleActivity extends AppCompatActivity {
                     f/=a;
                     c = Double.parseDouble(c_val_c.getText().toString());
                     c/=a;
-                    Intent i = new Intent(CircleActivity.this,Drawing_class.class);
+                    Intent i = new Intent(CircleActivity.this,DrawingClass.class);
                     if(a == b && g*g+f*f-c >= 0){
                         i.putExtra("h",-g);
                         i.putExtra("k",-f);
@@ -107,7 +107,7 @@ public class CircleActivity extends AppCompatActivity {
                     y2 = Double.parseDouble(y2_e.getText().toString());
                     double h_ = (x1+x2)/2 , k_ = (y1+y2)/2;
                     double r_ = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))/2;
-                    Intent i = new Intent(CircleActivity.this,Drawing_class.class);
+                    Intent i = new Intent(CircleActivity.this,DrawingClass.class);
                     i.putExtra("h",h_);
                     i.putExtra("k",k_);
                     i.putExtra("r",r_);

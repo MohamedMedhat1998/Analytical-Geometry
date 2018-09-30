@@ -45,7 +45,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     d_g = Double.parseDouble(d_e_g.getText().toString());
                     e_g = Double.parseDouble(e_e_g.getText().toString());
                     f_g = Double.parseDouble(f_e_g.getText().toString());
-                    Intent i = new Intent(HyperbolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a_g);
                     i.putExtra("b",b_g);
                     i.putExtra("d",d_g);
@@ -75,7 +75,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                 try {
                     a = Math.sqrt(Double.parseDouble(a_e2.getText().toString()));
                     b = Math.sqrt(Double.parseDouble(b_e2.getText().toString()));
-                    Intent i = new Intent(HyperbolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
                     i.putExtra("CURVE","hyperbola2");
@@ -99,7 +99,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                 try {
                     a = Math.sqrt(Double.parseDouble(a_e.getText().toString()));
                     b = Math.sqrt(Double.parseDouble(b_e.getText().toString()));
-                    Intent i = new Intent(HyperbolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
                     i.putExtra("CURVE","hyperbola");

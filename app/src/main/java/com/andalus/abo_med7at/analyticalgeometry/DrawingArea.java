@@ -5,27 +5,33 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Toast;
 
 
 /**
  * Created by Abo_Med7at on 18/04/2017.
  */
 
-public class Drawing_Area extends View {
+public class DrawingArea extends View {
     private double a,h,b,g,f,c,k,r,d,e;
-    String curve;
+    private String curve;
     float x_coor , y_coor;
-    Paint red = new Paint();
-    public Drawing_Area(Context context ,double a_val ,double h_val ,double b_val) {
+    private Paint red = new Paint();
+
+    public DrawingArea(Context context, AttributeSet attributeSet){
+        super(context,attributeSet);
+
+    }
+
+    public DrawingArea(Context context , double a_val , double h_val , double b_val) {
         super(context);
         a = a_val;
         h = h_val;
         b = b_val;
         curve = "homo-pair";
     }
-    public Drawing_Area(Context context ,double a_val ,double h_val ,double b_val, double g_val , double f_val , double c_val , char ch) {
+    public DrawingArea(Context context , double a_val , double h_val , double b_val, double g_val , double f_val , double c_val , char ch) {
         super(context);
         a = a_val;
         h = h_val;
@@ -41,7 +47,7 @@ public class Drawing_Area extends View {
 
     }
 
-    public Drawing_Area(Context context, double h, double k, double r, char c) {
+    public DrawingArea(Context context, double h, double k, double r, char c) {
         super(context);
         if(c == 'c'){
             curve = "circle";
@@ -71,7 +77,7 @@ public class Drawing_Area extends View {
         }
 
     }
-    public Drawing_Area(Context context, double a, double b,char c) {
+    public DrawingArea(Context context, double a, double b, char c) {
         super(context);
         this.a = a;
         this.b = b;
@@ -84,7 +90,7 @@ public class Drawing_Area extends View {
         }
 
     }
-    public Drawing_Area(Context context, double a, double b,double d,double e , double f) {
+    public DrawingArea(Context context, double a, double b, double d, double e , double f) {
         super(context);
         this.a = a;
         this.b = b;
@@ -163,15 +169,8 @@ public class Drawing_Area extends View {
 
     }
     private void draw_axes(Canvas canvas){
-        Rect y = new Rect();
-        Rect x = new Rect();
-        y.set(getWidth()/2-1,0,getWidth()/2+1,getHeight());
-        x.set(0,getHeight()/2 -1,getWidth(),getHeight()/2 +1);
         Paint p = new Paint();
-        p.setColor(Color.BLACK);
-        p.setStyle(Paint.Style.FILL);
-        canvas.drawRect(y,p);
-        canvas.drawRect(x,p);
+        p.setColor(getResources().getColor(R.color.Gray_300));
         for(int i = getWidth()/2 ; i < getWidth() ; i+=20){
             Rect y_ = new Rect();
             y_.set(i,0,i+1,getHeight());
@@ -192,6 +191,14 @@ public class Drawing_Area extends View {
             x_.set(0,i,getWidth(),i+1);
             canvas.drawRect(x_,p);
         }
+        Rect y = new Rect();
+        Rect x = new Rect();
+        y.set(getWidth()/2-1,0,getWidth()/2+1,getHeight());
+        x.set(0,getHeight()/2 -1,getWidth(),getHeight()/2 +1);
+        p.setColor(Color.BLACK);
+        p.setStyle(Paint.Style.FILL);
+        canvas.drawRect(y,p);
+        canvas.drawRect(x,p);
     }
     private void draw_non_pair(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){

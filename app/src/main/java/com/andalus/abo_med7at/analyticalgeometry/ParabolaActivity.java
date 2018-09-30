@@ -46,7 +46,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     d_y = Double.parseDouble(d_y_e.getText().toString());
                     e_y = Double.parseDouble(e_y_e.getText().toString());
                     f_y = Double.parseDouble(f_y_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
                     i.putExtra("d",d_y);
                     i.putExtra("e",e_y);
                     i.putExtra("f",f_y);
@@ -73,7 +73,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     d_x = Double.parseDouble(d_x_e.getText().toString());
                     e_x = Double.parseDouble(e_x_e.getText().toString());
                     f_x = Double.parseDouble(f_x_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
                     i.putExtra("d",d_x);
                     i.putExtra("e",e_x);
                     i.putExtra("f",f_x);
@@ -100,7 +100,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     h_y = Double.parseDouble(h_y_e.getText().toString());
                     a_y = Double.parseDouble(a_y_e.getText().toString());
                     k_y = Double.parseDouble(k_y_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
                     i.putExtra("h",h_y);
                     i.putExtra("a",a_y);
                     i.putExtra("k",k_y);
@@ -128,7 +128,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     k_x_para = Double.parseDouble(k_x_e.getText().toString());
                     a_x_para = Double.parseDouble(a_x_e.getText().toString());
                     h_x_para = Double.parseDouble(h_x_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,Drawing_class.class);
+                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
                     i.putExtra("k",k_x_para);
                     i.putExtra("a",a_x_para);
                     i.putExtra("h",h_x_para);

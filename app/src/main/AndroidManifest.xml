@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" android:launchMode="singleTop">
             <intent-filter>
@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PairActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Drawing_class" />
+        <activity android:name=".DrawingClass" />
         <activity android:name=".CircleActivity" android:parentActivityName=".MainActivity"/>
         <activity android:name=".ParabolaActivity" android:parentActivityName=".MainActivity"/>
         <activity android:name=".EllipseActivity" android:parentActivityName=".MainActivity"/>
