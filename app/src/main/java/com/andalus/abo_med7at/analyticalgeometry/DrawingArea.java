@@ -103,8 +103,9 @@ public class DrawingArea extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
         red.setColor(Color.RED);
-        draw_axes(canvas);
+        drawAxes(canvas);
         switch (curve){
             case "homo-pair":
                 draw_pair(canvas);
@@ -168,28 +169,50 @@ public class DrawingArea extends View {
         }
 
     }
-    private void draw_axes(Canvas canvas){
+    private void drawAxes(Canvas canvas){
         Paint p = new Paint();
         p.setColor(getResources().getColor(R.color.Gray_300));
+        Paint p2 = new Paint();
+        p2.setColor(Color.GREEN);
+        int count = 0;
+        //+ve x axis
         for(int i = getWidth()/2 ; i < getWidth() ; i+=20){
             Rect y_ = new Rect();
             y_.set(i,0,i+1,getHeight());
             canvas.drawRect(y_,p);
+            if(count!=0)
+                canvas.drawText(count+"",i-2.5f,getHeight()/2.0f + 15.0f,p2);
+            count++;
         }
+        count = 0;
+        //-ve x axis
         for(int i = getWidth()/2 ; i >0 ; i-=20){
             Rect y_ = new Rect();
             y_.set(i,0,i+1,getHeight());
             canvas.drawRect(y_,p);
+            if(count!=0)
+                canvas.drawText(count+"",i-5.0f,getHeight()/2.0f + 15.0f,p2);
+            count--;
         }
+        count = 0;
+        //-ve y axis
         for(int i = getHeight()/2 ; i < getHeight() ; i+=20){
             Rect x_ = new Rect();
             x_.set(0,i,getWidth(),i+1);
             canvas.drawRect(x_,p);
+            if(count!=0)
+                canvas.drawText(count+"",getWidth()/2.0f+2.5f,i+4.0f,p2);
+            count--;
         }
+        count = 0;
+        //+ve y axis
         for(int i = getHeight()/2 ; i > 0 ; i-=20){
             Rect x_ = new Rect();
             x_.set(0,i,getWidth(),i+1);
             canvas.drawRect(x_,p);
+            if(count!=0)
+                canvas.drawText(count+"",getWidth()/2.0f+2.5f,i+4.0f,p2);
+            count++;
         }
         Rect y = new Rect();
         Rect x = new Rect();

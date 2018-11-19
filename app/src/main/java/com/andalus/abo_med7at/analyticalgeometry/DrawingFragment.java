@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class DrawingFragment extends Fragment implements View.OnTouchListener{
 
@@ -31,6 +32,7 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
         screenY = displayMetrics.widthPixels;
         Log.d("DIMENS","Screen Area Height : " + displayMetrics.heightPixels);
         Log.d("DIMENS","Screen Width : " + displayMetrics.widthPixels);
+        Toast.makeText(getContext(), R.string.pinch_to_zoom, Toast.LENGTH_LONG).show();
         return drawingArea;
     }
 
