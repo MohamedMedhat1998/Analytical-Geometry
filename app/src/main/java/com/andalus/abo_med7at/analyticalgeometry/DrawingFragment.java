@@ -25,6 +25,9 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mScaleGestureDetector = new ScaleGestureDetector(getContext(),new ScaleListener());
+        if(drawingArea == null){
+            drawingArea = DrawingClass.getDrawingArea();
+        }
         drawingArea.setOnTouchListener(this);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -87,5 +90,11 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
             Log.d("SCALE_FACTOR","AFTER : " + mScaleFactor);
             return true;
         }
+    }
+
+    public static DrawingFragment newInstance(DrawingArea drawingArea) {
+        DrawingFragment fragment = new DrawingFragment();
+        fragment.setDrawingArea(drawingArea);
+        return fragment;
     }
 }
