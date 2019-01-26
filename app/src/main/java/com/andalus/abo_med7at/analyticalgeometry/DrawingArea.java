@@ -16,8 +16,10 @@ import android.view.View;
 public class DrawingArea extends View {
     private double a,h,b,g,f,c,k,r,d,e;
     private String curve;
-    float x_coor , y_coor;
+    private float xCoor, yCoor;
     private Paint red = new Paint();
+    private double hPair, aPair, bPair;
+    private double hNonPair,gNonPair,aNonPair,bNonPair,fNonPair,cNonPair;
 
     public DrawingArea(Context context, AttributeSet attributeSet){
         super(context,attributeSet);
@@ -26,19 +28,19 @@ public class DrawingArea extends View {
 
     public DrawingArea(Context context , double a_val , double h_val , double b_val) {
         super(context);
-        a = a_val;
-        h = h_val;
-        b = b_val;
+        aPair = a_val;
+        hPair = h_val;
+        bPair = b_val;
         curve = "homo-pair";
     }
     public DrawingArea(Context context , double a_val , double h_val , double b_val, double g_val , double f_val , double c_val , char ch) {
         super(context);
-        a = a_val;
-        h = h_val;
-        b = b_val;
-        g = g_val;
-        f = f_val;
-        c = c_val;
+        aNonPair = a_val;
+        hNonPair = h_val;
+        bNonPair = b_val;
+        gNonPair = g_val;
+        fNonPair = f_val;
+        cNonPair = c_val;
         if(ch == 'n'){
             curve = "non-homo-pair";
         }else if(ch == 'g'){
@@ -108,10 +110,10 @@ public class DrawingArea extends View {
         drawAxes(canvas);
         switch (curve){
             case "homo-pair":
-                draw_pair(canvas);
+                drawPair(canvas);
                 break;
             case "non-homo-pair":
-                draw_non_pair(canvas);
+                drawNonPair(canvas);
                 break;
             case "circle":
                 draw_circle(canvas);
@@ -149,23 +151,23 @@ public class DrawingArea extends View {
     private float invertY(float coor){
         float f;
         f = coor*40;
-        return coor*20 + getHeight()/2 -f;
+        return coor*20 + getHeight()/2f -f;
     }
     /*private float invertY(float coor){
         float f;
         f = coor*2;
         return coor + getHeight()/2 -f;
     }*/
-    private void draw_pair(Canvas canvas){
+    private void drawPair(Canvas canvas){
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) ((x_coor)*((-h+Math.sqrt(h*h-a*b))/b));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            xCoor = i;
+            yCoor = (float) ((xCoor)*((-hPair+Math.sqrt(hPair*hPair-aPair*bPair))/bPair));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) ((x_coor)*((-h-Math.sqrt(h*h-a*b))/b));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            xCoor = i;
+            yCoor = (float) ((xCoor)*((-hPair-Math.sqrt(hPair*hPair-aPair*bPair))/bPair));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
 
     }
@@ -223,16 +225,16 @@ public class DrawingArea extends View {
         canvas.drawRect(y,p);
         canvas.drawRect(x,p);
     }
-    private void draw_non_pair(Canvas canvas){
+    private void drawNonPair(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) ((-(2.0*h*i+2.0*g)+Math.sqrt((2.0*h*i+2.0*g)*(2.0*h*i+2.0*g)-4.0*a*(b*i*i+2.0*f*i+c)))/(2.0*a));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) ((-(2.0*hNonPair*i+2.0*gNonPair)+Math.sqrt((2.0*hNonPair*i+2.0*gNonPair)*(2.0*hNonPair*i+2.0*gNonPair)-4.0*aNonPair*(bNonPair*i*i+2.0*fNonPair*i+cNonPair)))/(2.0*aNonPair));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) ((-(2.0*h*i+2.0*g)-Math.sqrt((2.0*h*i+2.0*g)*(2.0*h*i+2.0*g)-4.0*a*(b*i*i+2.0*f*i+c)))/(2.0*a));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) ((-(2.0*hNonPair*i+2.0*gNonPair)-Math.sqrt((2.0*hNonPair*i+2.0*gNonPair)*(2.0*hNonPair*i+2.0*gNonPair)-4.0*aNonPair*(bNonPair*i*i+2.0*fNonPair*i+cNonPair)))/(2.0*aNonPair));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
     private void draw_circle(Canvas canvas){
@@ -242,129 +244,129 @@ public class DrawingArea extends View {
     //--------------------------------------------------------------------------------------
     private void draw_x_parabola(Canvas canvas){
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) (k + Math.sqrt(a*x_coor-a*h));
-            canvas.drawPoint((x_coor*20+ getWidth()/2),invertY(y_coor),red);
+            xCoor = i;
+            yCoor = (float) (k + Math.sqrt(a* xCoor -a*h));
+            canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) (k - Math.sqrt(a*x_coor-a*h));
-            canvas.drawPoint((x_coor*20+ getWidth()/2),invertY(y_coor),red);
+            xCoor = i;
+            yCoor = (float) (k - Math.sqrt(a* xCoor -a*h));
+            canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
     }
     private void draw_y_parabola(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (h + Math.sqrt(a*y_coor-a*k));
-            canvas.drawPoint((x_coor*20+ getWidth()/2),invertY(y_coor),red);
+            yCoor = i;
+            xCoor = (float) (h + Math.sqrt(a* yCoor -a*k));
+            canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (h - Math.sqrt(a*y_coor-a*k));
-            canvas.drawPoint((x_coor*20+ getWidth()/2),invertY(y_coor),red);
+            yCoor = i;
+            xCoor = (float) (h - Math.sqrt(a* yCoor -a*k));
+            canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
     }
     private void draw_gen_x_para(Canvas canvas){
         for(float i = -getWidth() ; i < getWidth() ; i+= 0.05){
-            x_coor = i;
-            y_coor = (float) (0.5*(-e + Math.sqrt(e*e-4*(d*x_coor+f))));
-            canvas.drawPoint((x_coor*20 + getWidth()/2),invertY(y_coor),red);
+            xCoor = i;
+            yCoor = (float) (0.5*(-e + Math.sqrt(e*e-4*(d* xCoor +f))));
+            canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getWidth() ; i < getWidth() ; i+= 0.05){
-            x_coor = i;
-            y_coor = (float) (0.5*(-e - Math.sqrt(e*e-4*(d*x_coor+f))));
-            canvas.drawPoint((x_coor*20 + getWidth()/2),invertY(y_coor),red);
+            xCoor = i;
+            yCoor = (float) (0.5*(-e - Math.sqrt(e*e-4*(d* xCoor +f))));
+            canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
     }
     private void draw_gen_y_para(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (0.5*(-d+Math.sqrt(d*d-4*(e*y_coor+f))));
-            canvas.drawPoint((x_coor*20 + getWidth()/2),invertY(y_coor),red);
+            yCoor = i;
+            xCoor = (float) (0.5*(-d+Math.sqrt(d*d-4*(e* yCoor +f))));
+            canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (0.5*(-d-Math.sqrt(d*d-4*(e*y_coor+f))));
-            canvas.drawPoint((x_coor*20 + getWidth()/2),invertY(y_coor),red);
+            yCoor = i;
+            xCoor = (float) (0.5*(-d-Math.sqrt(d*d-4*(e* yCoor +f))));
+            canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
     }
     //-------------------------------------------------------------------------------
     private void draw_standard_ellipse(Canvas canvas){
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (a*Math.sqrt(1-(y_coor*y_coor)/(b*b)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) (a*Math.sqrt(1-(yCoor * yCoor)/(b*b)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (-a*Math.sqrt(1-(y_coor*y_coor)/(b*b)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) (-a*Math.sqrt(1-(yCoor * yCoor)/(b*b)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
     private void draw_general_ellipse(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) ((-d-Math.sqrt(d*d-4*a*(b*y_coor*y_coor+e*y_coor+f)))/(2*a));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) ((-d-Math.sqrt(d*d-4*a*(b* yCoor * yCoor +e* yCoor +f)))/(2*a));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for(float i = -getHeight() ; i < getHeight(); i+=0.05){
-            y_coor = i;
-            x_coor = (float) ((-d+Math.sqrt(d*d-4*a*(b*y_coor*y_coor+e*y_coor+f)))/(2*a));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) ((-d+Math.sqrt(d*d-4*a*(b* yCoor * yCoor +e* yCoor +f)))/(2*a));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
     private void draw_hyperbola(Canvas canvas){
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (a*Math.sqrt(1+(y_coor*y_coor)/(b*b)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) (a*Math.sqrt(1+(yCoor * yCoor)/(b*b)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
-            y_coor = i;
-            x_coor = (float) (-a*Math.sqrt(1+(y_coor*y_coor)/(b*b)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            yCoor = i;
+            xCoor = (float) (-a*Math.sqrt(1+(yCoor * yCoor)/(b*b)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
     private void draw_hyperbola2(Canvas canvas){
         for (float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) (b*Math.sqrt(1+(x_coor*x_coor)/(a*a)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            xCoor = i;
+            yCoor = (float) (b*Math.sqrt(1+(xCoor * xCoor)/(a*a)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getWidth() ; i < getWidth() ; i+=0.05){
-            x_coor = i;
-            y_coor = (float) (-b*Math.sqrt(1+(x_coor*x_coor)/(a*a)));
-            canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+            xCoor = i;
+            yCoor = (float) (-b*Math.sqrt(1+(xCoor * xCoor)/(a*a)));
+            canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
     private void draw_general(Canvas canvas){
         if(a!=0){
             for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-                y_coor = i;
-                x_coor = (float) ((-(h*i+g)+Math.sqrt((h*i+g)*(h*i+g)-4.0*a*(b*i*i+f*i+c)))/(2.0*a));
-                canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+                yCoor = i;
+                xCoor = (float) ((-(h*i+g)+Math.sqrt((h*i+g)*(h*i+g)-4.0*a*(b*i*i+f*i+c)))/(2.0*a));
+                canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
             }
             for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-                y_coor = i;
-                x_coor = (float) ((-(h*i+g)-Math.sqrt((h*i+g)*(h*i+g)-4.0*a*(b*i*i+f*i+c)))/(2.0*a));
-                canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+                yCoor = i;
+                xCoor = (float) ((-(h*i+g)-Math.sqrt((h*i+g)*(h*i+g)-4.0*a*(b*i*i+f*i+c)))/(2.0*a));
+                canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
             }
         }else if(b != 0){
             for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-                x_coor = i;
-                y_coor = (float) ((-(h*i+f)+Math.sqrt((h*i+f)*(h*i+f)-4.0*b*(a*i*i+g*i+c)))/(2.0*b));
-                canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+                xCoor = i;
+                yCoor = (float) ((-(h*i+f)+Math.sqrt((h*i+f)*(h*i+f)-4.0*b*(a*i*i+g*i+c)))/(2.0*b));
+                canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
             }
             for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
-                x_coor = i;
-                y_coor = (float) ((-(h*i+f)-Math.sqrt((h*i+f)*(h*i+f)-4.0*b*(a*i*i+g*i+c)))/(2.0*b));
-                canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+                xCoor = i;
+                yCoor = (float) ((-(h*i+f)-Math.sqrt((h*i+f)*(h*i+f)-4.0*b*(a*i*i+g*i+c)))/(2.0*b));
+                canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
             }
         }else{
             for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
-                y_coor = i;
-                x_coor = (float) (-(f*i+c)/(h*i+g));
-                canvas.drawPoint(x_coor *20+ getWidth()/2, invertY(y_coor) ,red);
+                yCoor = i;
+                xCoor = (float) (-(f*i+c)/(h*i+g));
+                canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
             }
         }
 
