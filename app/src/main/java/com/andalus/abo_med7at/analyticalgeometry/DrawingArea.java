@@ -18,11 +18,17 @@ public class DrawingArea extends View {
     private String curve;
     private float xCoor, yCoor;
     private Paint red = new Paint();
-    private double hPair, aPair, bPair;
+    private double hPair,aPair,bPair;
     private double hNonPair,gNonPair,aNonPair,bNonPair,fNonPair,cNonPair;
     private double hCircle,kCircle,rCircle;
     private double kXParabola,aXParabola,hXParabola;
     private double hYParabola,aYParabola,kYParabola;
+    private double eGenXPara,dGenXPara,fGenXPara;
+    private double dGenYPara,eGenYPara,fGenYPara;
+    private double aStandardEllipse,bStandardEllipse;
+    private double dGeneralEllipse,aGeneralEllipse,bGeneralEllipse,eGeneralEllipse,fGeneralEllipse;
+    private double aXHyperbola,bXHyperbola;
+    private double bYHyperbola,aYHyperbola;
 
     public DrawingArea(Context context, AttributeSet attributeSet){
         super(context,attributeSet);
@@ -71,37 +77,41 @@ public class DrawingArea extends View {
             hYParabola = r;
         }else if( c == '*'){
             curve = "gen_x_parabola";
-            this.d = h;
-            this.e = k;
-            this.f = r;
+            dGenXPara = h;
+            eGenXPara = k;
+            fGenXPara = r;
         }else if( c == '-'){
             curve = "gen_y_parabola";
-            this.d = h;
-            this.e = k;
-            this.f = r;
+            dGenYPara = h;
+            eGenYPara = k;
+            fGenYPara = r;
         }
 
     }
     public DrawingArea(Context context, double a, double b, char c) {
         super(context);
-        this.a = a;
-        this.b = b;
         if(c == 'e'){
             curve = "standard_ellipse";
+            aStandardEllipse = a;
+            bStandardEllipse = b;
         }else if( c == 'h'){
             curve = "hyperbola";
+            aXHyperbola = a;
+            bXHyperbola = b;
         }else if( c == 'H'){
             curve = "hyperbola2";
+            aYHyperbola = a;
+            bYHyperbola = b;
         }
 
     }
     public DrawingArea(Context context, double a, double b, double d, double e , double f) {
         super(context);
-        this.a = a;
-        this.b = b;
-        this.d = d;
-        this.e = e;
-        this.f = f;
+        aGeneralEllipse = a;
+        bGeneralEllipse = b;
+        dGeneralEllipse = d;
+        eGeneralEllipse = e;
+        fGeneralEllipse = f;
         curve = "general_ellipse";
     }
 
@@ -128,22 +138,22 @@ public class DrawingArea extends View {
                 drawYParabola(canvas);
                 break;
             case "gen_x_parabola":
-                draw_gen_x_para(canvas);
+                drawGenXPara(canvas);
                 break;
             case "gen_y_parabola":
-                draw_gen_y_para(canvas);
+                drawGenYPara(canvas);
                 break;
             case "standard_ellipse":
-                draw_standard_ellipse(canvas);
+                drawStandardEllipse(canvas);
                 break;
             case "general_ellipse":
-                draw_general_ellipse(canvas);
+                drawGeneralEllipse(canvas);
                 break;
             case "hyperbola":
-                draw_hyperbola(canvas);
+                drawXHyperbola(canvas);
                 break;
             case "hyperbola2":
-                draw_hyperbola2(canvas);
+                drawYHyperbola(canvas);
                 break;
             case "general":
                 draw_general(canvas);
@@ -242,6 +252,7 @@ public class DrawingArea extends View {
     }
     private void drawCircle(Canvas canvas){
         red.setStyle(Paint.Style.STROKE);
+        red.setColor(Color.BLUE);
         canvas.drawCircle((float) (getWidth()/2 +hCircle*20),invertY((float) kCircle), (float) rCircle*20,red);
     }
     //--------------------------------------------------------------------------------------
@@ -269,76 +280,76 @@ public class DrawingArea extends View {
             canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
     }
-    private void draw_gen_x_para(Canvas canvas){
+    private void drawGenXPara(Canvas canvas){
         for(float i = -getWidth() ; i < getWidth() ; i+= 0.05){
             xCoor = i;
-            yCoor = (float) (0.5*(-e + Math.sqrt(e*e-4*(d* xCoor +f))));
+            yCoor = (float) (0.5*(-eGenXPara + Math.sqrt(eGenXPara*eGenXPara-4*(dGenXPara* xCoor +fGenXPara))));
             canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getWidth() ; i < getWidth() ; i+= 0.05){
             xCoor = i;
-            yCoor = (float) (0.5*(-e - Math.sqrt(e*e-4*(d* xCoor +f))));
+            yCoor = (float) (0.5*(-eGenXPara - Math.sqrt(eGenXPara*eGenXPara-4*(dGenXPara* xCoor +fGenXPara))));
             canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
     }
-    private void draw_gen_y_para(Canvas canvas){
+    private void drawGenYPara(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (0.5*(-d+Math.sqrt(d*d-4*(e* yCoor +f))));
+            xCoor = (float) (0.5*(-dGenYPara+Math.sqrt(dGenYPara*dGenYPara-4*(eGenYPara* yCoor +fGenYPara))));
             canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (0.5*(-d-Math.sqrt(d*d-4*(e* yCoor +f))));
+            xCoor = (float) (0.5*(-dGenYPara-Math.sqrt(dGenYPara*dGenYPara-4*(eGenYPara* yCoor +fGenYPara))));
             canvas.drawPoint((xCoor *20 + getWidth()/2f),invertY(yCoor),red);
         }
     }
     //-------------------------------------------------------------------------------
-    private void draw_standard_ellipse(Canvas canvas){
+    private void drawStandardEllipse(Canvas canvas){
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (a*Math.sqrt(1-(yCoor * yCoor)/(b*b)));
+            xCoor = (float) (aStandardEllipse*Math.sqrt(1-(yCoor * yCoor)/(bStandardEllipse*bStandardEllipse)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (-a*Math.sqrt(1-(yCoor * yCoor)/(b*b)));
+            xCoor = (float) (-aStandardEllipse*Math.sqrt(1-(yCoor * yCoor)/(bStandardEllipse*bStandardEllipse)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
-    private void draw_general_ellipse(Canvas canvas){
+    private void drawGeneralEllipse(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) ((-d-Math.sqrt(d*d-4*a*(b* yCoor * yCoor +e* yCoor +f)))/(2*a));
+            xCoor = (float) ((-dGeneralEllipse-Math.sqrt(dGeneralEllipse*dGeneralEllipse-4*aGeneralEllipse*(bGeneralEllipse* yCoor * yCoor +eGeneralEllipse* yCoor +fGeneralEllipse)))/(2*aGeneralEllipse));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for(float i = -getHeight() ; i < getHeight(); i+=0.05){
             yCoor = i;
-            xCoor = (float) ((-d+Math.sqrt(d*d-4*a*(b* yCoor * yCoor +e* yCoor +f)))/(2*a));
+            xCoor = (float) ((-dGeneralEllipse+Math.sqrt(dGeneralEllipse*dGeneralEllipse-4*aGeneralEllipse*(bGeneralEllipse* yCoor * yCoor +eGeneralEllipse* yCoor +fGeneralEllipse)))/(2*aGeneralEllipse));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
-    private void draw_hyperbola(Canvas canvas){
+    private void drawXHyperbola(Canvas canvas){
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (a*Math.sqrt(1+(yCoor * yCoor)/(b*b)));
+            xCoor = (float) (aXHyperbola*Math.sqrt(1+(yCoor * yCoor)/(bXHyperbola*bXHyperbola)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (-a*Math.sqrt(1+(yCoor * yCoor)/(b*b)));
+            xCoor = (float) (-aXHyperbola*Math.sqrt(1+(yCoor * yCoor)/(bXHyperbola*bXHyperbola)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
-    private void draw_hyperbola2(Canvas canvas){
+    private void drawYHyperbola(Canvas canvas){
         for (float i = -getWidth() ; i < getWidth() ; i+=0.05){
             xCoor = i;
-            yCoor = (float) (b*Math.sqrt(1+(xCoor * xCoor)/(a*a)));
+            yCoor = (float) (bYHyperbola*Math.sqrt(1+(xCoor * xCoor)/(aYHyperbola*aYHyperbola)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
         for (float i = -getWidth() ; i < getWidth() ; i+=0.05){
             xCoor = i;
-            yCoor = (float) (-b*Math.sqrt(1+(xCoor * xCoor)/(a*a)));
+            yCoor = (float) (-bYHyperbola*Math.sqrt(1+(xCoor * xCoor)/(aYHyperbola*aYHyperbola)));
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }

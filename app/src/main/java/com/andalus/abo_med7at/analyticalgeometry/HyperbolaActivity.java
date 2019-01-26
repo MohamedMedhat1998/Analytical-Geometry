@@ -78,6 +78,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
+                    //Probably I should have replaced "hyperbola2" with "yHyperbola"
                     i.putExtra("CURVE","hyperbola2");
                     if(a > 0 && b > 0){
                         startActivity(i);
@@ -102,6 +103,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
+                    //Probably I should have replaced "hyperbola" with "xHyperbola"
                     i.putExtra("CURVE","hyperbola");
                     if(a > 0 && b > 0){
                         startActivity(i);
