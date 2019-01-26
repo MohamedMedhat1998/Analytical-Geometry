@@ -20,6 +20,9 @@ public class DrawingArea extends View {
     private Paint red = new Paint();
     private double hPair, aPair, bPair;
     private double hNonPair,gNonPair,aNonPair,bNonPair,fNonPair,cNonPair;
+    private double hCircle,kCircle,rCircle;
+    private double kXParabola,aXParabola,hXParabola;
+    private double hYParabola,aYParabola,kYParabola;
 
     public DrawingArea(Context context, AttributeSet attributeSet){
         super(context,attributeSet);
@@ -35,13 +38,13 @@ public class DrawingArea extends View {
     }
     public DrawingArea(Context context , double a_val , double h_val , double b_val, double g_val , double f_val , double c_val , char ch) {
         super(context);
-        aNonPair = a_val;
-        hNonPair = h_val;
-        bNonPair = b_val;
-        gNonPair = g_val;
-        fNonPair = f_val;
-        cNonPair = c_val;
         if(ch == 'n'){
+            aNonPair = a_val;
+            hNonPair = h_val;
+            bNonPair = b_val;
+            gNonPair = g_val;
+            fNonPair = f_val;
+            cNonPair = c_val;
             curve = "non-homo-pair";
         }else if(ch == 'g'){
             curve = "general";
@@ -53,19 +56,19 @@ public class DrawingArea extends View {
         super(context);
         if(c == 'c'){
             curve = "circle";
-            this.h = h;
-            this.k = k;
-            this.r = r;
+            hCircle = h;
+            kCircle = k;
+            rCircle = r;
         }else if( c == 'p'){
             curve = "xparabola";
-            this.k = h;
-            this.a = k;
-            this.h = r;
+            kXParabola = h;
+            aXParabola = k;
+            hXParabola = r;
         }else if( c == 'y'){
             curve = "yparabola";
-            this.k = h;
-            this.a = k;
-            this.h = r;
+            kYParabola = h;
+            aYParabola = k;
+            hYParabola = r;
         }else if( c == '*'){
             curve = "gen_x_parabola";
             this.d = h;
@@ -116,13 +119,13 @@ public class DrawingArea extends View {
                 drawNonPair(canvas);
                 break;
             case "circle":
-                draw_circle(canvas);
+                drawCircle(canvas);
                 break;
             case "xparabola":
-                draw_x_parabola(canvas);
+                drawXParabola(canvas);
                 break;
             case "yparabola":
-                draw_y_parabola(canvas);
+                drawYParabola(canvas);
                 break;
             case "gen_x_parabola":
                 draw_gen_x_para(canvas);
@@ -146,7 +149,7 @@ public class DrawingArea extends View {
                 draw_general(canvas);
                 break;
         }
-        draw_circle(canvas);
+        drawCircle(canvas);
     }
     private float invertY(float coor){
         float f;
@@ -237,32 +240,32 @@ public class DrawingArea extends View {
             canvas.drawPoint(xCoor *20+ getWidth()/2f, invertY(yCoor) ,red);
         }
     }
-    private void draw_circle(Canvas canvas){
+    private void drawCircle(Canvas canvas){
         red.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle((float) (getWidth()/2 +h*20),invertY((float) k), (float) r*20,red);
+        canvas.drawCircle((float) (getWidth()/2 +hCircle*20),invertY((float) kCircle), (float) rCircle*20,red);
     }
     //--------------------------------------------------------------------------------------
-    private void draw_x_parabola(Canvas canvas){
+    private void drawXParabola(Canvas canvas){
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
             xCoor = i;
-            yCoor = (float) (k + Math.sqrt(a* xCoor -a*h));
+            yCoor = (float) (kXParabola + Math.sqrt(aXParabola* xCoor -aXParabola*hXParabola));
             canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getWidth() ; i < getWidth() ; i+=0.05){
             xCoor = i;
-            yCoor = (float) (k - Math.sqrt(a* xCoor -a*h));
+            yCoor = (float) (kXParabola - Math.sqrt(aXParabola* xCoor -aXParabola*hXParabola));
             canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
     }
-    private void draw_y_parabola(Canvas canvas){
+    private void drawYParabola(Canvas canvas){
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (h + Math.sqrt(a* yCoor -a*k));
+            xCoor = (float) (hYParabola + Math.sqrt(aYParabola* yCoor -aYParabola*kYParabola));
             canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
         for(float i = -getHeight() ; i < getHeight() ; i+=0.05){
             yCoor = i;
-            xCoor = (float) (h - Math.sqrt(a* yCoor -a*k));
+            xCoor = (float) (hYParabola - Math.sqrt(aYParabola* yCoor -aYParabola*kYParabola));
             canvas.drawPoint((xCoor *20+ getWidth()/2f),invertY(yCoor),red);
         }
     }
