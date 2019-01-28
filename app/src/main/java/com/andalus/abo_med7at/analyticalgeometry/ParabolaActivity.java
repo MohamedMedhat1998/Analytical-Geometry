@@ -52,7 +52,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     i.putExtra("d", d_y);
                     i.putExtra("e", e_y);
                     i.putExtra("f", f_y);
-                    i.putExtra("CURVE", "general_y_para");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.GENERAL_Y_PARABOLA);
                     if (e_y == 0) {
                         Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
                     } else {
@@ -79,7 +79,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     i.putExtra("d", d_x);
                     i.putExtra("e", e_x);
                     i.putExtra("f", f_x);
-                    i.putExtra("CURVE", "general_x_para");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.GENERAL_X_PARABOLA);
                     if (d_x == 0) {
                         Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
                     } else {
@@ -106,7 +106,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     i.putExtra("h", h_y);
                     i.putExtra("a", a_y);
                     i.putExtra("k", k_y);
-                    i.putExtra("CURVE", "yparabola");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.Y_PARABOLA);
                     if (a_y == 0) {
                         Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
                     } else {
@@ -134,7 +134,7 @@ public class ParabolaActivity extends AppCompatActivity {
                     i.putExtra("k", k_x_para);
                     i.putExtra("a", a_x_para);
                     i.putExtra("h", h_x_para);
-                    i.putExtra("CURVE", "parabola");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.X_PARABOLA);
                     if (a_x_para == 0) {
                         Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
                     } else {

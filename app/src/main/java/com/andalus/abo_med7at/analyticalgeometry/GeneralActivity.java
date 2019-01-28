@@ -48,7 +48,7 @@ public class GeneralActivity extends AppCompatActivity {
                     i.putExtra("g",g);
                     i.putExtra("f",f);
                     i.putExtra("c",c);
-                    i.putExtra("CURVE","general");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL);
                     startActivity(i);
                 }catch (Exception e){
                     Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();

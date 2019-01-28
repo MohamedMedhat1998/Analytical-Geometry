@@ -55,7 +55,7 @@ public class CircleActivity extends AppCompatActivity {
                     i.putExtra("h",h);
                     i.putExtra("k",k);
                     i.putExtra("r",r);
-                    i.putExtra("CURVE","circle");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.CIRCLE);
                     startActivity(i);
                 }catch (Exception e){
                     Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
@@ -111,7 +111,7 @@ public class CircleActivity extends AppCompatActivity {
                     i.putExtra("h",h_);
                     i.putExtra("k",k_);
                     i.putExtra("r",r_);
-                    i.putExtra("CURVE","circle");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.CIRCLE);
                     startActivity(i);
                 }catch (Exception e){
                     Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();

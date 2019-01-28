@@ -51,7 +51,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     i.putExtra("d",d_g);
                     i.putExtra("e",e_g);
                     i.putExtra("f",f_g);
-                    i.putExtra("CURVE","general_hyperbola");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL_HYPERBOLA);
                     /*else if(d_g == 0 && e_g==0 &&f_g>=0){
                         Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
                     }else */if((a_g >= 0 && b_g >= 0)||(a_g <= 0 && b_g <= 0)){
@@ -78,8 +78,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
-                    //Probably I should have replaced "hyperbola2" with "yHyperbola"
-                    i.putExtra("CURVE","hyperbola2");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.Y_HYPERBOLA);
                     if(a > 0 && b > 0){
                         startActivity(i);
                     }else {
@@ -103,8 +102,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
-                    //Probably I should have replaced "hyperbola" with "xHyperbola"
-                    i.putExtra("CURVE","hyperbola");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.X_HYPERBOLA);
                     if(a > 0 && b > 0){
                         startActivity(i);
                     }else {

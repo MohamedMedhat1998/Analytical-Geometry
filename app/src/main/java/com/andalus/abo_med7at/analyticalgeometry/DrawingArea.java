@@ -41,7 +41,7 @@ public class DrawingArea extends View {
         aPair = a_val;
         hPair = h_val;
         bPair = b_val;
-        curve = "homo-pair";
+        curve = ConstantKeys.HOMO_PAIR;
     }
 
     public DrawingArea(Context context, double a_val, double h_val, double b_val, double g_val, double f_val, double c_val, char ch) {
@@ -53,9 +53,9 @@ public class DrawingArea extends View {
             gNonPair = g_val;
             fNonPair = f_val;
             cNonPair = c_val;
-            curve = "non-homo-pair";
+            curve = ConstantKeys.NON_HOMO_PAIR;
         } else if (ch == 'g') {
-            curve = "general";
+            curve = ConstantKeys.GENERAL;
             aGeneral = a_val;
             hGeneral = h_val;
             bGeneral = b_val;
@@ -69,27 +69,27 @@ public class DrawingArea extends View {
     public DrawingArea(Context context, double h, double k, double r, char c) {
         super(context);
         if (c == 'c') {
-            curve = "circle";
+            curve = ConstantKeys.CIRCLE;
             hCircle = h;
             kCircle = k;
             rCircle = r;
         } else if (c == 'p') {
-            curve = "xparabola";
+            curve = ConstantKeys.X_PARABOLA;
             kXParabola = h;
             aXParabola = k;
             hXParabola = r;
         } else if (c == 'y') {
-            curve = "yparabola";
+            curve = ConstantKeys.Y_PARABOLA;
             kYParabola = h;
             aYParabola = k;
             hYParabola = r;
         } else if (c == '*') {
-            curve = "gen_x_parabola";
+            curve = ConstantKeys.GENERAL_X_PARABOLA;
             dGenXPara = h;
             eGenXPara = k;
             fGenXPara = r;
         } else if (c == '-') {
-            curve = "gen_y_parabola";
+            curve = ConstantKeys.GENERAL_Y_PARABOLA;
             dGenYPara = h;
             eGenYPara = k;
             fGenYPara = r;
@@ -100,15 +100,15 @@ public class DrawingArea extends View {
     public DrawingArea(Context context, double a, double b, char c) {
         super(context);
         if (c == 'e') {
-            curve = "standard_ellipse";
+            curve = ConstantKeys.STANDARD_ELLIPSE;
             aStandardEllipse = a;
             bStandardEllipse = b;
         } else if (c == 'h') {
-            curve = "hyperbola";
+            curve = ConstantKeys.X_HYPERBOLA;
             aXHyperbola = a;
             bXHyperbola = b;
         } else if (c == 'H') {
-            curve = "hyperbola2";
+            curve = ConstantKeys.Y_HYPERBOLA;
             aYHyperbola = a;
             bYHyperbola = b;
         }
@@ -118,21 +118,21 @@ public class DrawingArea extends View {
     public DrawingArea(Context context, double a, double b, double d, double e, double f, String givenCurve) {
         super(context);
         switch (givenCurve){
-            case "general_ellipse":
+            case ConstantKeys.GENERAL_ELLIPSE:
                 aGeneralEllipse = a;
                 bGeneralEllipse = b;
                 dGeneralEllipse = d;
                 eGeneralEllipse = e;
                 fGeneralEllipse = f;
-                curve = "general_ellipse";
+                curve = ConstantKeys.GENERAL_ELLIPSE;
                 break;
-            case "general_hyperbola":
+            case ConstantKeys.GENERAL_HYPERBOLA:
                 aGeneralHyperbola = a;
                 bGeneralHyperbola = b;
                 dGeneralHyperbola = d;
                 eGeneralHyperbola = e;
                 fGeneralHyperbola = f;
-                curve = "general_hyperbola";
+                curve = ConstantKeys.GENERAL_HYPERBOLA;
                 break;
         }
 
@@ -145,43 +145,43 @@ public class DrawingArea extends View {
         red.setColor(Color.RED);
         drawAxes(canvas);
         switch (curve) {
-            case "homo-pair":
+            case ConstantKeys.HOMO_PAIR:
                 drawPair(canvas);
                 break;
-            case "non-homo-pair":
+            case ConstantKeys.NON_HOMO_PAIR:
                 drawNonPair(canvas);
                 break;
-            case "circle":
+            case ConstantKeys.CIRCLE:
                 drawCircle(canvas);
                 break;
-            case "xparabola":
+            case ConstantKeys.X_PARABOLA:
                 drawXParabola(canvas);
                 break;
-            case "yparabola":
+            case ConstantKeys.Y_PARABOLA:
                 drawYParabola(canvas);
                 break;
-            case "gen_x_parabola":
+            case ConstantKeys.GENERAL_X_PARABOLA:
                 drawGenXPara(canvas);
                 break;
-            case "gen_y_parabola":
+            case ConstantKeys.GENERAL_Y_PARABOLA:
                 drawGenYPara(canvas);
                 break;
-            case "standard_ellipse":
+            case ConstantKeys.STANDARD_ELLIPSE:
                 drawStandardEllipse(canvas);
                 break;
-            case "general_ellipse":
+            case ConstantKeys.GENERAL_ELLIPSE:
                 drawGeneralEllipse(canvas);
                 break;
-            case "general_hyperbola":
+            case ConstantKeys.GENERAL_HYPERBOLA:
                 drawGeneralHyperbola(canvas);
                 break;
-            case "hyperbola":
+            case ConstantKeys.X_HYPERBOLA:
                 drawXHyperbola(canvas);
                 break;
-            case "hyperbola2":
+            case ConstantKeys.Y_HYPERBOLA:
                 drawYHyperbola(canvas);
                 break;
-            case "general":
+            case ConstantKeys.GENERAL:
                 drawGeneral(canvas);
                 break;
         }
@@ -404,7 +404,6 @@ public class DrawingArea extends View {
         }
     }
 
-    //TODO try to separate "General" from "General Hyperbola"
     private void drawGeneral(Canvas canvas) {
         if (aGeneral != 0) {
             for (float i = -getHeight(); i < getHeight(); i += 0.05) {

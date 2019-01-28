@@ -48,7 +48,7 @@ public class PairActivity extends AppCompatActivity {
                     i.putExtra("a", a);
                     i.putExtra("h", h);
                     i.putExtra("b", b);
-                    i.putExtra("CURVE", "homo-pair");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.HOMO_PAIR);
                     if (h * h - a * b < 0) {
                         Toast.makeText(getBaseContext(), "NOT PAIR", Toast.LENGTH_SHORT).show();
                     } else {
@@ -82,7 +82,7 @@ public class PairActivity extends AppCompatActivity {
                     i.putExtra("g", g);
                     i.putExtra("f", f);
                     i.putExtra("c", c);
-                    i.putExtra("CURVE", "non-homo-pair");
+                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.NON_HOMO_PAIR);
                     if (h * h - a * b >= 0 && a * b * c + 2 * f * g * h - a * f * f - b * g * g - c * h * h == 0) {
                         if (a != 0 && b != 0) {
                             startActivity(i);

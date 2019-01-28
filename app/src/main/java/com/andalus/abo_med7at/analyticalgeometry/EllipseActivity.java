@@ -48,7 +48,7 @@ public class EllipseActivity extends AppCompatActivity {
                     i.putExtra("d",d_g);
                     i.putExtra("e",e_g);
                     i.putExtra("f",f_g);
-                    i.putExtra("CURVE","general_ellipse");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL_ELLIPSE);
                     if(a_g == b_g){
                         Toast.makeText(getBaseContext(),"NOT Ellipse",Toast.LENGTH_LONG).show();
                     }else if(d_g == 0 && e_g==0 &&f_g>=0){
@@ -77,7 +77,7 @@ public class EllipseActivity extends AppCompatActivity {
                     Intent i = new Intent(EllipseActivity.this,DrawingClass.class);
                     i.putExtra("a",a_e_s);
                     i.putExtra("b",b_e_s);
-                    i.putExtra("CURVE","standard_ellipse");
+                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.STANDARD_ELLIPSE);
                     if(a_e_s > 0 && b_e_s > 0){
                         startActivity(i);
                     }else{

@@ -16,50 +16,47 @@ public class DrawingClass extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle data = getIntent().getExtras();
-        switch (data.get("CURVE").toString()){
-            case "homo-pair":
+        switch (data.get(ConstantKeys.CURVE).toString()){
+            case ConstantKeys.HOMO_PAIR:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"));
                 break;
-            case "non-homo-pair":
+            case ConstantKeys.NON_HOMO_PAIR:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"),data.getDouble("g"),data.getDouble("f"),data.getDouble("c"),'n');
                 break;
-            case "general":
+            case ConstantKeys.GENERAL:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"),data.getDouble("g"),data.getDouble("f"),data.getDouble("c"),'g');
                 break;
-            case "circle":
+            case ConstantKeys.CIRCLE:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("h"),data.getDouble("k"),data.getDouble("r"),'c');
                 break;
-            case "parabola":
+            case ConstantKeys.X_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("k"),data.getDouble("a"),data.getDouble("h"),'p');
                 break;
-            case "yparabola":
+            case ConstantKeys.Y_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("k"),data.getDouble("a"),data.getDouble("h"),'y');
                 break;
-            case "general_x_para":
+            case ConstantKeys.GENERAL_X_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),'*');
                 break;
-            case "general_y_para":
+            case ConstantKeys.GENERAL_Y_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),'-');
                 break;
-            case "standard_ellipse":
+            case ConstantKeys.STANDARD_ELLIPSE:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'e');
                 break;
-            case "general_ellipse":
-                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),"general_ellipse");
+            case ConstantKeys.GENERAL_ELLIPSE:
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),ConstantKeys.GENERAL_ELLIPSE);
                 break;
-            case "general_hyperbola":
-                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),"general_hyperbola");
+            case ConstantKeys.GENERAL_HYPERBOLA:
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),ConstantKeys.GENERAL_HYPERBOLA);
                 break;
-            //Probably I should have replaced "hyperbola" with "xHyperbola"
-            case "hyperbola":
+            case ConstantKeys.X_HYPERBOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'h');
                 break;
-            //Probably I should have replaced "hyperbola2" with "yHyperbola"
-            case "hyperbola2":
+            case ConstantKeys.Y_HYPERBOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'H');
                 break;
         }
-        Log.d("TRACING",data.get("CURVE").toString());
 
         setContentView(R.layout.zoomable_draw_area);
         DrawingFragment drawingFragment = DrawingFragment.newInstance(drawingArea);
