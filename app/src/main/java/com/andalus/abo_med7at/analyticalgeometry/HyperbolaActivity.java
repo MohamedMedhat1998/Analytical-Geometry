@@ -51,7 +51,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     i.putExtra("d",d_g);
                     i.putExtra("e",e_g);
                     i.putExtra("f",f_g);
-                    i.putExtra("CURVE","general_ellipse");
+                    i.putExtra("CURVE","general_hyperbola");
                     /*else if(d_g == 0 && e_g==0 &&f_g>=0){
                         Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
                     }else */if((a_g >= 0 && b_g >= 0)||(a_g <= 0 && b_g <= 0)){

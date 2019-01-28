@@ -11,21 +11,22 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class ParabolaActivity extends AppCompatActivity {
-    private EditText k_x_e , a_x_e, h_x_e;
+    private EditText k_x_e, a_x_e, h_x_e;
     private Button btn_draw_x_para;
-    private double k_x_para , a_x_para , h_x_para;
+    private double k_x_para, a_x_para, h_x_para;
     //---------------------------------
-    private EditText h_y_e, a_y_e, k_y_e ;
+    private EditText h_y_e, a_y_e, k_y_e;
     private Button btn_draw_y_para;
-    private double h_y , a_y , k_y;
+    private double h_y, a_y, k_y;
     //------------------general//x----------
-    private EditText d_x_e,e_x_e,f_x_e;
+    private EditText d_x_e, e_x_e, f_x_e;
     private Button btn_draw_gen_x;
-    private double d_x , e_x , f_x;
+    private double d_x, e_x, f_x;
     //-----------------general//y-----------
-    private EditText d_y_e,e_y_e,f_y_e;
+    private EditText d_y_e, e_y_e, f_y_e;
     private Button btn_draw_gen_y;
-    private double d_y , e_y , f_y;
+    private double d_y, e_y, f_y;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,8 @@ public class ParabolaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initialize();
     }
-    private void initialize(){
+
+    private void initialize() {
         d_y_e = findViewById(R.id.D_y_p_gen);
         e_y_e = findViewById(R.id.E_y_p_gen);
         f_y_e = findViewById(R.id.F_y_p_gen);
@@ -42,22 +44,22 @@ public class ParabolaActivity extends AppCompatActivity {
         btn_draw_gen_y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
+                try {
                     d_y = Double.parseDouble(d_y_e.getText().toString());
                     e_y = Double.parseDouble(e_y_e.getText().toString());
                     f_y = Double.parseDouble(f_y_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
-                    i.putExtra("d",d_y);
-                    i.putExtra("e",e_y);
-                    i.putExtra("f",f_y);
-                    i.putExtra("CURVE","general_y_para");
-                    if(e_y == 0){
-                        Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
-                    }else {
+                    Intent i = new Intent(ParabolaActivity.this, DrawingClass.class);
+                    i.putExtra("d", d_y);
+                    i.putExtra("e", e_y);
+                    i.putExtra("f", f_y);
+                    i.putExtra("CURVE", "general_y_para");
+                    if (e_y == 0) {
+                        Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
+                    } else {
                         startActivity(i);
                     }
-                }catch (Exception e){
-                    Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -73,18 +75,18 @@ public class ParabolaActivity extends AppCompatActivity {
                     d_x = Double.parseDouble(d_x_e.getText().toString());
                     e_x = Double.parseDouble(e_x_e.getText().toString());
                     f_x = Double.parseDouble(f_x_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
-                    i.putExtra("d",d_x);
-                    i.putExtra("e",e_x);
-                    i.putExtra("f",f_x);
-                    i.putExtra("CURVE","general_x_para");
-                    if(d_x == 0){
-                        Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
-                    }else{
+                    Intent i = new Intent(ParabolaActivity.this, DrawingClass.class);
+                    i.putExtra("d", d_x);
+                    i.putExtra("e", e_x);
+                    i.putExtra("f", f_x);
+                    i.putExtra("CURVE", "general_x_para");
+                    if (d_x == 0) {
+                        Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
+                    } else {
                         startActivity(i);
                     }
-                }catch (Exception e){
-                    Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -100,18 +102,18 @@ public class ParabolaActivity extends AppCompatActivity {
                     h_y = Double.parseDouble(h_y_e.getText().toString());
                     a_y = Double.parseDouble(a_y_e.getText().toString());
                     k_y = Double.parseDouble(k_y_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
-                    i.putExtra("h",h_y);
-                    i.putExtra("a",a_y);
-                    i.putExtra("k",k_y);
-                    i.putExtra("CURVE","yparabola");
-                    if(a_y == 0){
-                        Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
-                    }else{
+                    Intent i = new Intent(ParabolaActivity.this, DrawingClass.class);
+                    i.putExtra("h", h_y);
+                    i.putExtra("a", a_y);
+                    i.putExtra("k", k_y);
+                    i.putExtra("CURVE", "yparabola");
+                    if (a_y == 0) {
+                        Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
+                    } else {
                         startActivity(i);
                     }
-                }catch (Exception e){
-                    Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -128,18 +130,18 @@ public class ParabolaActivity extends AppCompatActivity {
                     k_x_para = Double.parseDouble(k_x_e.getText().toString());
                     a_x_para = Double.parseDouble(a_x_e.getText().toString());
                     h_x_para = Double.parseDouble(h_x_e.getText().toString());
-                    Intent i = new Intent(ParabolaActivity.this,DrawingClass.class);
-                    i.putExtra("k",k_x_para);
-                    i.putExtra("a",a_x_para);
-                    i.putExtra("h",h_x_para);
-                    i.putExtra("CURVE","parabola");
-                    if(a_x_para == 0){
-                        Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
-                    }else{
+                    Intent i = new Intent(ParabolaActivity.this, DrawingClass.class);
+                    i.putExtra("k", k_x_para);
+                    i.putExtra("a", a_x_para);
+                    i.putExtra("h", h_x_para);
+                    i.putExtra("CURVE", "parabola");
+                    if (a_x_para == 0) {
+                        Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_LONG).show();
+                    } else {
                         startActivity(i);
                     }
-                }catch (Exception e){
-                    Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -148,7 +150,7 @@ public class ParabolaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
         return super.onOptionsItemSelected(item);

@@ -15,7 +15,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnPair, btnCircle, btnParabola, btnEllipse, btnHyperbola, btnGeneral;
     private static AdView mAdView;
 
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initialize();
     }
-    private void initialize(){
+
+    private void initialize() {
         btnPair = findViewById(R.id.btn_pair_of_line);
         btnCircle = findViewById(R.id.btn_circle);
         btnParabola = findViewById(R.id.btn_parabola);
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEllipse.setOnClickListener(this);
         btnHyperbola.setOnClickListener(this);
         btnGeneral.setOnClickListener(this);
-        MobileAds.initialize(this,getString(R.string.app_ad_id));
+        MobileAds.initialize(this, getString(R.string.app_ad_id));
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -47,24 +48,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_pair_of_line:
-                startActivity(new Intent(MainActivity.this,PairActivity.class));
+                startActivity(new Intent(MainActivity.this, PairActivity.class));
                 break;
             case R.id.btn_circle:
-                startActivity(new Intent(MainActivity.this,CircleActivity.class));
+                startActivity(new Intent(MainActivity.this, CircleActivity.class));
                 break;
             case R.id.btn_parabola:
-                startActivity(new Intent(MainActivity.this,ParabolaActivity.class));
+                startActivity(new Intent(MainActivity.this, ParabolaActivity.class));
                 break;
             case R.id.btn_ellipse:
-                startActivity(new Intent(MainActivity.this,EllipseActivity.class));
+                startActivity(new Intent(MainActivity.this, EllipseActivity.class));
                 break;
             case R.id.btn_hyperbola:
-                startActivity(new Intent(MainActivity.this,HyperbolaActivity.class));
+                startActivity(new Intent(MainActivity.this, HyperbolaActivity.class));
                 break;
             case R.id.btn_general:
-                startActivity(new Intent(MainActivity.this,GeneralActivity.class));
+                startActivity(new Intent(MainActivity.this, GeneralActivity.class));
                 break;
         }
     }
@@ -72,13 +73,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.main_menu,menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.item_privacy_policy){
+        if (item.getItemId() == R.id.item_privacy_policy) {
             Intent privacyPolicyIntent = new Intent(Intent.ACTION_VIEW);
             privacyPolicyIntent.setData(Uri.parse(getString(R.string.privacy_policy_link)));
             startActivity(privacyPolicyIntent);

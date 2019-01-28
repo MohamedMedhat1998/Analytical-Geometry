@@ -45,7 +45,10 @@ public class DrawingClass extends AppCompatActivity {
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'e');
                 break;
             case "general_ellipse":
-                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"));
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),"general_ellipse");
+                break;
+            case "general_hyperbola":
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),"general_hyperbola");
                 break;
             //Probably I should have replaced "hyperbola" with "xHyperbola"
             case "hyperbola":
