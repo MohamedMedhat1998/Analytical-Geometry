@@ -33,7 +33,6 @@ public class DrawingArea extends View {
 
     public DrawingArea(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-
     }
 
     public DrawingArea(Context context, double a_val, double h_val, double b_val) {
@@ -68,56 +67,66 @@ public class DrawingArea extends View {
 
     public DrawingArea(Context context, double h, double k, double r, char c) {
         super(context);
-        if (c == 'c') {
-            curve = ConstantKeys.CIRCLE;
-            hCircle = h;
-            kCircle = k;
-            rCircle = r;
-        } else if (c == 'p') {
-            curve = ConstantKeys.X_PARABOLA;
-            kXParabola = h;
-            aXParabola = k;
-            hXParabola = r;
-        } else if (c == 'y') {
-            curve = ConstantKeys.Y_PARABOLA;
-            kYParabola = h;
-            aYParabola = k;
-            hYParabola = r;
-        } else if (c == '*') {
-            curve = ConstantKeys.GENERAL_X_PARABOLA;
-            dGenXPara = h;
-            eGenXPara = k;
-            fGenXPara = r;
-        } else if (c == '-') {
-            curve = ConstantKeys.GENERAL_Y_PARABOLA;
-            dGenYPara = h;
-            eGenYPara = k;
-            fGenYPara = r;
+        switch (c) {
+            case 'c':
+                curve = ConstantKeys.CIRCLE;
+                hCircle = h;
+                kCircle = k;
+                rCircle = r;
+                break;
+            case 'p':
+                curve = ConstantKeys.X_PARABOLA;
+                kXParabola = h;
+                aXParabola = k;
+                hXParabola = r;
+                break;
+            case 'y':
+                curve = ConstantKeys.Y_PARABOLA;
+                kYParabola = h;
+                aYParabola = k;
+                hYParabola = r;
+                break;
+            case '*':
+                curve = ConstantKeys.GENERAL_X_PARABOLA;
+                dGenXPara = h;
+                eGenXPara = k;
+                fGenXPara = r;
+                break;
+            case '-':
+                curve = ConstantKeys.GENERAL_Y_PARABOLA;
+                dGenYPara = h;
+                eGenYPara = k;
+                fGenYPara = r;
+                break;
         }
 
     }
 
     public DrawingArea(Context context, double a, double b, char c) {
         super(context);
-        if (c == 'e') {
-            curve = ConstantKeys.STANDARD_ELLIPSE;
-            aStandardEllipse = a;
-            bStandardEllipse = b;
-        } else if (c == 'h') {
-            curve = ConstantKeys.X_HYPERBOLA;
-            aXHyperbola = a;
-            bXHyperbola = b;
-        } else if (c == 'H') {
-            curve = ConstantKeys.Y_HYPERBOLA;
-            aYHyperbola = a;
-            bYHyperbola = b;
+        switch (c) {
+            case 'e':
+                curve = ConstantKeys.STANDARD_ELLIPSE;
+                aStandardEllipse = a;
+                bStandardEllipse = b;
+                break;
+            case 'h':
+                curve = ConstantKeys.X_HYPERBOLA;
+                aXHyperbola = a;
+                bXHyperbola = b;
+                break;
+            case 'H':
+                curve = ConstantKeys.Y_HYPERBOLA;
+                aYHyperbola = a;
+                bYHyperbola = b;
+                break;
         }
 
     }
 
     public DrawingArea(Context context, double a, double b, double d, double e, double f, String givenCurve) {
         super(context);
-        switch (givenCurve){
+        switch (givenCurve) {
             case ConstantKeys.GENERAL_ELLIPSE:
                 aGeneralEllipse = a;
                 bGeneralEllipse = b;
@@ -188,8 +197,7 @@ public class DrawingArea extends View {
     }
 
     private float invertY(float coor) {
-        float f;
-        f = coor * 40;
+        float f = coor * 40;
         return coor * 20 + getHeight() / 2f - f;
     }
 

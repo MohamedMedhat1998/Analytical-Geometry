@@ -17,7 +17,7 @@ public class CircleActivity extends AppCompatActivity {
     private EditText e_h , e_k , e_r;
     private EditText x1_e,x2_e,y1_e,y2_e;
     private EditText a_val_c , b_val_c , g_val_c , f_val_c , c_val_c;
-    private Button btn_draw_standard , btn_draw_general , draw_with_ends;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class CircleActivity extends AppCompatActivity {
         y1_e = findViewById(R.id.y1_e);
         y2_e = findViewById(R.id.y2_e);
         //----------
-        btn_draw_standard = findViewById(R.id.btn_draw_standard_circle);
+        Button btn_draw_standard = findViewById(R.id.btn_draw_standard_circle);
         btn_draw_standard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +63,7 @@ public class CircleActivity extends AppCompatActivity {
 
             }
         });
-        btn_draw_general = findViewById(R.id.btn_draw_general_c);
+        Button btn_draw_general = findViewById(R.id.btn_draw_general_c);
         btn_draw_general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +96,7 @@ public class CircleActivity extends AppCompatActivity {
             }
         });
 
-        draw_with_ends = findViewById(R.id.btn_draw_with_ends);
+        Button draw_with_ends = findViewById(R.id.btn_draw_with_ends);
         draw_with_ends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
