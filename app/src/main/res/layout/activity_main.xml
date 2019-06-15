@@ -7,43 +7,41 @@
     android:gravity="center"
     android:background="@color/Gray_200"
     android:orientation="vertical"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.MainActivity">
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.main_activity.MainActivity">
 
     <Button
-        android:id="@+id/btn_pair_of_line"
+        android:id="@+id/btnPairOfLine"
         android:layout_width="0dp"
-        android:theme="@style/buttonStyleMainActivity"
         android:layout_height="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="4dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:text="@string/pair_of_lines"
-        app:layout_constraintBottom_toTopOf="@+id/btn_parabola"
+        android:theme="@style/buttonStyleMainActivity"
+        app:layout_constraintBottom_toTopOf="@+id/btnParabola"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adView"
         app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
-        android:id="@+id/btn_circle"
+        android:id="@+id/btnCircle"
         android:layout_width="0dp"
-        android:theme="@style/buttonStyleMainActivity"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="@string/circle"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ellipse"
+        android:theme="@style/buttonStyleMainActivity"
+        app:layout_constraintBottom_toTopOf="@+id/btnEllipse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/adView" />
 
     <Button
-        android:id="@+id/btn_parabola"
+        android:id="@+id/btnParabola"
         android:layout_width="0dp"
         android:theme="@style/buttonStyleMainActivity"
         android:layout_height="0dp"
@@ -52,14 +50,14 @@
         android:layout_marginRight="4dp"
         android:layout_marginStart="8dp"
         android:text="@string/parabola"
-        app:layout_constraintBottom_toTopOf="@+id/btn_hyperbola"
+        app:layout_constraintBottom_toTopOf="@+id/btnHyperbola"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pair_of_line" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPairOfLine" />
 
     <Button
-        android:id="@+id/btn_ellipse"
+        android:id="@+id/btnEllipse"
         android:layout_width="0dp"
         android:theme="@style/buttonStyleMainActivity"
         android:layout_height="0dp"
@@ -68,13 +66,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="4dp"
         android:text="@string/ellipse"
-        app:layout_constraintBottom_toTopOf="@+id/btn_general"
+        app:layout_constraintBottom_toTopOf="@+id/btnGeneral"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/btn_circle" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCircle" />
 
     <Button
-        android:id="@+id/btn_hyperbola"
+        android:id="@+id/btnHyperbola"
         android:theme="@style/buttonStyleMainActivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -87,10 +85,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_parabola" />
+        app:layout_constraintTop_toBottomOf="@+id/btnParabola" />
 
     <Button
-        android:id="@+id/btn_general"
+        android:id="@+id/btnGeneral"
         android:theme="@style/buttonStyleMainActivity"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -103,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ellipse" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEllipse" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -111,4 +109,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_id"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"/>
+
 </android.support.constraint.ConstraintLayout>
