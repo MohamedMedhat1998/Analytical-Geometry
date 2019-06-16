@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
 
 /**
  * Created by Abo_Med7at on 18/04/2017.
@@ -12,61 +14,78 @@ import android.util.Log;
 
 public class DrawingClass extends AppCompatActivity {
     private static DrawingArea drawingArea;
+
+    private Shape shape;
+    private static NewDrawingArea newDrawingArea;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle data = getIntent().getExtras();
-        switch (data.get(ConstantKeys.CURVE).toString()){
-            case ConstantKeys.HOMO_PAIR:
+        shape = (Shape) data.getSerializable(Constants.Keys.SHAPE);
+        newDrawingArea = new NewDrawingArea(getBaseContext());
+        newDrawingArea.setShape(shape);
+
+        /*switch (data.get(Constants.CURVE).toString()){
+            case Constants.HOMO_PAIR:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"));
                 break;
-            case ConstantKeys.NON_HOMO_PAIR:
+            case Constants.NON_HOMO_PAIR:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"),data.getDouble("g"),data.getDouble("f"),data.getDouble("c"),'n');
                 break;
-            case ConstantKeys.GENERAL:
+            case Constants.GENERAL:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("h"),data.getDouble("b"),data.getDouble("g"),data.getDouble("f"),data.getDouble("c"),'g');
                 break;
-            case ConstantKeys.CIRCLE:
+            case Constants.CIRCLE:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("h"),data.getDouble("k"),data.getDouble("r"),'c');
                 break;
-            case ConstantKeys.X_PARABOLA:
+            case Constants.X_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("k"),data.getDouble("a"),data.getDouble("h"),'p');
                 break;
-            case ConstantKeys.Y_PARABOLA:
+            case Constants.Y_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("k"),data.getDouble("a"),data.getDouble("h"),'y');
                 break;
-            case ConstantKeys.GENERAL_X_PARABOLA:
+            case Constants.GENERAL_X_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),'*');
                 break;
-            case ConstantKeys.GENERAL_Y_PARABOLA:
+            case Constants.GENERAL_Y_PARABOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),'-');
                 break;
-            case ConstantKeys.STANDARD_ELLIPSE:
+            case Constants.STANDARD_ELLIPSE:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'e');
                 break;
-            case ConstantKeys.GENERAL_ELLIPSE:
-                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),ConstantKeys.GENERAL_ELLIPSE);
+            case Constants.GENERAL_ELLIPSE:
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),Constants.GENERAL_ELLIPSE);
                 break;
-            case ConstantKeys.GENERAL_HYPERBOLA:
-                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),ConstantKeys.GENERAL_HYPERBOLA);
+            case Constants.GENERAL_HYPERBOLA:
+                drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),data.getDouble("d"),data.getDouble("e"),data.getDouble("f"),Constants.GENERAL_HYPERBOLA);
                 break;
-            case ConstantKeys.X_HYPERBOLA:
+            case Constants.X_HYPERBOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'h');
                 break;
-            case ConstantKeys.Y_HYPERBOLA:
+            case Constants.Y_HYPERBOLA:
                 drawingArea = new DrawingArea(getBaseContext(),data.getDouble("a"),data.getDouble("b"),'H');
                 break;
-        }
+        }*/
+
+        /*setContentView(R.layout.zoomable_draw_area);
+        DrawingFragment drawingFragment = DrawingFragment.newInstance(drawingArea);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.drawing_container,drawingFragment);
+        fragmentTransaction.commit();*/
 
         setContentView(R.layout.zoomable_draw_area);
-        DrawingFragment drawingFragment = DrawingFragment.newInstance(drawingArea);
+        DrawingFragment drawingFragment = DrawingFragment.newInstance(newDrawingArea);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.drawing_container,drawingFragment);
         fragmentTransaction.commit();
 
     }
 
-    public static DrawingArea getDrawingArea(){
+    /*public static DrawingArea getNewDrawingArea(){
         return drawingArea;
+    }*/
+    public static NewDrawingArea getNewDrawingArea(){
+        return newDrawingArea;
     }
 }

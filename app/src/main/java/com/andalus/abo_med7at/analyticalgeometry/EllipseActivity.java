@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
+
 public class EllipseActivity extends AppCompatActivity {
     private EditText a_e_g , b_e_g,d_e_g,e_e_g,f_e_g;
     private double a_g , b_g , d_g , e_g , f_g;
@@ -48,7 +50,7 @@ public class EllipseActivity extends AppCompatActivity {
                     i.putExtra("d",d_g);
                     i.putExtra("e",e_g);
                     i.putExtra("f",f_g);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL_ELLIPSE);
+                    i.putExtra(Constants.Keys.CURVE, Constants.GENERAL_ELLIPSE);
                     if(a_g == b_g){
                         Toast.makeText(getBaseContext(),"NOT Ellipse",Toast.LENGTH_LONG).show();
                     }else if(d_g == 0 && e_g==0 &&f_g>=0){
@@ -77,7 +79,7 @@ public class EllipseActivity extends AppCompatActivity {
                     Intent i = new Intent(EllipseActivity.this,DrawingClass.class);
                     i.putExtra("a",a_e_s);
                     i.putExtra("b",b_e_s);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.STANDARD_ELLIPSE);
+                    i.putExtra(Constants.Keys.CURVE, Constants.STANDARD_ELLIPSE);
                     if(a_e_s > 0 && b_e_s > 0){
                         startActivity(i);
                     }else{

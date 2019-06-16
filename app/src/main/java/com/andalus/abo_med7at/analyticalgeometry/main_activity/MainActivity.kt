@@ -8,19 +8,20 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.andalus.abo_med7at.analyticalgeometry.*
+import com.andalus.abo_med7at.analyticalgeometry.circle_activity.CircleActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
-    //Test Comment
+
     private val presenter = MainActivityPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter.onActivityCreated()
+        presenter.loadImportantComponents()
 
         btnPairOfLine.setOnClickListener {
             presenter.onPairButtonClicked()

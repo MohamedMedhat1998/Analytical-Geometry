@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
+
 public class GeneralActivity extends AppCompatActivity {
     private double a , h , b , g , f , c ;
     private EditText a_val , h_val , b_val , g_val , f_val, c_val;
@@ -48,7 +50,7 @@ public class GeneralActivity extends AppCompatActivity {
                     i.putExtra("g",g);
                     i.putExtra("f",f);
                     i.putExtra("c",c);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL);
+                    i.putExtra(Constants.Keys.CURVE, Constants.GENERAL);
                     startActivity(i);
                 }catch (Exception e){
                     Toast.makeText(getBaseContext(),"Missing some data",Toast.LENGTH_LONG).show();
