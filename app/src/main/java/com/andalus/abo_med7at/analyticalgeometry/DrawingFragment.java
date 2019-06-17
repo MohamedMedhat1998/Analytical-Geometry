@@ -36,6 +36,7 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
         screenY = displayMetrics.widthPixels;
         Log.d("DIMENS","Screen Area Height : " + displayMetrics.heightPixels);
         Log.d("DIMENS","Screen Width : " + displayMetrics.widthPixels);
+        Log.d("DRAWING FRAGMENT","onCreateView");
         Toast.makeText(getContext(), R.string.pinch_to_zoom, Toast.LENGTH_LONG).show();
         return newDrawingArea;
     }

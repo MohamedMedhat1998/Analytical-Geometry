@@ -24,7 +24,8 @@ public class CircleActivity extends AppCompatActivity implements CircleActivityC
     private EditText x1_e, x2_e, y1_e, y2_e;
     private EditText a_val_c, b_val_c, g_val_c, f_val_c, c_val_c;
 
-    private CircleActivityContract.Presenter presenter = new CircleActivityPresenter(this);
+    private CircleActivityContract.Presenter
+            presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +57,12 @@ public class CircleActivity extends AppCompatActivity implements CircleActivityC
         btn_draw_standard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    presenter.validateAndSetValues(e_h.getText().toString(),
-                            e_k.getText().toString(),
-                            e_r.getText().toString());
-                    presenter.onDrawPressed();
+                presenter = new StandardCirclePresenter(CircleActivity.this);
+                ((StandardCirclePresenter) presenter).
+                        validateAndSetValues(e_h.getText().toString(),
+                                e_k.getText().toString(),
+                                e_r.getText().toString());
+                presenter.onDrawPressed();
 
 
                 /*try {
@@ -80,7 +83,15 @@ public class CircleActivity extends AppCompatActivity implements CircleActivityC
         btn_draw_general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
+                presenter = new GeneralCirclePresenter(CircleActivity.this);
+                ((GeneralCirclePresenter) presenter)
+                        .validateAndSetValues(a_val_c.getText().toString(),
+                                b_val_c.getText().toString(),
+                                g_val_c.getText().toString(),
+                                f_val_c.getText().toString(),
+                                c_val_c.getText().toString());
+                presenter.onDrawPressed();
+                /*try {
                     a = Double.parseDouble(a_val_c.getText().toString());
                     b = Double.parseDouble(b_val_c.getText().toString());
                     g = Double.parseDouble(g_val_c.getText().toString()) / 2.0;
@@ -105,7 +116,7 @@ public class CircleActivity extends AppCompatActivity implements CircleActivityC
                     }
                 } catch (Exception e) {
                     Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
 
@@ -144,12 +155,12 @@ public class CircleActivity extends AppCompatActivity implements CircleActivityC
     @Override
     public void navigateToDrawingClass(@NotNull Shape shape) {
         Intent i = new Intent(CircleActivity.this, DrawingClass.class);
-        i.putExtra(Constants.Keys.SHAPE,shape);
+        i.putExtra(Constants.Keys.SHAPE, shape);
         startActivity(i);
     }
 
     @Override
     public void showMessage(@NotNull String text) {
-        Toast.makeText(getBaseContext(),text,Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG).show();
     }
 }

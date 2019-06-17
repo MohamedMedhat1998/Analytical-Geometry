@@ -5,20 +5,13 @@ import com.andalus.abo_med7at.analyticalgeometry.models.circle.StandardCircle
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants
 import java.lang.Exception
 
-class CircleActivityPresenter(private val view: CircleActivityContract.View) :
-        CircleActivityContract.Presenter {
+class StandardCirclePresenter(override var view: CircleActivityContract.View) :
+        CircleActivityContract.Presenter() {
 
-    private lateinit var circle: Circle
-    private var isValid = false
+    override lateinit var circle: Circle
+    override var isValid: Boolean = false
 
-    override fun onDrawPressed() {
-        if (isValid)
-            view.navigateToDrawingClass(circle)
-        else
-            view.showMessage(Constants.Messages.MISSING_DATA)
-    }
-
-    override fun validateAndSetValues(h: String?, k: String?, r: String?) {
+    fun validateAndSetValues(h: String?, k: String?, r: String?) {
         try {
             circle = StandardCircle()
             (circle as StandardCircle).h = h!!.toDouble()
