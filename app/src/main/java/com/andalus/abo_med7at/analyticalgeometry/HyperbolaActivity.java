@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
+
 public class HyperbolaActivity extends AppCompatActivity {
     private EditText a_e_g , b_e_g,d_e_g,e_e_g,f_e_g;
     private double a_g , b_g , d_g , e_g , f_g;
@@ -51,7 +53,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     i.putExtra("d",d_g);
                     i.putExtra("e",e_g);
                     i.putExtra("f",f_g);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.GENERAL_HYPERBOLA);
+                    i.putExtra(Constants.Keys.CURVE, Constants.GENERAL_HYPERBOLA);
                     /*else if(d_g == 0 && e_g==0 &&f_g>=0){
                         Toast.makeText(getBaseContext(),"Unable to draw",Toast.LENGTH_LONG).show();
                     }else */if((a_g >= 0 && b_g >= 0)||(a_g <= 0 && b_g <= 0)){
@@ -78,7 +80,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.Y_HYPERBOLA);
+                    i.putExtra(Constants.Keys.CURVE, Constants.Y_HYPERBOLA);
                     if(a > 0 && b > 0){
                         startActivity(i);
                     }else {
@@ -102,7 +104,7 @@ public class HyperbolaActivity extends AppCompatActivity {
                     Intent i = new Intent(HyperbolaActivity.this,DrawingClass.class);
                     i.putExtra("a",a);
                     i.putExtra("b",b);
-                    i.putExtra(ConstantKeys.CURVE,ConstantKeys.X_HYPERBOLA);
+                    i.putExtra(Constants.Keys.CURVE, Constants.X_HYPERBOLA);
                     if(a > 0 && b > 0){
                         startActivity(i);
                     }else {

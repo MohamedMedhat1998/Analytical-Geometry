@@ -6,7 +6,7 @@ class MainActivityPresenter(private val view: MainActivityContract.View) : MainA
         view.navigateToPrivacyPolicyWebsite()
     }
 
-    override fun onActivityCreated() {
+    override fun loadImportantComponents() {
         view.loadAd()
     }
 

@@ -4,13 +4,12 @@
     android:background="@color/Gray_200"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:gravity="center|top"
     android:orientation="vertical"
     android:layout_height="wrap_content"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.CircleActivity">
+    tools:context="com.andalus.abo_med7at.analyticalgeometry.circle_activity.CircleActivity">
 
     <android.support.v7.widget.CardView
         style="@style/topCardStyle"

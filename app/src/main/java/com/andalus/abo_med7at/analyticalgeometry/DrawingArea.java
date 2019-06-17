@@ -8,6 +8,8 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
+
 
 /**
  * Created by Abo_Med7at on 18/04/2017.
@@ -40,7 +42,7 @@ public class DrawingArea extends View {
         aPair = a_val;
         hPair = h_val;
         bPair = b_val;
-        curve = ConstantKeys.HOMO_PAIR;
+        curve = Constants.HOMO_PAIR;
     }
 
     public DrawingArea(Context context, double a_val, double h_val, double b_val, double g_val, double f_val, double c_val, char ch) {
@@ -52,9 +54,9 @@ public class DrawingArea extends View {
             gNonPair = g_val;
             fNonPair = f_val;
             cNonPair = c_val;
-            curve = ConstantKeys.NON_HOMO_PAIR;
+            curve = Constants.NON_HOMO_PAIR;
         } else if (ch == 'g') {
-            curve = ConstantKeys.GENERAL;
+            curve = Constants.GENERAL;
             aGeneral = a_val;
             hGeneral = h_val;
             bGeneral = b_val;
@@ -69,31 +71,31 @@ public class DrawingArea extends View {
         super(context);
         switch (c) {
             case 'c':
-                curve = ConstantKeys.CIRCLE;
+                curve = Constants.Keys.CIRCLE;
                 hCircle = h;
                 kCircle = k;
                 rCircle = r;
                 break;
             case 'p':
-                curve = ConstantKeys.X_PARABOLA;
+                curve = Constants.X_PARABOLA;
                 kXParabola = h;
                 aXParabola = k;
                 hXParabola = r;
                 break;
             case 'y':
-                curve = ConstantKeys.Y_PARABOLA;
+                curve = Constants.Y_PARABOLA;
                 kYParabola = h;
                 aYParabola = k;
                 hYParabola = r;
                 break;
             case '*':
-                curve = ConstantKeys.GENERAL_X_PARABOLA;
+                curve = Constants.GENERAL_X_PARABOLA;
                 dGenXPara = h;
                 eGenXPara = k;
                 fGenXPara = r;
                 break;
             case '-':
-                curve = ConstantKeys.GENERAL_Y_PARABOLA;
+                curve = Constants.GENERAL_Y_PARABOLA;
                 dGenYPara = h;
                 eGenYPara = k;
                 fGenYPara = r;
@@ -106,17 +108,17 @@ public class DrawingArea extends View {
         super(context);
         switch (c) {
             case 'e':
-                curve = ConstantKeys.STANDARD_ELLIPSE;
+                curve = Constants.STANDARD_ELLIPSE;
                 aStandardEllipse = a;
                 bStandardEllipse = b;
                 break;
             case 'h':
-                curve = ConstantKeys.X_HYPERBOLA;
+                curve = Constants.X_HYPERBOLA;
                 aXHyperbola = a;
                 bXHyperbola = b;
                 break;
             case 'H':
-                curve = ConstantKeys.Y_HYPERBOLA;
+                curve = Constants.Y_HYPERBOLA;
                 aYHyperbola = a;
                 bYHyperbola = b;
                 break;
@@ -127,21 +129,21 @@ public class DrawingArea extends View {
     public DrawingArea(Context context, double a, double b, double d, double e, double f, String givenCurve) {
         super(context);
         switch (givenCurve) {
-            case ConstantKeys.GENERAL_ELLIPSE:
+            case Constants.GENERAL_ELLIPSE:
                 aGeneralEllipse = a;
                 bGeneralEllipse = b;
                 dGeneralEllipse = d;
                 eGeneralEllipse = e;
                 fGeneralEllipse = f;
-                curve = ConstantKeys.GENERAL_ELLIPSE;
+                curve = Constants.GENERAL_ELLIPSE;
                 break;
-            case ConstantKeys.GENERAL_HYPERBOLA:
+            case Constants.GENERAL_HYPERBOLA:
                 aGeneralHyperbola = a;
                 bGeneralHyperbola = b;
                 dGeneralHyperbola = d;
                 eGeneralHyperbola = e;
                 fGeneralHyperbola = f;
-                curve = ConstantKeys.GENERAL_HYPERBOLA;
+                curve = Constants.GENERAL_HYPERBOLA;
                 break;
         }
 
@@ -154,43 +156,43 @@ public class DrawingArea extends View {
         red.setColor(Color.RED);
         drawAxes(canvas);
         switch (curve) {
-            case ConstantKeys.HOMO_PAIR:
+            case Constants.HOMO_PAIR:
                 drawPair(canvas);
                 break;
-            case ConstantKeys.NON_HOMO_PAIR:
+            case Constants.NON_HOMO_PAIR:
                 drawNonPair(canvas);
                 break;
-            case ConstantKeys.CIRCLE:
+            case Constants.Keys.CIRCLE:
                 drawCircle(canvas);
                 break;
-            case ConstantKeys.X_PARABOLA:
+            case Constants.X_PARABOLA:
                 drawXParabola(canvas);
                 break;
-            case ConstantKeys.Y_PARABOLA:
+            case Constants.Y_PARABOLA:
                 drawYParabola(canvas);
                 break;
-            case ConstantKeys.GENERAL_X_PARABOLA:
+            case Constants.GENERAL_X_PARABOLA:
                 drawGenXPara(canvas);
                 break;
-            case ConstantKeys.GENERAL_Y_PARABOLA:
+            case Constants.GENERAL_Y_PARABOLA:
                 drawGenYPara(canvas);
                 break;
-            case ConstantKeys.STANDARD_ELLIPSE:
+            case Constants.STANDARD_ELLIPSE:
                 drawStandardEllipse(canvas);
                 break;
-            case ConstantKeys.GENERAL_ELLIPSE:
+            case Constants.GENERAL_ELLIPSE:
                 drawGeneralEllipse(canvas);
                 break;
-            case ConstantKeys.GENERAL_HYPERBOLA:
+            case Constants.GENERAL_HYPERBOLA:
                 drawGeneralHyperbola(canvas);
                 break;
-            case ConstantKeys.X_HYPERBOLA:
+            case Constants.X_HYPERBOLA:
                 drawXHyperbola(canvas);
                 break;
-            case ConstantKeys.Y_HYPERBOLA:
+            case Constants.Y_HYPERBOLA:
                 drawYHyperbola(canvas);
                 break;
-            case ConstantKeys.GENERAL:
+            case Constants.GENERAL:
                 drawGeneral(canvas);
                 break;
         }

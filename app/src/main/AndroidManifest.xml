@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".PairActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".DrawingClass" />
-        <activity android:name=".CircleActivity" android:parentActivityName=".main_activity.MainActivity"/>
+        <activity android:name=".circle_activity.CircleActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".ParabolaActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".EllipseActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".HyperbolaActivity" android:parentActivityName=".main_activity.MainActivity"/>

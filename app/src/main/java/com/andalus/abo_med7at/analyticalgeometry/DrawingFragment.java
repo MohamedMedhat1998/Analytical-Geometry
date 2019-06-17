@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class DrawingFragment extends Fragment implements View.OnTouchListener{
 
-    private DrawingArea drawingArea;
+    //private DrawingArea newDrawingArea;
+    private NewDrawingArea newDrawingArea;
     private float mScaleFactor = 1.0f;
     private ScaleGestureDetector mScaleGestureDetector;
     private float currentX,currentY;
@@ -25,22 +26,26 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mScaleGestureDetector = new ScaleGestureDetector(getContext(),new ScaleListener());
-        if(drawingArea == null){
-            drawingArea = DrawingClass.getDrawingArea();
+        if(newDrawingArea == null){
+            newDrawingArea = DrawingClass.getNewDrawingArea();
         }
-        drawingArea.setOnTouchListener(this);
+        newDrawingArea.setOnTouchListener(this);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         screenX = displayMetrics.heightPixels;
         screenY = displayMetrics.widthPixels;
         Log.d("DIMENS","Screen Area Height : " + displayMetrics.heightPixels);
         Log.d("DIMENS","Screen Width : " + displayMetrics.widthPixels);
+        Log.d("DRAWING FRAGMENT","onCreateView");
         Toast.makeText(getContext(), R.string.pinch_to_zoom, Toast.LENGTH_LONG).show();
-        return drawingArea;
+        return newDrawingArea;
     }
 
-    public void setDrawingArea(DrawingArea drawingArea) {
-        this.drawingArea = drawingArea;
+    /*public void setNewDrawingArea(DrawingArea newDrawingArea) {
+        this.newDrawingArea = newDrawingArea;
+    }*/
+    public void setNewDrawingArea(NewDrawingArea newDrawingArea) {
+        this.newDrawingArea = this.newDrawingArea;
     }
 
     @Override
@@ -49,12 +54,12 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
             case MotionEvent.ACTION_DOWN:
                 currentX = motionEvent.getX();
                 currentY = motionEvent.getY();
-                differenceX = drawingArea.getX() - currentX;
-                differenceY = drawingArea.getY() - currentY;
+                differenceX = newDrawingArea.getX() - currentX;
+                differenceY = newDrawingArea.getY() - currentY;
                 break;
             case MotionEvent.ACTION_MOVE:
-                drawingArea.setX(motionEvent.getX()+differenceX);
-                drawingArea.setY(motionEvent.getY()+differenceY);
+                newDrawingArea.setX(motionEvent.getX()+differenceX);
+                newDrawingArea.setY(motionEvent.getY()+differenceY);
                 float fx = motionEvent.getX()+differenceX, fy = motionEvent.getY()+differenceY;
                 Log.d("DIMENS","NEW LOCATION X : " + fx);
                 Log.d("DIMENS","NEW LOCATION Y : " + fy);
@@ -78,8 +83,8 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
             mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
             Log.d("SCALE_FACTOR","BEFORE : " +mScaleFactor);
             if(mScaleFactor >= 1.0f && mScaleFactor <= 4.0f){
-                drawingArea.setScaleX(mScaleFactor);
-                drawingArea.setScaleY(mScaleFactor);
+                newDrawingArea.setScaleX(mScaleFactor);
+                newDrawingArea.setScaleY(mScaleFactor);
             }
             if(mScaleFactor > 4.0f){
                 mScaleFactor = 4.0f;
@@ -92,9 +97,15 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener{
         }
     }
 
-    public static DrawingFragment newInstance(DrawingArea drawingArea) {
+    /*public static DrawingFragment newInstance(DrawingArea newDrawingArea) {
         DrawingFragment fragment = new DrawingFragment();
-        fragment.setDrawingArea(drawingArea);
+        fragment.setNewDrawingArea(newDrawingArea);
+        return fragment;
+    }*/
+
+    public static DrawingFragment newInstance(NewDrawingArea newDrawingArea) {
+        DrawingFragment fragment = new DrawingFragment();
+        fragment.setNewDrawingArea(newDrawingArea);
         return fragment;
     }
 }

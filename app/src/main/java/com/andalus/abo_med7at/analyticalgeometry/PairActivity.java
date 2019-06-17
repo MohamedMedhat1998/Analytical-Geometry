@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
+
 public class PairActivity extends AppCompatActivity {
     private double a, h, b, g, f, c;
     private EditText a_val, h_val, b_val, a_val_non, h_val_non, b_val_non, g_val_non, f_val_non, c_val_non;
@@ -48,7 +50,7 @@ public class PairActivity extends AppCompatActivity {
                     i.putExtra("a", a);
                     i.putExtra("h", h);
                     i.putExtra("b", b);
-                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.HOMO_PAIR);
+                    i.putExtra(Constants.Keys.CURVE, Constants.HOMO_PAIR);
                     if (h * h - a * b < 0) {
                         Toast.makeText(getBaseContext(), "NOT PAIR", Toast.LENGTH_SHORT).show();
                     } else {
@@ -82,7 +84,7 @@ public class PairActivity extends AppCompatActivity {
                     i.putExtra("g", g);
                     i.putExtra("f", f);
                     i.putExtra("c", c);
-                    i.putExtra(ConstantKeys.CURVE, ConstantKeys.NON_HOMO_PAIR);
+                    i.putExtra(Constants.Keys.CURVE, Constants.NON_HOMO_PAIR);
                     if (h * h - a * b >= 0 && a * b * c + 2 * f * g * h - a * f * f - b * g * g - c * h * h == 0) {
                         if (a != 0 && b != 0) {
                             startActivity(i);

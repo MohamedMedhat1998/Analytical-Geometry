@@ -20,7 +20,7 @@ interface MainActivityContract {
         fun onEllipseButtonClicked()
         fun onHyperbolaButtonClicked()
         fun onGeneralButtonClicked()
-        fun onActivityCreated()
+        fun loadImportantComponents()
         fun onPrivacyPolicyItemSelected()
     }
 }
