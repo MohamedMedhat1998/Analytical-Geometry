@@ -20,6 +20,7 @@ class StandardCirclePresenter(override var view: CircleActivityContract.View) :
             isValid = true
         } catch (e: Exception) {
             isValid = false
+            e.printStackTrace()
         }
     }
 
