@@ -219,7 +219,6 @@ public class DrawingArea extends View {
             yCoor = (float) ((xCoor) * ((-hPair - Math.sqrt(hPair * hPair - aPair * bPair)) / bPair));
             canvas.drawPoint(xCoor * 20 + getWidth() / 2f, invertY(yCoor), red);
         }
-
     }
 
     private void drawAxes(Canvas canvas) {

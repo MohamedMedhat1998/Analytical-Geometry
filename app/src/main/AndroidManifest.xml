@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PairActivity" android:parentActivityName=".main_activity.MainActivity"/>
+        <activity android:name=".pair_activity.PairActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".DrawingClass" />
         <activity android:name=".circle_activity.CircleActivity" android:parentActivityName=".main_activity.MainActivity"/>
         <activity android:name=".ParabolaActivity" android:parentActivityName=".main_activity.MainActivity"/>

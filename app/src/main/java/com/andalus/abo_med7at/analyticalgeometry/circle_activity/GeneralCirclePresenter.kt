@@ -9,15 +9,15 @@ class GeneralCirclePresenter(override var view: CircleActivityContract.View)
     override lateinit var circle: Circle
     override var isValid = false
 
-    fun validateAndSetValues(a: String?, b: String?, g: String?, f: String?, c: String?) {
+    fun validateAndSetValues(a: String, b: String, g: String, f: String, c: String) {
         try {
             circle = GeneralCircle()
             val generalCircle: GeneralCircle = circle as GeneralCircle
-            generalCircle.a = a!!.toDouble()
-            generalCircle.b = b!!.toDouble()
-            generalCircle.g = g!!.toDouble()
-            generalCircle.f = f!!.toDouble()
-            generalCircle.c = c!!.toDouble()
+            generalCircle.a = a.toDouble()
+            generalCircle.b = b.toDouble()
+            generalCircle.g = g.toDouble()
+            generalCircle.f = f.toDouble()
+            generalCircle.c = c.toDouble()
             isValid = true
         } catch (e: Exception) {
             isValid = false

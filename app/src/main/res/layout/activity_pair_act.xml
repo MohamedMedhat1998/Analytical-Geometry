@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center|top"
-        tools:context="com.andalus.abo_med7at.analyticalgeometry.PairActivity">
+        tools:context="com.andalus.abo_med7at.analyticalgeometry.pair_activity.PairActivity">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             style="@style/topCardStyle"
@@ -113,7 +113,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/non_homogeneous" />
+                    android:text="@string/general_pair" />
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"

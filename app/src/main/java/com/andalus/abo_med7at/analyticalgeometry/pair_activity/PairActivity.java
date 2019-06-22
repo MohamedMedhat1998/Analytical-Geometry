@@ -1,21 +1,28 @@
-package com.andalus.abo_med7at.analyticalgeometry;
+package com.andalus.abo_med7at.analyticalgeometry.pair_activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.DrawingClass;
+import com.andalus.abo_med7at.analyticalgeometry.R;
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
 
-public class PairActivity extends AppCompatActivity {
+import org.jetbrains.annotations.NotNull;
+
+public class PairActivity extends AppCompatActivity implements PairActivityContract.View {
+
     private double a, h, b, g, f, c;
     private EditText a_val, h_val, b_val, a_val_non, h_val_non, b_val_non, g_val_non, f_val_non, c_val_non;
-    private Button btn_draw, btn_draw_non;
+
+    private PairActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +45,19 @@ public class PairActivity extends AppCompatActivity {
         f_val_non = findViewById(R.id.f2_edit_non);
         c_val_non = findViewById(R.id.c_edit_non);
         //------------
-        btn_draw = findViewById(R.id.btn_draw);
+        Button btn_draw = findViewById(R.id.btn_draw);
         btn_draw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
+                presenter = new HomogeneousPairPresenter(PairActivity.this);
+                ((HomogeneousPairPresenter) presenter)
+                        .validateAndSetValues(
+                                a_val.getText().toString(),
+                                h_val.getText().toString(),
+                                b_val.getText().toString());
+                presenter.onDrawPressed();
+
+                /*try {
                     a = Double.parseDouble(a_val.getText().toString());
                     h = Double.parseDouble(h_val.getText().toString()) / 2.0;
                     b = Double.parseDouble(b_val.getText().toString());
@@ -62,14 +77,24 @@ public class PairActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
-                }
+                }*/
 
             }
         });
-        btn_draw_non = findViewById(R.id.btn_draw2);
+        Button btn_draw_non = findViewById(R.id.btn_draw2);
         btn_draw_non.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                presenter = new GeneralPairPresenter(PairActivity.this);
+                ((GeneralPairPresenter) presenter)
+                        .validateAndSetValues(
+                                a_val_non.getText().toString(),
+                                h_val_non.getText().toString(),
+                                b_val_non.getText().toString(),
+                                g_val_non.getText().toString(),
+                                f_val_non.getText().toString(),
+                                c_val_non.getText().toString());
+                presenter.onDrawPressed();
                 try {
                     a = Double.parseDouble(a_val_non.getText().toString());
                     h = Double.parseDouble(h_val_non.getText().toString()) / 2.0;
@@ -107,5 +132,17 @@ public class PairActivity extends AppCompatActivity {
             NavUtils.navigateUpFromSameTask(this);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void navigateToDrawingClass(@NotNull Shape shape) {
+        Intent i = new Intent(PairActivity.this, DrawingClass.class);
+        i.putExtra(Constants.Keys.SHAPE, shape);
+        startActivity(i);
+    }
+
+    @Override
+    public void showMessage(@NotNull String text) {
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
     }
 }

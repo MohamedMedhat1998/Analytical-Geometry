@@ -11,12 +11,13 @@ class StandardCirclePresenter(override var view: CircleActivityContract.View) :
     override lateinit var circle: Circle
     override var isValid: Boolean = false
 
-    fun validateAndSetValues(h: String?, k: String?, r: String?) {
+    fun validateAndSetValues(h: String, k: String, r: String) {
         try {
             circle = StandardCircle()
-            (circle as StandardCircle).h = h!!.toDouble()
-            (circle as StandardCircle).k = k!!.toDouble()
-            (circle as StandardCircle).r = r!!.toDouble()
+            val standardCircle = circle as StandardCircle
+            standardCircle.h = h.toDouble()
+            standardCircle.k = k.toDouble()
+            standardCircle.r = r.toDouble()
             isValid = true
         } catch (e: Exception) {
             isValid = false
