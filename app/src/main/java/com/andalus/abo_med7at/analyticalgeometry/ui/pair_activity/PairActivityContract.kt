@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.pair_activity
+package com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity
 
 import com.andalus.abo_med7at.analyticalgeometry.models.pair_of_lines.PairOfLines
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape

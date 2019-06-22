@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@color/Gray_200"
     android:orientation="vertical"
-    tools:context="com.andalus.abo_med7at.analyticalgeometry.main_activity.MainActivity">
+    tools:context=".ui.main_activity.MainActivity">
 
     <Button
         android:id="@+id/btnPairOfLine"

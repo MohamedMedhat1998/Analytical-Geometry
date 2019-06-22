@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.circle_activity
+package com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity
 
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 import com.andalus.abo_med7at.analyticalgeometry.models.circle.Circle

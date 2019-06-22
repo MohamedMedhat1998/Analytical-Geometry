@@ -13,20 +13,20 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/ADMOB_APP_ID"/>
 
-        <activity android:name=".main_activity.MainActivity" android:launchMode="singleTop">
+        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pair_activity.PairActivity" android:parentActivityName=".main_activity.MainActivity"/>
+        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".DrawingClass" />
-        <activity android:name=".circle_activity.CircleActivity" android:parentActivityName=".main_activity.MainActivity"/>
-        <activity android:name=".ParabolaActivity" android:parentActivityName=".main_activity.MainActivity"/>
-        <activity android:name=".EllipseActivity" android:parentActivityName=".main_activity.MainActivity"/>
-        <activity android:name=".HyperbolaActivity" android:parentActivityName=".main_activity.MainActivity"/>
-        <activity android:name=".GeneralActivity" android:parentActivityName=".main_activity.MainActivity"/>
+        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity android:name=".ui.parabola_activity.ParabolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity android:name=".EllipseActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity android:name=".HyperbolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity android:name=".GeneralActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.pair_activity;
+package com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,17 +19,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class PairActivity extends AppCompatActivity implements PairActivityContract.View {
 
-    private double a, h, b, g, f, c;
     private EditText a_val, h_val, b_val, a_val_non, h_val_non, b_val_non, g_val_non, f_val_non, c_val_non;
-
     private PairActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pair_act);
-        getSupportActionBar().setTitle(getString(R.string.pair_of_lines));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            getSupportActionBar().setTitle(getString(R.string.pair_of_lines));
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         initialize();
     }
 
@@ -57,28 +59,6 @@ public class PairActivity extends AppCompatActivity implements PairActivityContr
                                 b_val.getText().toString());
                 presenter.onDrawPressed();
 
-                /*try {
-                    a = Double.parseDouble(a_val.getText().toString());
-                    h = Double.parseDouble(h_val.getText().toString()) / 2.0;
-                    b = Double.parseDouble(b_val.getText().toString());
-                    Intent i = new Intent(PairActivity.this, DrawingClass.class);
-                    i.putExtra("a", a);
-                    i.putExtra("h", h);
-                    i.putExtra("b", b);
-                    i.putExtra(Constants.Keys.CURVE, Constants.HOMO_PAIR);
-                    if (h * h - a * b < 0) {
-                        Toast.makeText(getBaseContext(), "NOT PAIR", Toast.LENGTH_SHORT).show();
-                    } else {
-                        if (a != 0 && b != 0) {
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
-                }*/
-
             }
         });
         Button btn_draw_non = findViewById(R.id.btn_draw2);
@@ -95,33 +75,7 @@ public class PairActivity extends AppCompatActivity implements PairActivityContr
                                 f_val_non.getText().toString(),
                                 c_val_non.getText().toString());
                 presenter.onDrawPressed();
-                try {
-                    a = Double.parseDouble(a_val_non.getText().toString());
-                    h = Double.parseDouble(h_val_non.getText().toString()) / 2.0;
-                    b = Double.parseDouble(b_val_non.getText().toString());
-                    g = Double.parseDouble(g_val_non.getText().toString()) / 2.0;
-                    f = Double.parseDouble(f_val_non.getText().toString()) / 2.0;
-                    c = Double.parseDouble(c_val_non.getText().toString());
-                    Intent i = new Intent(PairActivity.this, DrawingClass.class);
-                    i.putExtra("a", a);
-                    i.putExtra("h", h);
-                    i.putExtra("b", b);
-                    i.putExtra("g", g);
-                    i.putExtra("f", f);
-                    i.putExtra("c", c);
-                    i.putExtra(Constants.Keys.CURVE, Constants.NON_HOMO_PAIR);
-                    if (h * h - a * b >= 0 && a * b * c + 2 * f * g * h - a * f * f - b * g * g - c * h * h == 0) {
-                        if (a != 0 && b != 0) {
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(getBaseContext(), "Unable to draw", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(getBaseContext(), "NOT PAIR", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getBaseContext(), "Missing some data", Toast.LENGTH_LONG).show();
-                }
+
             }
         });
     }

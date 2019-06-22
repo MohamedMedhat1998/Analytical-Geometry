@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.main_activity
+package com.andalus.abo_med7at.analyticalgeometry.ui.main_activity
 
 import android.content.Intent
 import android.net.Uri
@@ -8,8 +8,9 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.andalus.abo_med7at.analyticalgeometry.*
-import com.andalus.abo_med7at.analyticalgeometry.circle_activity.CircleActivity
-import com.andalus.abo_med7at.analyticalgeometry.pair_activity.PairActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity.ParabolaActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*

@@ -2,8 +2,8 @@ package com.andalus.abo_med7at.analyticalgeometry.utils;
 
 public class Constants {
 
-    public static final String HOMO_PAIR = "homo-pairOfLines";
-    public static final String NON_HOMO_PAIR = "non-homo-pairOfLines";
+    public static final String HOMO_PAIR = "homo-parabola";
+    public static final String NON_HOMO_PAIR = "non-homo-parabola";
     public static final String GENERAL = "general";
     public static final String X_PARABOLA = "x_parabola";
     public static final String Y_PARABOLA = "y_parabola";
@@ -21,7 +21,7 @@ public class Constants {
 
 
 
-        public static final String CIRCLE = "pairOfLines";
+        public static final String CIRCLE = "parabola";
 
     }
 

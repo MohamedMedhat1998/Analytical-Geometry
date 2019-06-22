@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.main_activity
+package com.andalus.abo_med7at.analyticalgeometry.ui.main_activity
 
 interface MainActivityContract {
 

@@ -1,4 +1,4 @@
-package com.andalus.abo_med7at.analyticalgeometry.circle_activity;
+package com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;

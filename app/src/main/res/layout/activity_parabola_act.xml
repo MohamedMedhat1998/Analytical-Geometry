@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical"
-        tools:context="com.andalus.abo_med7at.analyticalgeometry.ParabolaActivity">
+        tools:context="com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity.ParabolaActivity">
 
         <android.support.v7.widget.CardView
             style="@style/topCardStyle"

@@ -1,8 +1,7 @@
-package com.andalus.abo_med7at.analyticalgeometry.circle_activity
+package com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity
 
 import com.andalus.abo_med7at.analyticalgeometry.models.circle.Circle
 import com.andalus.abo_med7at.analyticalgeometry.models.circle.StandardCircle
-import com.andalus.abo_med7at.analyticalgeometry.utils.Constants
 import java.lang.Exception
 
 class StandardCirclePresenter(override var view: CircleActivityContract.View) :
