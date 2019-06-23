@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.andalus.abo_med7at.analyticalgeometry.DrawingClass;
+import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
@@ -28,11 +28,9 @@ public class EllipseActivity extends AppCompatActivity implements EllipseActivit
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ellipse_act);
-        try {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.ellipse));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         initialize();
     }
@@ -84,8 +82,8 @@ public class EllipseActivity extends AppCompatActivity implements EllipseActivit
     }
 
     @Override
-    public void navigateToDrawingClass(@NotNull Shape shape) {
-        Intent i = new Intent(EllipseActivity.this, DrawingClass.class);
+    public void navigateToDrawingActivity(@NotNull Shape shape) {
+        Intent i = new Intent(EllipseActivity.this, DrawingActivity.class);
         i.putExtra(Constants.Keys.SHAPE, shape);
         startActivity(i);
     }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.andalus.abo_med7at.analyticalgeometry.DrawingClass;
+import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
@@ -30,11 +30,9 @@ public class HyperbolaActivity extends AppCompatActivity implements HyperbolaAct
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hyperbola_act);
-        try {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.hyperbola));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
         initialize();
     }
@@ -101,8 +99,8 @@ public class HyperbolaActivity extends AppCompatActivity implements HyperbolaAct
     }
 
     @Override
-    public void navigateToDrawingClass(@NotNull Shape shape) {
-        Intent i = new Intent(HyperbolaActivity.this, DrawingClass.class);
+    public void navigateToDrawingActivity(@NotNull Shape shape) {
+        Intent i = new Intent(HyperbolaActivity.this, DrawingActivity.class);
         i.putExtra(Constants.Keys.SHAPE, shape);
         startActivity(i);
     }

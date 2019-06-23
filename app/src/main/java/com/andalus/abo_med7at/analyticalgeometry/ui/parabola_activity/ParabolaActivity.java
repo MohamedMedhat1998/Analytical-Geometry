@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.andalus.abo_med7at.analyticalgeometry.DrawingClass;
+import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
@@ -33,11 +33,9 @@ public class ParabolaActivity extends AppCompatActivity implements ParabolaActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parabola_act);
-        try {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.parabola));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
         initialize();
     }
@@ -119,8 +117,8 @@ public class ParabolaActivity extends AppCompatActivity implements ParabolaActiv
     }
 
     @Override
-    public void navigateToDrawingClass(@NotNull Shape shape) {
-        Intent i = new Intent(ParabolaActivity.this, DrawingClass.class);
+    public void navigateToDrawingActivity(@NotNull Shape shape) {
+        Intent i = new Intent(ParabolaActivity.this, DrawingActivity.class);
         i.putExtra(Constants.Keys.SHAPE, shape);
         startActivity(i);
     }

@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".DrawingClass" />
+        <activity android:name=".ui.drawing_activity.DrawingActivity" />
         <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".ui.parabola_activity.ParabolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".ui.ellipse_activity.EllipseActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>

@@ -9,7 +9,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 
-class NewDrawingArea(context: Context) :
+class CoordinatePlane(context: Context) :
         View(context) {
 
     lateinit var shape : Shape

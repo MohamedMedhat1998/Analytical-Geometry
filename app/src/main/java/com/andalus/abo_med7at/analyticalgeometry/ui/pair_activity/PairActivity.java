@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.andalus.abo_med7at.analyticalgeometry.DrawingClass;
+import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
@@ -26,11 +26,9 @@ public class PairActivity extends AppCompatActivity implements PairActivityContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pair_act);
-        try{
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.pair_of_lines));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }catch (Exception e){
-            e.printStackTrace();
         }
         initialize();
     }
@@ -89,8 +87,8 @@ public class PairActivity extends AppCompatActivity implements PairActivityContr
     }
 
     @Override
-    public void navigateToDrawingClass(@NotNull Shape shape) {
-        Intent i = new Intent(PairActivity.this, DrawingClass.class);
+    public void navigateToDrawingActivity(@NotNull Shape shape) {
+        Intent i = new Intent(PairActivity.this, DrawingActivity.class);
         i.putExtra(Constants.Keys.SHAPE, shape);
         startActivity(i);
     }

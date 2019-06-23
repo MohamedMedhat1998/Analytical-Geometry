@@ -12,14 +12,14 @@ interface PairActivityContract {
         abstract var isValid: Boolean
         fun onDrawPressed(){
             if (isValid)
-                view.navigateToDrawingClass(pairOfLines)
+                view.navigateToDrawingActivity(pairOfLines)
             else
                 view.showMessage(Constants.Messages.MISSING_DATA)
         }
     }
 
     interface View {
-        fun navigateToDrawingClass(shape: Shape)
+        fun navigateToDrawingActivity(shape: Shape)
         fun showMessage(text: String)
     }
 

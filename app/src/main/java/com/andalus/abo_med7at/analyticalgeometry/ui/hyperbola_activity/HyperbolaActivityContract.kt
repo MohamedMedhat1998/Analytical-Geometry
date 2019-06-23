@@ -12,14 +12,14 @@ interface HyperbolaActivityContract {
         abstract var isValid: Boolean
         fun onDrawPressed(){
             if (isValid)
-                view.navigateToDrawingClass(hyperbola)
+                view.navigateToDrawingActivity(hyperbola)
             else
                 view.showMessage(Constants.Messages.MISSING_DATA)
         }
     }
 
     interface View {
-        fun navigateToDrawingClass(shape: Shape)
+        fun navigateToDrawingActivity(shape: Shape)
         fun showMessage(text: String)
     }
 }
