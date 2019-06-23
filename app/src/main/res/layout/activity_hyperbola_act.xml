@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context="com.andalus.abo_med7at.analyticalgeometry.HyperbolaActivity">
+        tools:context="com.andalus.abo_med7at.analyticalgeometry.ui.hyperbola_activity.HyperbolaActivity">
 
         <android.support.v7.widget.CardView
             style="@style/topCardStyle"
