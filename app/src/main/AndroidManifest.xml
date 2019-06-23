@@ -24,7 +24,7 @@
         <activity android:name=".DrawingClass" />
         <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".ui.parabola_activity.ParabolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".EllipseActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity android:name=".ui.ellipse_activity.EllipseActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".HyperbolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
         <activity android:name=".GeneralActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
     </application>
