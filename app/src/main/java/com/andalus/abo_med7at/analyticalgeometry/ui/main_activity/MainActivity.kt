@@ -9,6 +9,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import com.andalus.abo_med7at.analyticalgeometry.*
 import com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.ellipse_activity.EllipseActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.general_activity.GeneralActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.hyperbola_activity.HyperbolaActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity.ParabolaActivity
 import com.google.android.gms.ads.AdRequest

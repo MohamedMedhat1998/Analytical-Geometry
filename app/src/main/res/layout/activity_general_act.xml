@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_height="wrap_content"
-        tools:context="com.andalus.abo_med7at.analyticalgeometry.GeneralActivity">
+        tools:context="com.andalus.abo_med7at.analyticalgeometry.ui.general_activity.GeneralActivity">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
