@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/Light_Blue_600</item>
         <item name="colorPrimaryDark">@color/Light_Blue_800</item>
         <item name="colorAccent">@color/Red_700</item>
+        <item name="android:windowBackground">@color/Gray_200</item>
     </style>
 
     <style name="buttonStyleMainActivity" parent="Widget.AppCompat.Button.Colored">

@@ -11,7 +11,7 @@ class StandardXHyperbola : Hyperbola() {
     var a: Double = 0.0
     var b: Double = 0.0
 
-    var flag = 1
+    private var flag = 1
 
     override fun draw(canvas: Canvas, view: View) {
         if (flag == 1) {

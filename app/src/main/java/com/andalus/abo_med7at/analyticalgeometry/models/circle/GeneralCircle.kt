@@ -3,6 +3,7 @@ package com.andalus.abo_med7at.analyticalgeometry.models.circle
 import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import kotlin.math.sqrt
 
 class GeneralCircle : Circle() {
 
@@ -37,7 +38,7 @@ class GeneralCircle : Circle() {
                 if (a == b && g * g + f * f - c >= 0.0) {
                     localStandardCircle.h = -g
                     localStandardCircle.k = -f
-                    localStandardCircle.r = Math.sqrt(g * g + f * f - c)
+                    localStandardCircle.r = sqrt(g * g + f * f - c)
 
                     if (a == 0.0)
                         return null

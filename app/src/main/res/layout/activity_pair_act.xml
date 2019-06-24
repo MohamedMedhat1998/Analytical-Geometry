@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/Gray_200"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -11,7 +10,7 @@
         android:orientation="vertical"
         android:gravity="center|top"
         tools:context=".ui.pair_activity.PairActivity">
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             style="@style/topCardStyle"
             android:layout_height="wrap_content">
@@ -28,7 +27,6 @@
                     android:layout_height="0px"/>
 
                 <TextView
-                    android:id="@+id/textView"
                     style="@style/titleStyle"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
@@ -51,10 +49,10 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="x^2+" />
@@ -64,10 +62,10 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/textView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="xy+" />
@@ -77,9 +75,9 @@
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
                         <TextView
-                            android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="y^2=0" />
@@ -97,9 +95,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/draw" />
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             style="@style/bottomCardStyle"
             android:layout_height="wrap_content">
@@ -110,7 +108,6 @@
 
                 <TextView
                     style="@style/titleStyle"
-                    android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/general_pair" />
@@ -131,10 +128,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="x^2+" />
@@ -144,10 +141,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="xy+" />
@@ -157,10 +154,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="y^2+" />
@@ -169,10 +166,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="x+" />
@@ -181,10 +178,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="y+" />
@@ -193,10 +190,10 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:importantForAutofill="no" />
 
                         <TextView
-                            android:id="@+id/txtView7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="=0" />
@@ -215,7 +212,7 @@
                     android:text="@string/draw" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

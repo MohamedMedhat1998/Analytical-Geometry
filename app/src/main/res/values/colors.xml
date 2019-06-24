@@ -2,7 +2,6 @@
 <resources>
 
 
-    <color name="Transparent">#00ffffff</color>
     <color name="White">#ffffff</color>
     <color name="Gray_200">#EEEEEE</color>
     <color name="Gray_300">#E0E0E0</color>
@@ -13,7 +12,5 @@
 
 
     <color name="Red_700">#D32F2F</color>
-    <color name="Red_A700">#D50000</color>
 
-    <color name="Green_Custom">#1d9f27</color>
 </resources>

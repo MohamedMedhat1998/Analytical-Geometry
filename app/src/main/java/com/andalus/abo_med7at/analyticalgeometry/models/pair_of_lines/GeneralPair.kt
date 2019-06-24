@@ -15,7 +15,7 @@ class GeneralPair : PairOfLines() {
     var f: Double = 0.0
     var c: Double = 0.0
 
-    var flag = 1
+    private var flag = 1
 
     override fun draw(canvas: Canvas, view: View) {
 
