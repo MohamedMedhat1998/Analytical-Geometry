@@ -1,8 +1,8 @@
 package com.andalus.abo_med7at.analyticalgeometry.models.ellipse
 
 import android.graphics.Canvas
+import android.graphics.RectF
 import android.view.View
-import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import kotlin.math.sqrt
 
@@ -11,40 +11,24 @@ class StandardEllipse : Ellipse() {
     var a: Double = 0.0
     var b: Double = 0.0
 
-    private var flag = 1
+    private var canEdit = true
 
     override fun draw(canvas: Canvas, view: View) {
-        if (flag == 1) {
+        if (canEdit) {
             a = sqrt(a)
             b = sqrt(b)
-            flag = 0
+            canEdit = false
         }
 
         if (a > 0 && b > 0) {
             //---------------------ACTUAL DRAWING-------------------
-            var xCoordinate: Float
-            var yCoordinate: Float
+            val rectF = RectF(
+                    (view.width / 2 - a * 20).toFloat(),
+                    (view.height / 2 - b * 20).toFloat(),
+                    (view.width / 2 + a * 20).toFloat(),
+                    (view.height / 2 + b * 20).toFloat())
 
-            run {
-                var i = (-view.height).toFloat()
-                while (i < view.height) {
-                    yCoordinate = i
-                    xCoordinate = (a * sqrt(1 - yCoordinate * yCoordinate / (b * b))).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
-                    i += 0.05f
-                }
-            }
-            var i = (-view.height).toFloat()
-            while (i < view.height) {
-                yCoordinate = i
-                xCoordinate = (-a * sqrt(1 - yCoordinate * yCoordinate / (b * b))).toFloat()
-                canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                        invertY(yCoordinate, view.height),
-                        ColorPicker.pickDefault())
-                i += 0.05f
-            }
+            canvas.drawOval(rectF, ColorPicker.pickDefault())
             //---------------------END OF DRAWING-------------------
         } else {
             //TODO write an error message ("UNABLE TO DRAW")

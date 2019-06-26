@@ -30,9 +30,10 @@ class StandardYHyperbola : Hyperbola() {
                 while (i < view.width) {
                     xCoordinate = i
                     yCoordinate = (b * sqrt(1 + xCoordinate * xCoordinate / (a * a))).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
+                    if (!yCoordinate.isNaN())
+                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                invertY(yCoordinate, view.height),
+                                ColorPicker.pickDefault())
                     i += 0.05f
                 }
             }
@@ -40,9 +41,10 @@ class StandardYHyperbola : Hyperbola() {
             while (i < view.width) {
                 xCoordinate = i
                 yCoordinate = (-b * sqrt(1 + xCoordinate * xCoordinate / (a * a))).toFloat()
-                canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                        invertY(yCoordinate, view.height),
-                        ColorPicker.pickDefault())
+                if (!yCoordinate.isNaN())
+                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                            invertY(yCoordinate, view.height),
+                            ColorPicker.pickDefault())
                 i += 0.05f
             }
             //------------END OF DRAWING---------------

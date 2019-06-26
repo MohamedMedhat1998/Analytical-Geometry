@@ -27,9 +27,10 @@ class StandardXParabola : Parabola() {
                 while (i < view.width) {
                     xCoordinate = i
                     yCoordinate = (k + sqrt(a * xCoordinate - a * h)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
+                    if (!yCoordinate.isNaN())
+                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                invertY(yCoordinate, view.height),
+                                ColorPicker.pickDefault())
                     i += 0.05f
                 }
             }
@@ -37,9 +38,10 @@ class StandardXParabola : Parabola() {
             while (i < view.width) {
                 xCoordinate = i
                 yCoordinate = (k - sqrt(a * xCoordinate - a * h)).toFloat()
-                canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                        invertY(yCoordinate, view.height),
-                        ColorPicker.pickDefault())
+                if (!yCoordinate.isNaN())
+                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                            invertY(yCoordinate, view.height),
+                            ColorPicker.pickDefault())
                 i += 0.05f
             }
             //---------END OF DRAWING--------------

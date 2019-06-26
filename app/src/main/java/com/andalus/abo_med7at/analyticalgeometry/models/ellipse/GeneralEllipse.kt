@@ -1,9 +1,11 @@
 package com.andalus.abo_med7at.analyticalgeometry.models.ellipse
 
 import android.graphics.Canvas
+import android.graphics.RectF
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 class GeneralEllipse : Ellipse() {
@@ -27,29 +29,19 @@ class GeneralEllipse : Ellipse() {
             canvas.drawText("NOT ELLIPSE", 50f, 50f, ColorPicker.pickDefault())
         } else {
             //-------------------ACTUAL DRAWING----------------
-            var xCoordinate: Float
-            var yCoordinate: Float
+            val denominator = -f + d.pow(2) / (4 * a) + e.pow(2) / (4 * c)
+            val aStandard = sqrt(denominator / a)
+            val bStandard = sqrt(denominator / c)
+            val shiftX = -d / (2 * a)
+            val shiftY = -e / (2 * c)
 
-            run {
-                var i = (-view.height).toFloat()
-                while (i < view.height) {
-                    yCoordinate = i
-                    xCoordinate = ((-d - sqrt(d * d - 4.0 * a * (c * yCoordinate.toDouble() * yCoordinate.toDouble() + e * yCoordinate + f))) / (2 * a)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
-                    i += 0.05f
-                }
-            }
-            var i = (-view.height).toFloat()
-            while (i < view.height) {
-                yCoordinate = i
-                xCoordinate = ((-d + sqrt(d * d - 4.0 * a * (c * yCoordinate.toDouble() * yCoordinate.toDouble() + e * yCoordinate + f))) / (2 * a)).toFloat()
-                canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                        invertY(yCoordinate, view.height),
-                        ColorPicker.pickDefault())
-                i += 0.05f
-            }
+            val rectF = RectF(
+                    (view.width / 2 - (aStandard - shiftX) * 20).toFloat(),
+                    (view.height / 2 - (bStandard + shiftY) * 20).toFloat(),
+                    (view.width / 2 + (aStandard + shiftX) * 20).toFloat(),
+                    (view.height / 2 + (bStandard - shiftY) * 20).toFloat())
+
+            canvas.drawOval(rectF, ColorPicker.pickDefault())
             //-------------------END OF DRAWING----------------
         }
 

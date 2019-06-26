@@ -4,6 +4,7 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 class HomogeneousPair : PairOfLines() {
@@ -12,12 +13,17 @@ class HomogeneousPair : PairOfLines() {
     var h: Double = 0.0
     var b: Double = 0.0
 
-    private var flag = 1
+    private var canEdit = true
+
+    private var startX = 0f
+    private var endX = 0f
 
     override fun draw(canvas: Canvas, view: View) {
-        if(flag == 1){
+        if (canEdit) {
             h /= 2.0
-            flag = 0
+            startX = -view.width.toFloat() / 2 + view.width / 2
+            endX = view.width.toFloat() / 2 + view.width / 2
+            canEdit = false
         }
         if (h * h - a * b < 0) {
             //TODO show error message
@@ -47,11 +53,33 @@ class HomogeneousPair : PairOfLines() {
                             ColorPicker.pickDefault())
                     i += 0.05f
                 }
+                /*drawFirstLine(canvas, view)
+                drawSecondLine(canvas, view)*/
                 //------------------------END OF DRAWING-----------------------
             } else {
                 //TODO show error message
                 canvas.drawText("Unable to draw", 50f, 50f, ColorPicker.pickDefault())
             }
         }
+    }
+
+    private fun drawFirstLine(canvas: Canvas, view: View) {
+        val startY = ((-h + sqrt(h.pow(2) - a * b)) / b) * startX
+        val endY = ((-h + sqrt(h.pow(2) - a * b)) / b) * endX
+        canvas.drawLine(startX,
+                startY.toFloat(),
+                endX,
+                endY.toFloat(),
+                ColorPicker.pickDefault())
+    }
+
+    private fun drawSecondLine(canvas: Canvas, view: View) {
+        val startY = ((-h - sqrt(h.pow(2) - a * b)) / b) * startX
+        val endY = ((-h - sqrt(h.pow(2) - a * b)) / b) * endX
+        canvas.drawLine(startX,
+                startY.toFloat(),
+                endX,
+                endY.toFloat(),
+                ColorPicker.pickDefault())
     }
 }

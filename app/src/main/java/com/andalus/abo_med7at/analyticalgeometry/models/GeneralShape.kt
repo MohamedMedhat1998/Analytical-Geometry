@@ -27,9 +27,10 @@ class GeneralShape : Shape {
                     while (i < view.height) {
                         yCoordinate = i
                         xCoordinate = ((-(h * i + g) + sqrt((h * i + g) * (h * i + g) - 4.0 * a * (b * i.toDouble() * i.toDouble() + f * i + c))) / (2.0 * a)).toFloat()
-                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                                invertY(yCoordinate, view.height),
-                                ColorPicker.pickDefault())
+                        if (!xCoordinate.isNaN())
+                            canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                    invertY(yCoordinate, view.height),
+                                    ColorPicker.pickDefault())
                         i += 0.05f
                     }
                 }
@@ -37,9 +38,10 @@ class GeneralShape : Shape {
                 while (i < view.height) {
                     yCoordinate = i
                     xCoordinate = ((-(h * i + g) - sqrt((h * i + g) * (h * i + g) - 4.0 * a * (b * i.toDouble() * i.toDouble() + f * i + c))) / (2.0 * a)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
+                    if (!xCoordinate.isNaN())
+                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                invertY(yCoordinate, view.height),
+                                ColorPicker.pickDefault())
                     i += 0.05f
                 }
             }
@@ -49,9 +51,10 @@ class GeneralShape : Shape {
                     while (i < view.width) {
                         xCoordinate = i
                         yCoordinate = ((-(h * i + f) + sqrt((h * i + f) * (h * i + f) - 4.0 * b * (a * i.toDouble() * i.toDouble() + g * i + c))) / (2.0 * b)).toFloat()
-                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                                invertY(yCoordinate, view.height),
-                                ColorPicker.pickDefault())
+                        if (!yCoordinate.isNaN())
+                            canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                    invertY(yCoordinate, view.height),
+                                    ColorPicker.pickDefault())
                         i += 0.05f
                     }
                 }
@@ -59,9 +62,10 @@ class GeneralShape : Shape {
                 while (i < view.width) {
                     xCoordinate = i
                     yCoordinate = ((-(h * i + f) - sqrt((h * i + f) * (h * i + f) - 4.0 * b * (a * i.toDouble() * i.toDouble() + g * i + c))) / (2.0 * b)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
+                    if (!yCoordinate.isNaN())
+                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                invertY(yCoordinate, view.height),
+                                ColorPicker.pickDefault())
                     i += 0.05f
                 }
             }
@@ -70,9 +74,10 @@ class GeneralShape : Shape {
                 while (i < view.height) {
                     yCoordinate = i
                     xCoordinate = (-(f * i + c) / (h * i + g)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
+                    if (!xCoordinate.isNaN())
+                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
+                                invertY(yCoordinate, view.height),
+                                ColorPicker.pickDefault())
                     i += 0.05f
                 }
             }

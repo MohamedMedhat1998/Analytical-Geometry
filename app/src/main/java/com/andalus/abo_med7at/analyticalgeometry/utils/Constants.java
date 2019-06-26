@@ -9,6 +9,7 @@ public class Constants {
     public class Messages {
         public static final String MISSING_DATA =
                 "Some data are missing, please fill them and try again!";
+        public static final String ZOOM_MESSAGE = "Pinch to zoom";
     }
 
     private Constants() {

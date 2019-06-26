@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.andalus.abo_med7at.analyticalgeometry.DrawingFragment;
+import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_fragment.DrawingFragment;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 
 /**

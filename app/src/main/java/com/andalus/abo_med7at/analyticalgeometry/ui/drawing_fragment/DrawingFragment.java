@@ -1,10 +1,7 @@
-package com.andalus.abo_med7at.analyticalgeometry;
+package com.andalus.abo_med7at.analyticalgeometry.ui.drawing_fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -12,20 +9,52 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.andalus.abo_med7at.analyticalgeometry.CoordinatePlane;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
 
-public class DrawingFragment extends Fragment implements View.OnTouchListener {
+import org.jetbrains.annotations.NotNull;
+
+public class DrawingFragment extends Fragment implements View.OnTouchListener, DrawingFragmentContract.View {
 
     private CoordinatePlane coordinatePlane;
     private float mScaleFactor = 1.0f;
     private ScaleGestureDetector mScaleGestureDetector;
     private float differenceX, differenceY;
 
+    private DrawingFragmentContract.Presenter presenter = new DrawingFragmentPresenter(this);
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        presenter.start();
         mScaleGestureDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
+        coordinatePlane.setOnTouchListener(this);
+        return coordinatePlane;
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                differenceX = coordinatePlane.getX() - motionEvent.getRawX();
+                differenceY = coordinatePlane.getY() - motionEvent.getRawY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                coordinatePlane.setX(motionEvent.getRawX() + differenceX);
+                coordinatePlane.setY(motionEvent.getRawY() + differenceY);
+                break;
+        }
+        mScaleGestureDetector.onTouchEvent(motionEvent);
+        return true;
+    }
+
+    @Override
+    public void createCoordinatePlane() {
         if (getArguments() != null && getContext() != null) {
             Shape shape = (Shape) getArguments().getSerializable(Constants.Keys.SHAPE);
             coordinatePlane = new CoordinatePlane(getContext());
@@ -33,32 +62,11 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener {
                 coordinatePlane.setShape(shape);
             }
         }
-        coordinatePlane.setOnTouchListener(this);
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (getActivity() != null) {
-            getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        }
-        Toast.makeText(getContext(), R.string.pinch_to_zoom, Toast.LENGTH_LONG).show();
-        return coordinatePlane;
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                float currentX = motionEvent.getX();
-                float currentY = motionEvent.getY();
-                differenceX = coordinatePlane.getX() - currentX;
-                differenceY = coordinatePlane.getY() - currentY;
-                break;
-            case MotionEvent.ACTION_MOVE:
-                coordinatePlane.setX(motionEvent.getX() + differenceX);
-                coordinatePlane.setY(motionEvent.getY() + differenceY);
-                break;
-
-        }
-        mScaleGestureDetector.onTouchEvent(motionEvent);
-        return true;
+    public void showMessage(@NotNull String text) {
+        Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
@@ -69,7 +77,6 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener {
 
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
-
             mScaleFactor *= detector.getScaleFactor();
             mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
             if (mScaleFactor >= 1.0f && mScaleFactor <= 4.0f) {
