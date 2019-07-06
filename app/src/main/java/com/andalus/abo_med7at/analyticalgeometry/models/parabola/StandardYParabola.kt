@@ -7,6 +7,8 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import kotlin.math.sqrt
 
 class StandardYParabola : Parabola() {
+    override val formula: String
+        get() = "(x - $h)^2 = $b(y - $k)"
 
     var h: Double = 0.0
     var b: Double = 0.0

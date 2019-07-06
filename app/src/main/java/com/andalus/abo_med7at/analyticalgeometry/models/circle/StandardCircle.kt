@@ -4,8 +4,11 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 
 class StandardCircle : Circle() {
+    override val formula: String
+        get() = "(x${number(h, canBeZero = false, isInverse = true, hasSign = true)})^2 + (y${number(k, canBeZero = false, isInverse = true, hasSign = true)})^2 = (${number(r)})^2"
     var h: Double = 0.0
     var k: Double = 0.0
     var r: Double = 0.0

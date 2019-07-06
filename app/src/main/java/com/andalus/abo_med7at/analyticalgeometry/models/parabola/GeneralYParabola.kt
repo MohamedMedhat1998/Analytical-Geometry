@@ -8,6 +8,9 @@ import kotlin.math.sqrt
 
 class GeneralYParabola : Parabola() {
 
+    override val formula: String
+        get() = "x^2 + ${d}x + ${e}y + f = 0"
+
     var d: Double = 0.0
     var e: Double = 0.0
     var f: Double = 0.0

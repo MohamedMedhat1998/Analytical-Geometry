@@ -9,6 +9,8 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class GeneralEllipse : Ellipse() {
+    override val formula: String
+        get() = "${a}x^2 + ${c}y^2 + ${d}x + ${e}y + $f = 0"
 
     var a: Double = 0.0
     var c: Double = 0.0

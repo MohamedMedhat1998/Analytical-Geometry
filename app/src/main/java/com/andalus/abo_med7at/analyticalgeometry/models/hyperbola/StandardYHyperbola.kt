@@ -7,6 +7,8 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import kotlin.math.sqrt
 
 class StandardYHyperbola : Hyperbola() {
+    override val formula: String
+        get() = "(y^2/$a) - (x^2/$b) = 1"
 
     var a: Double = 0.0
     var b: Double = 0.0

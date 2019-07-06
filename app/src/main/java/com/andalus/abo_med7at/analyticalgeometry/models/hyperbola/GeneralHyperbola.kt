@@ -7,6 +7,8 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import kotlin.math.sqrt
 
 class GeneralHyperbola : Hyperbola() {
+    override val formula: String
+        get() = "${a}x^2 + ${b}y^2 + ${d}x + ${e}y + $f = 0"
 
     var a: Double = 0.0
     var b: Double = 0.0

@@ -9,5 +9,6 @@ interface DrawingActivityContract {
     interface View{
         fun receiveExtras()
         fun loadDrawingFragment()
+        fun setTitle()
     }
 }

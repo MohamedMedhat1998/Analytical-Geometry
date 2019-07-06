@@ -7,6 +7,8 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import kotlin.math.sqrt
 
 class GeneralPair : PairOfLines() {
+    override val formula: String
+        get() = "${a}x^2 + ${h}xy + ${b}y^2 + ${g}x + ${f}y + $c = 0"
 
     var a: Double = 0.0
     var h: Double = 0.0

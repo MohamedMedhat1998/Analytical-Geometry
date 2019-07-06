@@ -4,10 +4,13 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 class HomogeneousPair : PairOfLines() {
+    override val formula: String
+        get() = "${FormulaBuilder.xSquare(a, isStarting = true)}${FormulaBuilder.xy(h)}${FormulaBuilder.ySquare(b)} = 0"
 
     var a: Double = 0.0
     var h: Double = 0.0

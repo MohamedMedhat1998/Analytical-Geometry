@@ -1,12 +1,15 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_fragment.DrawingFragment;
 import com.andalus.abo_med7at.analyticalgeometry.R;
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
 
 /**
  * Created by Abo_Med7at on 18/04/2017.
@@ -23,7 +26,6 @@ public class DrawingActivity extends AppCompatActivity implements DrawingActivit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zoomable_draw_area);
         presenter.start();
-        //TODO set the title of the Activity to the formula of the shape
     }
 
     @Override
@@ -41,5 +43,17 @@ public class DrawingActivity extends AppCompatActivity implements DrawingActivit
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.drawing_container, drawingFragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void setTitle() {
+        Shape shape = (Shape) bundle.getSerializable(Constants.Keys.SHAPE);
+        if (getSupportActionBar() != null) {
+            try {
+                getSupportActionBar().setTitle(shape.getFormula());
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

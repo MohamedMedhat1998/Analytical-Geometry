@@ -5,6 +5,9 @@ import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 
 class TestShape : Shape {
+    override val formula: String
+        get() = "TEST"
+
     //TODO Remove this TestShape
     override fun draw(canvas: Canvas, view: View) {
         canvas.drawCircle(0f, 0f, 50f, ColorPicker.pickDefault())

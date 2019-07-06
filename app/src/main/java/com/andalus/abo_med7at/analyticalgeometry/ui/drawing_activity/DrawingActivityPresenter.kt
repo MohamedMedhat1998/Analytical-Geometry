@@ -5,6 +5,7 @@ class DrawingActivityPresenter(private val view: DrawingActivityContract.View)
 
     override fun start() {
         view.receiveExtras()
+        view.setTitle()
         view.loadDrawingFragment()
     }
 }

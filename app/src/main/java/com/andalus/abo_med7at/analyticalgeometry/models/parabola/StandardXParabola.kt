@@ -8,6 +8,8 @@ import kotlin.math.sqrt
 
 class StandardXParabola : Parabola() {
 
+    override val formula: String
+        get() = "(y - $k)^2 = $a(x - $h)"
     var k: Double = 0.0
     var a: Double = 0.0
     var h: Double = 0.0
