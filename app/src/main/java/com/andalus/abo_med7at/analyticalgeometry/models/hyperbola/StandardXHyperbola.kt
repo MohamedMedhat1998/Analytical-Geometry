@@ -4,11 +4,12 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
 class StandardXHyperbola : Hyperbola() {
     override val formula: String
-        get() = "(x^2/$a) - (y^2/$b) = 1"
+        get() = "(x^2/${number(a)}) - (y^2/${number(b)}) = 1"
 
     var a: Double = 0.0
     var b: Double = 0.0

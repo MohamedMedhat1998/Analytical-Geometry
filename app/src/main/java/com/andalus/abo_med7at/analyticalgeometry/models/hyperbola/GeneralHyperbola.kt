@@ -4,11 +4,16 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.freeTerm
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.x
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.xSquare
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.y
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
 class GeneralHyperbola : Hyperbola() {
     override val formula: String
-        get() = "${a}x^2 + ${b}y^2 + ${d}x + ${e}y + $f = 0"
+        get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(d)}${y(e)}${freeTerm(f)} = 0".trim().removePrefix("+")
 
     var a: Double = 0.0
     var b: Double = 0.0

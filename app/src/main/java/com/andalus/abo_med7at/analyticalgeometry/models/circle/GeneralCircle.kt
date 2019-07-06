@@ -13,7 +13,7 @@ import kotlin.math.sqrt
 class GeneralCircle : Circle() {
 
     override val formula: String
-        get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".removePrefix(" ").removePrefix("+")
+        get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".trim().removePrefix("+")
 
     var a: Double = 0.0
     var b: Double = 0.0

@@ -1,6 +1,5 @@
 package com.andalus.abo_med7at.analyticalgeometry.utils
 
-import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.floor
 
