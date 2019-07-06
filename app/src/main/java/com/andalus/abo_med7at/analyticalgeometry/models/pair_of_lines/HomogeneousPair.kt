@@ -27,8 +27,8 @@ class HomogeneousPair : PairOfLines() {
     override fun draw(canvas: Canvas, view: View) {
         if (canEdit) {
             h /= 2.0
-            startX = -view.width.toFloat() / 2 + view.width / 2
-            endX = view.width.toFloat() / 2 + view.width / 2
+            startX = -view.width.toFloat() / 2
+            endX = view.width.toFloat() / 2
             canEdit = false
         }
         if (h * h - a * b < 0) {
@@ -37,30 +37,8 @@ class HomogeneousPair : PairOfLines() {
         } else {
             if (a != 0.0 && b != 0.0) {
                 //-------------------ACTUAL DRAWING---------------------
-                var xCoordinate: Float
-                var yCoordinate: Float
-                run {
-                    var i = (-view.width).toFloat()
-                    while (i < view.width) {
-                        xCoordinate = i
-                        yCoordinate = (xCoordinate * ((-h + sqrt(h * h - a * b)) / b)).toFloat()
-                        canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                                invertY(yCoordinate, view.height),
-                                ColorPicker.pickDefault())
-                        i += 0.05f
-                    }
-                }
-                var i = (-view.width).toFloat()
-                while (i < view.width) {
-                    xCoordinate = i
-                    yCoordinate = (xCoordinate * ((-h - sqrt(h * h - a * b)) / b)).toFloat()
-                    canvas.drawPoint(xCoordinate * 20 + view.width / 2f,
-                            invertY(yCoordinate, view.height),
-                            ColorPicker.pickDefault())
-                    i += 0.05f
-                }
-                /*drawFirstLine(canvas, view)
-                drawSecondLine(canvas, view)*/
+                drawFirstLine(canvas, view)
+                drawSecondLine(canvas, view)
                 //------------------------END OF DRAWING-----------------------
             } else {
                 //TODO show error message
@@ -70,22 +48,22 @@ class HomogeneousPair : PairOfLines() {
     }
 
     private fun drawFirstLine(canvas: Canvas, view: View) {
-        val startY = ((-h + sqrt(h.pow(2) - a * b)) / b) * startX
-        val endY = ((-h + sqrt(h.pow(2) - a * b)) / b) * endX
-        canvas.drawLine(startX,
-                startY.toFloat(),
-                endX,
-                endY.toFloat(),
+        val startY = ((-h + sqrt(h.pow(2) - a * b)) / b) * startX * -1
+        val endY = ((-h + sqrt(h.pow(2) - a * b)) / b) * endX * -1
+        canvas.drawLine(startX + view.width / 2f,
+                startY.toFloat() + view.height / 2f,
+                endX + view.width / 2f,
+                endY.toFloat() + view.height / 2f,
                 ColorPicker.pickDefault())
     }
 
     private fun drawSecondLine(canvas: Canvas, view: View) {
-        val startY = ((-h - sqrt(h.pow(2) - a * b)) / b) * startX
-        val endY = ((-h - sqrt(h.pow(2) - a * b)) / b) * endX
-        canvas.drawLine(startX,
-                startY.toFloat(),
-                endX,
-                endY.toFloat(),
+        val startY = ((-h - sqrt(h.pow(2) - a * b)) / b) * startX * -1
+        val endY = ((-h - sqrt(h.pow(2) - a * b)) / b) * endX * -1
+        canvas.drawLine(startX + view.width / 2f,
+                startY.toFloat() + view.height / 2f,
+                endX + view.width / 2f,
+                endY.toFloat() + view.height / 2f,
                 ColorPicker.pickDefault())
     }
 }
