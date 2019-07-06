@@ -4,12 +4,13 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
 class StandardXParabola : Parabola() {
 
     override val formula: String
-        get() = "(y - $k)^2 = $a(x - $h)"
+        get() = "(y${number(k, isInverse = true, hasSign = true, canBeZero = false)})^2 = ${number(a,canBeOne = false)}(x${number(h, isInverse = true, hasSign = true, canBeZero = false)})"
     var k: Double = 0.0
     var a: Double = 0.0
     var h: Double = 0.0

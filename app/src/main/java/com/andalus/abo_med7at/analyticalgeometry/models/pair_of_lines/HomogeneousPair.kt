@@ -5,12 +5,15 @@ import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.xSquare
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.xy
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 class HomogeneousPair : PairOfLines() {
     override val formula: String
-        get() = "${FormulaBuilder.xSquare(a, isStarting = true)}${FormulaBuilder.xy(h)}${FormulaBuilder.ySquare(b)} = 0"
+        get() = "${xSquare(a, isStarting = true)}${xy(h)}${ySquare(b)} = 0".trim().removePrefix("+")
 
     var a: Double = 0.0
     var h: Double = 0.0

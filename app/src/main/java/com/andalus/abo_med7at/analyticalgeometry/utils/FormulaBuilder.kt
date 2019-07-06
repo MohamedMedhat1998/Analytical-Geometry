@@ -40,8 +40,9 @@ class FormulaBuilder {
             return ceil(this) == floor(this)
         }
 
-        fun number(n: Double, canBeZero: Boolean = true, isInverse: Boolean = false, hasSign: Boolean = false): String {
+        fun number(n: Double, canBeZero: Boolean = true, isInverse: Boolean = false, hasSign: Boolean = false, canBeOne: Boolean = true): String {
             if (!canBeZero) if (n == 0.0) return ""
+            if (!canBeOne) if (n == 1.0) return "" else if (n == -1.0) return "-"
             var num = n
             var sign = ""
             if (isInverse) num *= -1
