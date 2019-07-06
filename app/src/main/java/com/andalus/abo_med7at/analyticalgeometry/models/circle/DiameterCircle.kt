@@ -3,9 +3,14 @@ package com.andalus.abo_med7at.analyticalgeometry.models.circle
 import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
 class DiameterCircle : Circle() {
+
+    override val formula: String
+        get() = "Diameter ends (${number(x1)},${number(y1)}) , (${number(x2)},${number(y2)})"
+
 
     var x1: Double = 0.0
     var x2: Double = 0.0

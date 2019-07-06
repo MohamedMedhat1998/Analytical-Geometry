@@ -3,9 +3,17 @@ package com.andalus.abo_med7at.analyticalgeometry.models.circle
 import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.freeTerm
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.x
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.xSquare
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.y
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
 class GeneralCircle : Circle() {
+
+    override val formula: String
+        get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".trim().removePrefix("+")
 
     var a: Double = 0.0
     var b: Double = 0.0
@@ -26,7 +34,7 @@ class GeneralCircle : Circle() {
     }
 
     private fun convertToStandard(): StandardCircle? {
-        if(circle == null){
+        if (circle == null) {
             val localStandardCircle = StandardCircle()
             try {
                 g /= 2.0
@@ -51,7 +59,7 @@ class GeneralCircle : Circle() {
             }
             circle = localStandardCircle
             return localStandardCircle
-        }else{
+        } else {
             return circle as StandardCircle?
         }
     }

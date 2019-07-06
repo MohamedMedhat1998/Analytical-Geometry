@@ -4,9 +4,15 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.freeTerm
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.x
+import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.y
 import kotlin.math.sqrt
 
 class GeneralXParabola : Parabola() {
+
+    override val formula: String
+        get() = "y^2${x(d)}${y(e)}${freeTerm(f)} = 0"
 
     var d: Double = 0.0
     var e: Double = 0.0
