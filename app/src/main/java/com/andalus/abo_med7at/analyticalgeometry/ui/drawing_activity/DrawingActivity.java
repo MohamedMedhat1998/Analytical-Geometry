@@ -51,6 +51,7 @@ public class DrawingActivity extends AppCompatActivity implements DrawingActivit
         if (getSupportActionBar() != null) {
             try {
                 getSupportActionBar().setTitle(shape.getFormula());
+                getSupportActionBar().setSubtitle(shape.getCategory());
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }

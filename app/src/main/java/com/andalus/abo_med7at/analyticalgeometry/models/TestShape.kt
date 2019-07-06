@@ -5,6 +5,8 @@ import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 
 class TestShape : Shape {
+    override val category: String
+        get() = "test"
     override val formula: String
         get() = "TEST"
 
