@@ -6,32 +6,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         tools:context="com.andalus.abo_med7at.analyticalgeometry.ui.general_activity.GeneralActivity">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
             style="@style/topCardStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="0px"
                     android:layout_height="0px"
                     android:focusable="true"
-                    android:focusableInTouchMode="true" />
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal" />
 
                 <TextView
-                    android:text="@string/general"
                     style="@style/titleStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/general" />
+
                 <HorizontalScrollView
                     style="@style/functionLineStyle"
                     android:layout_width="match_parent"
@@ -39,9 +41,9 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        android:layout_height="wrap_content">
+                        android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/general_a"
@@ -49,7 +51,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/general_h" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -62,7 +64,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/general_b" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -75,43 +77,46 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/general_g" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="y^2+" />
+
                         <EditText
                             android:id="@+id/general_g"
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/general_f" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="x+" />
+
                         <EditText
                             android:id="@+id/general_f"
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/general_c" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="y+" />
+
                         <EditText
                             android:id="@+id/general_c"
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -123,12 +128,12 @@
 
                 <Button
                     android:id="@+id/general_btn_draw"
-                    android:theme="@style/drawButtonStyle"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_margin="8dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/draw" />
+                    android:text="@string/draw"
+                    android:theme="@style/drawButtonStyle" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

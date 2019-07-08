@@ -24,7 +24,7 @@ public class DrawingActivity extends AppCompatActivity implements DrawingActivit
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zoomable_draw_area);
+        setContentView(R.layout.activity_drawing);
         presenter.start();
     }
 
