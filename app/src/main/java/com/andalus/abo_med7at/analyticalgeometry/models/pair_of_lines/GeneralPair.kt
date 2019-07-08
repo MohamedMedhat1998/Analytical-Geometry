@@ -23,15 +23,15 @@ class GeneralPair : PairOfLines() {
     var f: Double = 0.0
     var c: Double = 0.0
 
-    private var flag = 1
+    private var canEdit = true
 
     override fun draw(canvas: Canvas, view: View) {
 
-        if (flag == 1) {
+        if (canEdit) {
             h /= 2.0
             g /= 2.0
             f /= 2.0
-            flag = 0
+            canEdit = false
         }
 
         var xCoordinate: Float

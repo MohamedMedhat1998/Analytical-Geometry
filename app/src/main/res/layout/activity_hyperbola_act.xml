@@ -63,7 +63,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/b_hyper" />
                     </LinearLayout>
 
 
@@ -93,8 +93,8 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
                     </LinearLayout>
 
                     <TextView
@@ -162,7 +162,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:nextFocusDown="@id/b_hyper2" />
                     </LinearLayout>
 
 
@@ -192,8 +192,8 @@
                             android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="numberDecimal|numberSigned"
-                            android:importantForAutofill="no" />
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
                     </LinearLayout>
 
                     <TextView
@@ -244,7 +244,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="numberDecimal|numberSigned"
-                        android:importantForAutofill="no" />
+                        android:nextFocusDown="@id/b_ell_e_g" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -257,7 +257,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="numberDecimal|numberSigned"
-                        android:importantForAutofill="no" />
+                        android:nextFocusDown="@id/d_ell_e_g" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -270,7 +270,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="numberDecimal|numberSigned"
-                        android:importantForAutofill="no" />
+                        android:nextFocusDown="@id/e_ell_e_g" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -283,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="numberDecimal|numberSigned"
-                        android:importantForAutofill="no" />
+                        android:nextFocusDown="@id/f_ell_e_g" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -295,8 +295,8 @@
                         android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:importantForAutofill="no" />
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal|numberSigned" />
 
                     <TextView
                         android:layout_width="wrap_content"
