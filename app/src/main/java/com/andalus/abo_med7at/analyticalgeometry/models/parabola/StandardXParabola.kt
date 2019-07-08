@@ -7,24 +7,16 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
-class StandardXParabola : Parabola() {
+class StandardXParabola(val k: Double, val a: Double, val h: Double) : Parabola() {
 
     override val formula: String
-        get() = "(y${number(k, isInverse = true, hasSign = true, canBeZero = false)})^2 = ${number(a,canBeOne = false)}(x${number(h, isInverse = true, hasSign = true, canBeZero = false)})"
-    var k: Double = 0.0
-    var a: Double = 0.0
-    var h: Double = 0.0
+        get() = "(y${number(k, isInverse = true, hasSign = true, canBeZero = false)})^2 = ${number(a, canBeOne = false)}(x${number(h, isInverse = true, hasSign = true, canBeZero = false)})"
 
     override fun draw(canvas: Canvas, view: View) {
+        if (canDraw()) {
+            var xCoordinate: Float
+            var yCoordinate: Float
 
-        var xCoordinate: Float
-        var yCoordinate: Float
-
-        if (a == 0.0) {
-            //TODO show error message
-            canvas.drawText("Unable to draw", 50f, 50f, ColorPicker.pickDefault())
-        } else {
-            //---------ACTUAL DRAWING--------------
             run {
                 var i = (-view.width).toFloat()
                 while (i < view.width) {
@@ -47,7 +39,12 @@ class StandardXParabola : Parabola() {
                             ColorPicker.pickDefault())
                 i += 0.05f
             }
-            //---------END OF DRAWING--------------
         }
     }
+
+    override fun canDraw(): Boolean {
+        if (a == 0.0) return false
+        return true
+    }
+
 }

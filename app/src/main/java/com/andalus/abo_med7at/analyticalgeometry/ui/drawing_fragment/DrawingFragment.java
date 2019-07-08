@@ -32,8 +32,6 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener, D
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         presenter.start();
-        mScaleGestureDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
-        coordinatePlane.setOnTouchListener(this);
         return coordinatePlane;
     }
 
@@ -58,6 +56,8 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener, D
         if (getArguments() != null && getContext() != null) {
             Shape shape = (Shape) getArguments().getSerializable(Constants.Keys.SHAPE);
             coordinatePlane = new CoordinatePlane(getContext());
+            mScaleGestureDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
+            coordinatePlane.setOnTouchListener(this);
             if (shape != null) {
                 coordinatePlane.setShape(shape);
             }

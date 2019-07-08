@@ -1,24 +1,17 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity
 
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 import com.andalus.abo_med7at.analyticalgeometry.models.pair_of_lines.GeneralPair
-import com.andalus.abo_med7at.analyticalgeometry.models.pair_of_lines.PairOfLines
-import java.lang.Exception
+import com.andalus.abo_med7at.analyticalgeometry.ui.BaseView
 
-class GeneralPairPresenter(override var view: PairActivityContract.View) : PairActivityContract.Presenter() {
+class GeneralPairPresenter(override var view: BaseView) : PairActivityContract.Presenter() {
 
-    override lateinit var pairOfLines: PairOfLines
+    override lateinit var shape: Shape
     override var isValid: Boolean = false
 
     fun validateAndSetValues(a: String, h: String, b: String, g: String, f: String, c: String) {
         try {
-            pairOfLines = GeneralPair()
-            val generalPair = pairOfLines as GeneralPair
-            generalPair.a = a.toDouble()
-            generalPair.h = h.toDouble()
-            generalPair.b = b.toDouble()
-            generalPair.g = g.toDouble()
-            generalPair.f = f.toDouble()
-            generalPair.c = c.toDouble()
+            shape = GeneralPair(a.toDouble(), h.toDouble(), b.toDouble(), g.toDouble(), f.toDouble(), c.toDouble())
             isValid = true
         } catch (e: Exception) {
             e.printStackTrace()

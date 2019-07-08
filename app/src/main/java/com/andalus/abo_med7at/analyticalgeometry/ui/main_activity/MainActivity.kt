@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.andalus.abo_med7at.analyticalgeometry.*
-import com.andalus.abo_med7at.analyticalgeometry.models.TestShape
 import com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.ellipse_activity.EllipseActivity
@@ -61,11 +60,6 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.item_privacy_policy) {
             presenter.onPrivacyPolicyItemSelected()
-        } else if (item.itemId == R.id.test) {
-            //TODO Remove this test menu button
-            val i = Intent(this, DrawingActivity::class.java)
-            i.putExtra(Constants.Keys.SHAPE, TestShape())
-            startActivity(i)
         }
         return true
     }

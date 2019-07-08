@@ -9,22 +9,13 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.y
 import kotlin.math.sqrt
 
-class GeneralXParabola : Parabola() {
+class GeneralXParabola(val d: Double, val e: Double, val f: Double) : Parabola() {
 
     override val formula: String
         get() = "y^2${x(d)}${y(e)}${freeTerm(f)} = 0"
 
-    var d: Double = 0.0
-    var e: Double = 0.0
-    var f: Double = 0.0
-
     override fun draw(canvas: Canvas, view: View) {
-
-        if (d == 0.0) {
-            //TODO show error message
-            canvas.drawText("Unable to draw", 50f, 50f, ColorPicker.pickDefault())
-        } else {
-            //---------------------ACTUAL DRAWING------------------
+        if (canDraw()) {
             var xCoordinate: Float
             var yCoordinate: Float
             run {
@@ -49,7 +40,12 @@ class GeneralXParabola : Parabola() {
                             ColorPicker.pickDefault())
                 i += 0.05f
             }
-            //---------------------END OF DRAWING------------------
         }
     }
+
+    override fun canDraw(): Boolean {
+        if (d == 0.0) return false
+        return true
+    }
+
 }

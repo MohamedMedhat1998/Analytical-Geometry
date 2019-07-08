@@ -1,20 +1,17 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity
 
-import com.andalus.abo_med7at.analyticalgeometry.models.parabola.Parabola
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 import com.andalus.abo_med7at.analyticalgeometry.models.parabola.StandardYParabola
+import com.andalus.abo_med7at.analyticalgeometry.ui.BaseView
 
-class StandardYParabolaPresenter(override var view: ParabolaActivityContract.View) : ParabolaActivityContract.Presenter() {
+class StandardYParabolaPresenter(override var view: BaseView) : ParabolaActivityContract.Presenter() {
 
-    override lateinit var parabola: Parabola
+    override lateinit var shape: Shape
     override var isValid: Boolean = false
 
     fun validateAndSetValues(h: String, b: String, k: String) {
         try {
-            parabola = StandardYParabola()
-            val standardYParabola = parabola as StandardYParabola
-            standardYParabola.h = h.toDouble()
-            standardYParabola.b = b.toDouble()
-            standardYParabola.k = k.toDouble()
+            shape = StandardYParabola(h.toDouble(), b.toDouble(), k.toDouble())
             isValid = true
         } catch (e: Exception) {
             e.printStackTrace()

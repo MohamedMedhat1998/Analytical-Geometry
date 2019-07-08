@@ -11,23 +11,12 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
-class GeneralHyperbola : Hyperbola() {
+class GeneralHyperbola(val a: Double, val b: Double, val d: Double, val e: Double, val f: Double) : Hyperbola() {
     override val formula: String
         get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(d)}${y(e)}${freeTerm(f)} = 0".trim().removePrefix("+")
 
-    var a: Double = 0.0
-    var b: Double = 0.0
-    var d: Double = 0.0
-    var e: Double = 0.0
-    var f: Double = 0.0
-
     override fun draw(canvas: Canvas, view: View) {
-
-        if (a >= 0 && b >= 0 || a <= 0 && b <= 0) {
-            //TODO show error message
-            canvas.drawText("NOT Hyperbola", 50f, 50f, ColorPicker.pickDefault())
-        } else {
-            //-------------ACTUAL DRAWING--------------
+        if (canDraw()) {
             var xCoordinate: Float
             var yCoordinate: Float
 
@@ -53,7 +42,11 @@ class GeneralHyperbola : Hyperbola() {
                             ColorPicker.pickDefault())
                 i += 0.05f
             }
-            //-------------END OF DRAWING--------------
         }
+    }
+
+    override fun canDraw(): Boolean {
+        if (a >= 0 && b >= 0 || a <= 0 && b <= 0) return false
+        return true
     }
 }

@@ -6,6 +6,8 @@ import java.io.Serializable
 
 interface Shape : Serializable {
     fun draw(canvas: Canvas, view: View)
+    fun canDraw(): Boolean
     val formula: String
     val category: String
+    val unableToDrawMessage: String
 }

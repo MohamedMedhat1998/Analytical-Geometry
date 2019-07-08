@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.app.NavUtils;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
@@ -95,6 +98,9 @@ public class PairActivity extends AppCompatActivity implements PairActivityContr
 
     @Override
     public void showMessage(@NotNull String text) {
-        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+        Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
+        TextView v = toast.getView().findViewById(android.R.id.message);
+        if (v != null) v.setGravity(Gravity.CENTER);
+        toast.show();
     }
 }

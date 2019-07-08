@@ -3,7 +3,6 @@ package com.andalus.abo_med7at.analyticalgeometry.models.ellipse
 import android.graphics.Canvas
 import android.graphics.RectF
 import android.view.View
-import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.freeTerm
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.x
@@ -13,29 +12,12 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class GeneralEllipse : Ellipse() {
+class GeneralEllipse(val a: Double, val c: Double, val d: Double, val e: Double, val f: Double) : Ellipse() {
     override val formula: String
         get() = "${xSquare(a, isStarting = true)}${ySquare(c)}${x(d)}${y(e)}${freeTerm(f)} = 0".trim().removePrefix("+")
 
-    var a: Double = 0.0
-    var c: Double = 0.0
-    var d: Double = 0.0
-    var e: Double = 0.0
-    var f: Double = 0.0
-
     override fun draw(canvas: Canvas, view: View) {
-
-        if (a == c) {
-            //TODO write an error message ("UNABLE TO DRAW")
-            canvas.drawText("NOT ELLIPSE", 50f, 50f, ColorPicker.pickDefault())
-        } else if (d == 0.0 && e == 0.0 && f >= 0) {
-            //TODO write an error message ("UNABLE TO DRAW")
-            canvas.drawText("UNABLE TO DRAW", 50f, 50f, ColorPicker.pickDefault())
-        } else if (a > 0 && c < 0 || a < 0 && c > 0) {
-            //TODO write an error message ("UNABLE TO DRAW")
-            canvas.drawText("NOT ELLIPSE", 50f, 50f, ColorPicker.pickDefault())
-        } else {
-            //-------------------ACTUAL DRAWING----------------
+        if (canDraw()) {
             val denominator = -f + d.pow(2) / (4 * a) + e.pow(2) / (4 * c)
             val aStandard = sqrt(denominator / a)
             val bStandard = sqrt(denominator / c)
@@ -49,9 +31,14 @@ class GeneralEllipse : Ellipse() {
                     (view.height / 2 + (bStandard - shiftY) * 20).toFloat())
 
             canvas.drawOval(rectF, ColorPicker.pickDefault())
-            //-------------------END OF DRAWING----------------
+
         }
-
-
     }
+
+    override fun canDraw(): Boolean {
+        if (d == 0.0 && e == 0.0 && f >= 0) return false
+        if (a > 0 && c < 0 || a < 0 && c > 0) return false
+        return true
+    }
+
 }

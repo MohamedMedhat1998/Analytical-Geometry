@@ -7,21 +7,12 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
-class StandardYParabola : Parabola() {
+class StandardYParabola(val h: Double, val b: Double, val k: Double) : Parabola() {
     override val formula: String
         get() = "(x${number(h, isInverse = true, hasSign = true, canBeZero = false)})^2 = ${number(b, canBeOne = false)}(y${number(k, isInverse = true, hasSign = true, canBeZero = false)})"
 
-
-    var h: Double = 0.0
-    var b: Double = 0.0
-    var k: Double = 0.0
-
     override fun draw(canvas: Canvas, view: View) {
-        if (b == 0.0) {
-            //TODO show error message
-            canvas.drawText("Unable to draw", 50f, 50f, ColorPicker.pickDefault())
-        } else {
-            //-----------------ACTUAL DRAWING-------------
+        if (canDraw()) {
             var xCoordinate: Float
             var yCoordinate: Float
             run {
@@ -46,7 +37,12 @@ class StandardYParabola : Parabola() {
                             ColorPicker.pickDefault())
                 i += 0.05f
             }
-            //-----------------END OF DRAWING-------------
         }
     }
+
+    override fun canDraw(): Boolean {
+        if (b == 0.0) return false
+        return true
+    }
+
 }

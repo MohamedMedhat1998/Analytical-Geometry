@@ -1,22 +1,18 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity
 
-import com.andalus.abo_med7at.analyticalgeometry.models.circle.Circle
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 import com.andalus.abo_med7at.analyticalgeometry.models.circle.StandardCircle
-import java.lang.Exception
+import com.andalus.abo_med7at.analyticalgeometry.ui.BaseView
 
-class StandardCirclePresenter(override var view: CircleActivityContract.View) :
+class StandardCirclePresenter(override var view: BaseView) :
         CircleActivityContract.Presenter() {
 
-    override lateinit var circle: Circle
+    override lateinit var shape: Shape
     override var isValid: Boolean = false
 
     fun validateAndSetValues(h: String, k: String, r: String) {
         try {
-            circle = StandardCircle()
-            val standardCircle = circle as StandardCircle
-            standardCircle.h = h.toDouble()
-            standardCircle.k = k.toDouble()
-            standardCircle.r = r.toDouble()
+            shape = StandardCircle(h.toDouble(), k.toDouble(), r.toDouble())
             isValid = true
         } catch (e: Exception) {
             isValid = false

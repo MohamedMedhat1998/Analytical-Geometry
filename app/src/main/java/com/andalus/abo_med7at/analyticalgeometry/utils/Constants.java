@@ -16,6 +16,14 @@ public class Constants {
         public static final String MISSING_DATA =
                 "Some data are missing, please fill them and try again!";
         public static final String ZOOM_MESSAGE = "Pinch to zoom";
+
+        public static final String CIRCLE_UNABLE_TO_DRAW_MESSAGE = "Not a circle";
+        public static final String ELLIPSE_UNABLE_TO_DRAW_MESSAGE = "Not an ellipse";
+        public static final String HYPERBOLA_UNABLE_TO_DRAW_MESSAGE = "Not a hyperbola";
+        public static final String PAIR_OF_LINES_UNABLE_TO_DRAW_MESSAGE = "Not a pair";
+        public static final String PARABOLA_UNABLE_TO_DRAW_MESSAGE = "Not a parabola";
+        public static final String GENERAL_UNABLE_TO_DRAW_MESSAGE = "Unable to draw";
+
     }
 
     public class ShapeNames {

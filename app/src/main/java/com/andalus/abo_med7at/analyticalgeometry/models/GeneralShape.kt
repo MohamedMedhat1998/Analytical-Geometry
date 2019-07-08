@@ -4,6 +4,7 @@ import android.graphics.Canvas
 import android.view.View
 import com.andalus.abo_med7at.analyticalgeometry.utils.ArithmeticUtils.Companion.invertY
 import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
+import com.andalus.abo_med7at.analyticalgeometry.utils.Constants.Messages.GENERAL_UNABLE_TO_DRAW_MESSAGE
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants.ShapeNames.GENERAL
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.freeTerm
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.x
@@ -13,18 +14,13 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
-class GeneralShape : Shape {
+class GeneralShape(val a: Double, val h: Double, val b: Double, val g: Double, val f: Double, val c: Double) : Shape {
+    override val unableToDrawMessage: String
+        get() = GENERAL_UNABLE_TO_DRAW_MESSAGE
     override val formula: String
         get() = "${xSquare(a)}${xy(h)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".trim().removePrefix("+")
     override val category: String
         get() = GENERAL
-
-    var a: Double = 0.0
-    var h: Double = 0.0
-    var b: Double = 0.0
-    var g: Double = 0.0
-    var f: Double = 0.0
-    var c: Double = 0.0
 
     override fun draw(canvas: Canvas, view: View) {
 
@@ -93,6 +89,9 @@ class GeneralShape : Shape {
                 }
             }
         }
+    }
 
+    override fun canDraw(): Boolean {
+        return true
     }
 }

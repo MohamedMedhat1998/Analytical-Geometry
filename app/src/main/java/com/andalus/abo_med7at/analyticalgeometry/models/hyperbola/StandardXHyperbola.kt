@@ -7,24 +7,15 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
-class StandardXHyperbola : Hyperbola() {
+class StandardXHyperbola(val a: Double, val b: Double) : Hyperbola() {
     override val formula: String
         get() = "(x^2/${number(a)}) - (y^2/${number(b)}) = 1"
 
-    var a: Double = 0.0
-    var b: Double = 0.0
-
-    private var canEdit = true
-
     override fun draw(canvas: Canvas, view: View) {
-        if (canEdit) {
-            a = sqrt(a)
-            b = sqrt(b)
-            canEdit = false
-        }
+        if (canDraw()) {
+            val a = sqrt(a)
+            val b = sqrt(b)
 
-        if (a > 0 && b > 0) {
-            //-----------------ACTUAL DRAWING------------------
             var xCoordinate: Float
             var yCoordinate: Float
 
@@ -50,10 +41,12 @@ class StandardXHyperbola : Hyperbola() {
                             ColorPicker.pickDefault())
                 i += 0.05f
             }
-            //-----------------END OF DRAWING------------------
-        } else {
-            //TODO show error message
-            canvas.drawText("Unable to draw", 50f, 50f, ColorPicker.pickDefault())
         }
+
+    }
+
+    override fun canDraw(): Boolean {
+        if (a > 0 && b > 0) return true
+        return false
     }
 }

@@ -5,18 +5,18 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
-import androidx.core.content.res.ResourcesCompat
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 
 class CoordinatePlane(context: Context) :
         View(context) {
 
-    lateinit var shape : Shape
+    lateinit var shape: Shape
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        if (canvas != null){
+        if (canvas != null && shape.canDraw()) {
             drawAxes(canvas)
             shape.draw(canvas, this)
         }
@@ -24,7 +24,7 @@ class CoordinatePlane(context: Context) :
 
     private fun drawAxes(canvas: Canvas) {
         val p = Paint()
-        p.color = ResourcesCompat.getColor(resources,R.color.Gray_300,null)
+        p.color = ResourcesCompat.getColor(resources, R.color.Gray_300, null)
         val p2 = Paint()
         p2.color = Color.GREEN
         var count = 0

@@ -1,20 +1,17 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.hyperbola_activity
 
-import com.andalus.abo_med7at.analyticalgeometry.models.hyperbola.Hyperbola
+import com.andalus.abo_med7at.analyticalgeometry.models.Shape
 import com.andalus.abo_med7at.analyticalgeometry.models.hyperbola.StandardYHyperbola
-import java.lang.Exception
+import com.andalus.abo_med7at.analyticalgeometry.ui.BaseView
 
-class StandardYHyperbolaPresenter(override var view: HyperbolaActivityContract.View) : HyperbolaActivityContract.Presenter() {
+class StandardYHyperbolaPresenter(override var view: BaseView) : HyperbolaActivityContract.Presenter() {
 
-    override lateinit var hyperbola: Hyperbola
+    override lateinit var shape: Shape
     override var isValid: Boolean = false
 
     fun validateAndSetValues(a: String, b: String) {
         try {
-            hyperbola = StandardYHyperbola()
-            val standardYHyperbola = hyperbola as StandardYHyperbola
-            standardYHyperbola.a = a.toDouble()
-            standardYHyperbola.b = b.toDouble()
+            shape = StandardYHyperbola(a.toDouble(), b.toDouble())
             isValid = true
         } catch (e: Exception) {
             e.printStackTrace()
