@@ -1,19 +1,18 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.drawing_fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.andalus.abo_med7at.analyticalgeometry.CoordinatePlane;
+import com.andalus.abo_med7at.analyticalgeometry.factories.ToastFactory;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
 import com.andalus.abo_med7at.analyticalgeometry.utils.Constants;
 
@@ -66,7 +65,7 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener, D
 
     @Override
     public void showMessage(@NotNull String text) {
-        Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
+        ToastFactory.create(getContext(),text).show();
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
