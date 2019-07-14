@@ -34,57 +34,64 @@
                     android:layout_height="wrap_content"
                     android:text="@string/standard_form" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(y-" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/k_para_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/a_para_e" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(y-" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")^2=" />
+                        <EditText
+                            android:id="@+id/k_para_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <EditText
-                        android:id="@+id/a_para_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/h_para_e" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/a_para_e" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="(x-" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=")^2=" />
 
-                    <EditText
-                        android:id="@+id/h_para_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal|numberSigned" />
+                        <EditText
+                            android:id="@+id/a_para_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")" />
-                </LinearLayout>
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/h_para_e" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(x-" />
+
+                        <EditText
+                            android:id="@+id/h_para_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=")" />
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
 
                 <Button
                     android:id="@+id/btn_draw_para_stand_y_sqr"
@@ -114,57 +121,65 @@
                     android:layout_height="wrap_content"
                     android:text="@string/standard_form" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(x-" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/h_para_e_y"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/a_para_e_y" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(x-" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")^2=" />
+                        <EditText
+                            android:id="@+id/h_para_e_y"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <EditText
-                        android:id="@+id/a_para_e_y"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/k_para_e_y" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/a_para_e_y" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="(y-" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=")^2=" />
 
-                    <EditText
-                        android:id="@+id/k_para_e_y"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal|numberSigned" />
+                        <EditText
+                            android:id="@+id/a_para_e_y"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")" />
-                </LinearLayout>
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/k_para_e_y" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(y-" />
+
+                        <EditText
+                            android:id="@+id/k_para_e_y"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=")" />
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
 
                 <Button
                     android:id="@+id/btn_draw_para_y"
@@ -194,57 +209,65 @@
                     android:layout_height="wrap_content"
                     android:text="@string/general_form" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="y^2+" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/D_x_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/E_x_p_gen" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="y^2+" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="x+" />
+                        <EditText
+                            android:id="@+id/D_x_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <EditText
-                        android:id="@+id/E_x_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/F_x_p_gen" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/E_x_p_gen" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="y+" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="x+" />
 
-                    <EditText
-                        android:id="@+id/F_x_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal|numberSigned" />
+                        <EditText
+                            android:id="@+id/E_x_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="=0" />
-                </LinearLayout>
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/F_x_p_gen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="y+" />
+
+                        <EditText
+                            android:id="@+id/F_x_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="=0" />
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
 
                 <Button
                     android:id="@+id/btn_draw_Gen_x_p"
@@ -274,57 +297,64 @@
                     android:layout_height="wrap_content"
                     android:text="@string/general_form" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="x^2+" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/D_y_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/E_y_p_gen" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="x^2+" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="x+" />
+                        <EditText
+                            android:id="@+id/D_y_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <EditText
-                        android:id="@+id/E_y_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/F_y_p_gen" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/E_y_p_gen" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="y+" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="x+" />
 
-                    <EditText
-                        android:id="@+id/F_y_p_gen"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal|numberSigned" />
+                        <EditText
+                            android:id="@+id/E_y_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="=0" />
-                </LinearLayout>
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/F_y_p_gen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="y+" />
+
+                        <EditText
+                            android:id="@+id/F_y_p_gen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="=0" />
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
 
                 <Button
                     android:id="@+id/btn_draw_Gen_y_p"
