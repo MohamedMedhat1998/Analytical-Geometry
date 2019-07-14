@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andalus.abo_med7at.analyticalgeometry.factories.ToastFactory;
 import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;
 import com.andalus.abo_med7at.analyticalgeometry.R;
 import com.andalus.abo_med7at.analyticalgeometry.models.Shape;
@@ -92,9 +93,6 @@ public class EllipseActivity extends AppCompatActivity implements EllipseActivit
 
     @Override
     public void showMessage(@NotNull String text) {
-        Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
-        TextView v = toast.getView().findViewById(android.R.id.message);
-        if (v != null) v.setGravity(Gravity.CENTER);
-        toast.show();
+        ToastFactory.create(this,text).show();
     }
 }

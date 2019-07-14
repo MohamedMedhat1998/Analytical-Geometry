@@ -37,20 +37,20 @@
 
                 <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/a_edit"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/h2_edit" />
 
@@ -61,9 +61,9 @@
 
                         <EditText
                             android:id="@+id/h2_edit"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/b_edit" />
 
@@ -74,9 +74,9 @@
 
                         <EditText
                             android:id="@+id/b_edit"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:imeOptions="actionDone"
                             android:inputType="numberDecimal|numberSigned" />
 
@@ -118,21 +118,21 @@
 
                 <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/a_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:nextFocusDown="@id/h2_edit_non"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned" />
 
                         <TextView
@@ -142,10 +142,10 @@
 
                         <EditText
                             android:id="@+id/h2_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:nextFocusDown="@id/b_edit_non"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned" />
 
                         <TextView
@@ -155,10 +155,10 @@
 
                         <EditText
                             android:id="@+id/b_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:nextFocusDown="@id/g2_edit_non"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned" />
 
                         <TextView
@@ -168,9 +168,9 @@
 
                         <EditText
                             android:id="@+id/g2_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:nextFocusDown="@id/f2_edit_non"
                             android:inputType="numberDecimal|numberSigned" />
 
@@ -181,9 +181,9 @@
 
                         <EditText
                             android:id="@+id/f2_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:nextFocusDown="@id/c_edit_non"
                             android:inputType="numberDecimal|numberSigned" />
 
@@ -194,9 +194,9 @@
 
                         <EditText
                             android:id="@+id/c_edit_non"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:imeOptions="actionDone"
                             android:inputType="numberDecimal|numberSigned" />
 

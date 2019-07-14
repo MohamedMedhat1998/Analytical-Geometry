@@ -35,13 +35,13 @@
 
                 <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -51,9 +51,8 @@
 
                         <EditText
                             android:id="@+id/edit_h_c"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/edit_k_c" />
 
@@ -64,9 +63,8 @@
 
                         <EditText
                             android:id="@+id/edit_k_c"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/edit_r_c" />
 
@@ -77,9 +75,8 @@
 
                         <EditText
                             android:id="@+id/edit_r_c"
-                            android:layout_width="75dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:imeOptions="actionDone"
                             android:inputType="numberDecimal" />
 
@@ -120,21 +117,19 @@
 
                 <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <EditText
                             android:id="@+id/a_edit_c"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/b_edit_c" />
 
@@ -145,9 +140,8 @@
 
                         <EditText
                             android:id="@+id/b_edit_c"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/g2_edit_c" />
 
@@ -158,9 +152,8 @@
 
                         <EditText
                             android:id="@+id/g2_edit_c"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/f2_edit_c" />
 
@@ -171,9 +164,9 @@
 
                         <EditText
                             android:id="@+id/f2_edit_c"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:inputType="numberDecimal|numberSigned"
                             android:nextFocusDown="@id/c_edit_c" />
 
@@ -184,9 +177,9 @@
 
                         <EditText
                             android:id="@+id/c_edit_c"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+
                             android:imeOptions="actionDone"
                             android:inputType="numberDecimal|numberSigned" />
 
@@ -225,70 +218,75 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ends_of_the_diameter" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     style="@style/functionLineStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(" />
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/x1_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/y1_e" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="," />
+                        <EditText
+                            android:id="@+id/x1_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/y1_e" />
 
-                    <EditText
-                        android:id="@+id/y1_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/x2_e" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="," />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="),(" />
+                        <EditText
+                            android:id="@+id/y1_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <EditText
-                        android:id="@+id/x2_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal|numberSigned"
-                        android:nextFocusDown="@id/y2_e" />
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/x2_e" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="," />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="),(" />
 
-                    <EditText
-                        android:id="@+id/y2_e"
-                        android:layout_width="35dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal|numberSigned" />
+                        <EditText
+                            android:id="@+id/x2_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")" />
-                </LinearLayout>
+                            android:inputType="numberDecimal|numberSigned"
+                            android:nextFocusDown="@id/y2_e" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="," />
+
+                        <EditText
+                            android:id="@+id/y2_e"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal|numberSigned" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=")" />
+                    </LinearLayout>
+
+                </HorizontalScrollView>
 
                 <Button
                     android:id="@+id/btn_draw_with_ends"
