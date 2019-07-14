@@ -11,6 +11,8 @@
       <mapping ext="pkg" type="DBN-PSQL" />
       <mapping ext="pkb" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
+      <mapping pattern="weather-database" type="Native" />
+      <mapping pattern="weather-database-shm" type="XML" />
     </extensionMap>
   </component>
 </application>
