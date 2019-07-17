@@ -3,22 +3,22 @@ package com.andalus.abo_med7at.analyticalgeometry.ui.main_activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.andalus.abo_med7at.analyticalgeometry.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.andalus.abo_med7at.analyticalgeometry.R
 import com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity
-import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.ellipse_activity.EllipseActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.general_activity.GeneralActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.hyperbola_activity.HyperbolaActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity.ParabolaActivity
-import com.andalus.abo_med7at.analyticalgeometry.utils.Constants
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter.loadImportantComponents()
+        presenter.start()
 
         btnPairOfLine.setOnClickListener {
             presenter.onPairButtonClicked()
@@ -99,4 +99,28 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
         privacyPolicyIntent.data = Uri.parse(getString(R.string.privacy_policy_link))
         startActivity(privacyPolicyIntent)
     }
+
+    override fun navigateToUpdateWebsite() {
+        val updateIntent = Intent(Intent.ACTION_VIEW)
+        updateIntent.data = Uri.parse(getString(R.string.update_link))
+        startActivity(updateIntent)
+    }
+
+    override fun loadUpdateDialog() {
+        with(AlertDialog.Builder(this)) {
+            setTitle(getString(R.string.update_dialog_label))
+            setMessage(getString(R.string.update_dialog_message))
+            setPositiveButton(getString(R.string.update_now)) { _, _ ->
+                navigateToUpdateWebsite()
+            }
+            setNegativeButton(getString(R.string.remind_me_later), null)
+            show()
+        }
+    }
+
+    override fun loadLaunchingIntent() {
+        if (intent.extras != null)
+            loadUpdateDialog()
+    }
+
 }

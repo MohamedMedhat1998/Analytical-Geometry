@@ -25,7 +25,7 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener, D
     private ScaleGestureDetector mScaleGestureDetector;
     private float differenceX, differenceY;
 
-    private DrawingFragmentContract.Presenter presenter = new DrawingFragmentPresenter(this);
+    private final DrawingFragmentContract.Presenter presenter = new DrawingFragmentPresenter(this);
 
     @Nullable
     @Override
@@ -65,7 +65,7 @@ public class DrawingFragment extends Fragment implements View.OnTouchListener, D
 
     @Override
     public void showMessage(@NotNull String text) {
-        ToastFactory.create(getContext(),text).show();
+        ToastFactory.create(getContext(), text).show();
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {

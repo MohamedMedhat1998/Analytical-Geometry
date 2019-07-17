@@ -7,7 +7,7 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
-class StandardYParabola(val h: Double, val b: Double, val k: Double) : Parabola() {
+class StandardYParabola(val h: Double, val b: Double, private val k: Double) : Parabola() {
     override val formula: String
         get() = "(x${number(h, isInverse = true, hasSign = true, canBeZero = false)})^2 = ${number(b, canBeOne = false)}(y${number(k, isInverse = true, hasSign = true, canBeZero = false)})"
 

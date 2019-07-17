@@ -11,6 +11,9 @@ interface MainActivityContract {
         fun navigateToGeneralActivity()
         fun loadAd()
         fun navigateToPrivacyPolicyWebsite()
+        fun navigateToUpdateWebsite()
+        fun loadUpdateDialog()
+        fun loadLaunchingIntent()
     }
 
     interface Presenter {
@@ -20,7 +23,7 @@ interface MainActivityContract {
         fun onEllipseButtonClicked()
         fun onHyperbolaButtonClicked()
         fun onGeneralButtonClicked()
-        fun loadImportantComponents()
+        fun start()
         fun onPrivacyPolicyItemSelected()
     }
 }
