@@ -5,13 +5,10 @@ import android.os.Bundle;
 import androidx.core.app.NavUtils;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.andalus.abo_med7at.analyticalgeometry.factories.ToastFactory;
 import com.andalus.abo_med7at.analyticalgeometry.ui.drawing_activity.DrawingActivity;

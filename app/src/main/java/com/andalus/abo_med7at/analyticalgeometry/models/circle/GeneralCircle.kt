@@ -11,7 +11,7 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
-class GeneralCircle(val a: Double, val b: Double, val g: Double, val f: Double, val c: Double) : Circle() {
+class GeneralCircle(val a: Double, val b: Double, private val g: Double, val f: Double, val c: Double) : Circle() {
 
     override val formula: String
         get() = "${xSquare(a, isStarting = true)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".trim().removePrefix("+")

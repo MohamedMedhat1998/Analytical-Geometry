@@ -16,5 +16,9 @@
     <string name="general_pair">General</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_link">https://free4egyptian.wixsite.com/andalus/analytical-geometry</string>
-    <string name="pinch_to_zoom">Pinch to zoom</string>
+    <string name="update_link">https://play.google.com/store/apps/details?id=com.andalus.abo_med7at.analyticalgeometry</string>
+    <string name="update_dialog_label">New update is now available</string>
+    <string name="update_dialog_message">Do you want to download the latest update now?</string>
+    <string name="remind_me_later">Remind me later</string>
+    <string name="update_now">Update Now</string>
 </resources>

@@ -14,7 +14,7 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
-class GeneralShape(val a: Double, val h: Double, val b: Double, val g: Double, val f: Double, val c: Double) : Shape {
+class GeneralShape(val a: Double, val h: Double, val b: Double, private val g: Double, val f: Double, val c: Double) : Shape {
     override val unableToDrawMessage: String
         get() = GENERAL_UNABLE_TO_DRAW_MESSAGE
     override val formula: String

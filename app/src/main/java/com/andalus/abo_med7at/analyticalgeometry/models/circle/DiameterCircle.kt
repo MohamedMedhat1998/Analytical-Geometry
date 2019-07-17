@@ -7,7 +7,7 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.ColorPicker
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.number
 import kotlin.math.sqrt
 
-class DiameterCircle(val x1: Double, val x2: Double, val y1: Double, val y2: Double) : Circle() {
+class DiameterCircle(private val x1: Double, private val x2: Double, private val y1: Double, private val y2: Double) : Circle() {
 
     override val formula: String
         get() = "Diameter ends (${number(x1)},${number(y1)}) , (${number(x2)},${number(y2)})"

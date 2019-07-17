@@ -12,7 +12,7 @@ import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.
 import com.andalus.abo_med7at.analyticalgeometry.utils.FormulaBuilder.Companion.ySquare
 import kotlin.math.sqrt
 
-class GeneralPair(val a: Double, val h: Double, val b: Double, val g: Double, val f: Double, val c: Double) : PairOfLines() {
+class GeneralPair(val a: Double, val h: Double, val b: Double, private val g: Double, val f: Double, val c: Double) : PairOfLines() {
     override val formula: String
         get() = "${xSquare(a)}${xy(h)}${ySquare(b)}${x(g)}${y(f)}${freeTerm(c)} = 0".trim().removePrefix("+")
 
