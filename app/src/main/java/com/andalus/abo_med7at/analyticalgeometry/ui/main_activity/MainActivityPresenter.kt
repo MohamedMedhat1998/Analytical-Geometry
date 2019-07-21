@@ -1,6 +1,8 @@
 package com.andalus.abo_med7at.analyticalgeometry.ui.main_activity
 
-class MainActivityPresenter(private val view: MainActivityContract.View) : MainActivityContract.Presenter {
+import com.andalus.abo_med7at.analyticalgeometry.utils.PreferencesAccessor
+
+class MainActivityPresenter(private val view: MainActivityContract.View, private val accessor: PreferencesAccessor) : MainActivityContract.Presenter {
 
     override fun onPrivacyPolicyItemSelected() {
         view.navigateToPrivacyPolicyWebsite()
@@ -9,6 +11,8 @@ class MainActivityPresenter(private val view: MainActivityContract.View) : MainA
     override fun start() {
         view.loadAd()
         view.loadLaunchingIntent()
+        if (accessor.shouldWelcome())
+            view.navigateToWelcomeActivity()
     }
 
     override fun onPairButtonClicked() {

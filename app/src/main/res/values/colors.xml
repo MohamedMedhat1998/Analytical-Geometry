@@ -3,6 +3,7 @@
 
 
     <color name="White">#ffffff</color>
+    <color name="TransparentWhite">#86FFFFFF</color>
     <color name="Gray_200">#EEEEEE</color>
     <color name="Gray_300">#E0E0E0</color>
     <color name="Black">#000000</color>

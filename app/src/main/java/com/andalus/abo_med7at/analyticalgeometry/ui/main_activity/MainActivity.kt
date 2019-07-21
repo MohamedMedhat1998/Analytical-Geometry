@@ -15,6 +15,8 @@ import com.andalus.abo_med7at.analyticalgeometry.ui.general_activity.GeneralActi
 import com.andalus.abo_med7at.analyticalgeometry.ui.hyperbola_activity.HyperbolaActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity
 import com.andalus.abo_med7at.analyticalgeometry.ui.parabola_activity.ParabolaActivity
+import com.andalus.abo_med7at.analyticalgeometry.ui.welcome_activity.WelcomeActivity
+import com.andalus.abo_med7at.analyticalgeometry.utils.PreferencesAccessor
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
-    private val presenter = MainActivityPresenter(this)
+    private val presenter = MainActivityPresenter(this, PreferencesAccessor(this))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,6 +123,11 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     override fun loadLaunchingIntent() {
         if (intent.extras != null)
             loadUpdateDialog()
+    }
+
+    override fun navigateToWelcomeActivity() {
+        startActivity(Intent(this, WelcomeActivity::class.java))
+        finish()
     }
 
 }

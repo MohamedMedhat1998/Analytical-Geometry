@@ -3,33 +3,55 @@
     package="com.andalus.abo_med7at.analyticalgeometry">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.welcome_activity.WelcomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/FullscreenTheme"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ADMOB_APP_ID"/>
+            android:value="@string/ADMOB_APP_ID" />
 
-        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity" android:launchMode="singleTop">
+        <activity
+            android:name=".ui.main_activity.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.pair_activity.PairActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity
+            android:name=".ui.pair_activity.PairActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
         <activity android:name=".ui.drawing_activity.DrawingActivity" />
-        <activity android:name="com.andalus.abo_med7at.analyticalgeometry.ui.circle_activity.CircleActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".ui.parabola_activity.ParabolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".ui.ellipse_activity.EllipseActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".ui.hyperbola_activity.HyperbolaActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
-        <activity android:name=".ui.general_activity.GeneralActivity" android:parentActivityName="com.andalus.abo_med7at.analyticalgeometry.ui.main_activity.MainActivity"/>
+        <activity
+            android:name=".ui.circle_activity.CircleActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
+        <activity
+            android:name=".ui.parabola_activity.ParabolaActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
+        <activity
+            android:name=".ui.ellipse_activity.EllipseActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
+        <activity
+            android:name=".ui.hyperbola_activity.HyperbolaActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
+        <activity
+            android:name=".ui.general_activity.GeneralActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity" />
 
-        <service android:name=".services.NotificationService" android:exported="false">
+        <service
+            android:name=".services.NotificationService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

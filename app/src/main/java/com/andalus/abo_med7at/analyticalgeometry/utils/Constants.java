@@ -4,6 +4,7 @@ public class Constants {
 
     public class Keys {
         public static final String SHAPE = "shape";
+        public static final String CAN_WELCOME = "can-welcome";
 
         private Keys() {
         }

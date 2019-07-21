@@ -12,7 +12,7 @@
     <style name="buttonStyleMainActivity" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/White</item>
     </style>
-    
+
     <style name="drawButtonStyle" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/White</item>
@@ -54,5 +54,11 @@
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
     </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/Light_Blue_600</item>
+        <item name="colorPrimary">@color/White</item>
+    </style>
+
 
 </resources>

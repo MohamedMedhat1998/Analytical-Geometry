@@ -21,4 +21,13 @@
     <string name="update_dialog_message">Do you want to download the latest update now?</string>
     <string name="remind_me_later">Remind me later</string>
     <string name="update_now">Update Now</string>
+
+    <string name="title_activity_welcome">WelcomeActivity</string>
+
+    <string name="what_s_new">What\'s new</string>
+    <string name="smoother_experience">Smoother Experience</string>
+    <string name="optimized_performance">Optimized Performance</string>
+    <string name="ui_improvements">Ui Improvements</string>
+    <string name="next_button_bug_fixed">\"Next\" button bug fixed</string>
+    <string name="get_started">Get Started</string>
 </resources>

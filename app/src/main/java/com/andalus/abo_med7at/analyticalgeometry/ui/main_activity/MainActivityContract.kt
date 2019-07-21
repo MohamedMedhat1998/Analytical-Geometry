@@ -14,6 +14,7 @@ interface MainActivityContract {
         fun navigateToUpdateWebsite()
         fun loadUpdateDialog()
         fun loadLaunchingIntent()
+        fun navigateToWelcomeActivity()
     }
 
     interface Presenter {
