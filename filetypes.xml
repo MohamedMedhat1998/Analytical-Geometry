@@ -12,6 +12,7 @@
       <mapping ext="pkb" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
       <mapping pattern="weather-database" type="Native" />
+      <mapping pattern="trash" type="Native" />
       <mapping ext="db" type="Native" />
       <mapping pattern="weather-database-shm" type="XML" />
     </extensionMap>
