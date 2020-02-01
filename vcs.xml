@@ -30,6 +30,10 @@
           <option name="url" value="https://github.com/abdelazizreffat/News-Feed.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gitlab.com" />
+          <option name="userName" value="MohamedMedhat1998" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="D:\Programming\Android_Studio_Projects" />
